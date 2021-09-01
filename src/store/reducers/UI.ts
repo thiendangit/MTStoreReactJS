@@ -31,7 +31,7 @@ export const { isFullscreenMapToggled } = slice.actions;
 
 export const fullscreenMapSelector = createSelector(
     (state: RootState) => state.UI.fullscreenMap,
-    (fullscreenMap) => fullscreenMap
+    (fullscreenMap) => fullscreenMap,
 );
 
 export default reducer;
