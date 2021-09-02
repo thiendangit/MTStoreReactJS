@@ -7,7 +7,9 @@
     "test": "jest --passWithNoTests",
     "start": "webpack serve --mode development --open",
     "dev": "webpack --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "lint": "eslint --fix --ext ./src/ --ext .js,.ts,.tsx  --quiet",
+    "lint:prettier": "prettier --write"
   },
   "husky": {
     "hooks": {
@@ -16,9 +18,9 @@
   },
   "lint-staged": {
     "src/**/*.{ts,tsx,json}": [
-      "jest --bail --passWithNoTests",
-      "prettier --write",
-      "eslint --fix src/"
+      "npm run test",
+      "npm run lint",
+      "npm run lint:prettier"
     ]
   },
   "repository": {

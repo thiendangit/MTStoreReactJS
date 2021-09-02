@@ -18,10 +18,10 @@ const MapView: React.FC<Props> = ({ webmapId, children }: Props) => {
         type Modules = [typeof IMapView, typeof IWebMap];
 
         try {
-            const [MapView, WebMap] = await (loadModules([
+            const [MapView, WebMap] = await (((await loadModules([
                 'esri/views/MapView',
                 'esri/WebMap',
-            ]) as Promise<Modules>);
+            ])) as unknown) as Promise<Modules>);
 
             const view = new MapView({
                 container: mapDivRef.current,
@@ -32,7 +32,7 @@ const MapView: React.FC<Props> = ({ webmapId, children }: Props) => {
                 }),
             });
 
-            view.when(() => {
+            await view.when(() => {
                 setMapView(view);
             });
         } catch (err) {
@@ -42,7 +42,7 @@ const MapView: React.FC<Props> = ({ webmapId, children }: Props) => {
 
     React.useEffect(() => {
         loadCss();
-        initMapView();
+        initMapView().then();
     }, []);
 
     return (
@@ -56,15 +56,12 @@ const MapView: React.FC<Props> = ({ webmapId, children }: Props) => {
                     height: '100%',
                 }}
                 ref={mapDivRef}
-            ></div>
+            />
             {mapView
                 ? React.Children.map(children, (child) => {
-                      return React.cloneElement(
-                          child as React.ReactElement<any>,
-                          {
-                              mapView,
-                          }
-                      );
+                      return React.cloneElement(child as React.ReactElement, {
+                          mapView,
+                      });
                   })
                 : null}
         </>
