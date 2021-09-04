@@ -8,20 +8,20 @@ import { setDefaultOptions } from 'esri-loader';
 import { RootPage } from './pages';
 
 setDefaultOptions({
-    url: 'https://js.arcgis.com/next/',
+  url: process.env.APP_BASE_URL,
 });
 
 (async () => {
-    const preloadedState = getPreloadedState();
+  const preloadedState = getPreloadedState();
 
-    ReactDOM.render(
-        <React.StrictMode>
-            <ReduxProvider store={configureAppStore(preloadedState)}>
-                <AppContextProvider>
-                    <RootPage />
-                </AppContextProvider>
-            </ReduxProvider>
-        </React.StrictMode>,
-        document.getElementById('root'),
-    );
+  ReactDOM.render(
+    <React.StrictMode>
+      <ReduxProvider store={configureAppStore(preloadedState)}>
+        <AppContextProvider>
+          <RootPage />
+        </AppContextProvider>
+      </ReduxProvider>
+    </React.StrictMode>,
+    document.getElementById('root'),
+  );
 })();
