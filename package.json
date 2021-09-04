@@ -111,6 +111,5 @@
   },
   "resolutions": {
     "styled-components": "^5"
-  },
-  "proxy": "https://numarkethanoi.link/wp-json/wc/v3/"
+  }
 }
