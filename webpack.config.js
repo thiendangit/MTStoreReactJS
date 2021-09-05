@@ -25,6 +25,18 @@ module.exports = (env, options) => {
     devtool: 'source-map',
     resolve: {
       extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+      alias: {
+        store: path.resolve(__dirname, 'src/store'),
+        pages: path.resolve(__dirname, 'src/pages'),
+        logic: path.resolve(__dirname, 'src/logic'),
+        components: path.resolve(__dirname, 'src/components'),
+        constants: path.resolve(__dirname, 'src/constants'),
+        hooks: path.resolve(__dirname, 'src/hooks'),
+        styles: path.resolve(__dirname, 'src/styles'),
+        types: path.resolve(__dirname, 'src/types'),
+        utils: path.resolve(__dirname, 'src/utils'),
+        contexts: path.resolve(__dirname, 'src/contexts'),
+      },
     },
     module: {
       rules: [
@@ -56,7 +68,7 @@ module.exports = (env, options) => {
       new Dotenv({
         safe: true, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a
         // different file.
-        silent: true, // hide any errors
+        silent: true, // hide components errors
         defaults: false, // load '.env.defaults' as the default values if empty.
       }),
       new MiniCssExtractPlugin({

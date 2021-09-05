@@ -12,17 +12,30 @@
         "resolveJsonModule": true,
         "esModuleInterop": true ,
         "suppressImplicitAnyIndexErrors": true,
-        "typeRoots": [  
-            "./src/types", 
+        "typeRoots": [
+            "./src/types",
             "./node_modules/@types"
         ],
         "lib": [ "es2015", "dom" ],
+        "baseUrl": ".",
+        "paths": {
+            "@store/*": ["./src/store/*"],
+            "@pages": ["./src/pages/index"],
+            "@logic": ["./src/logic/index"],
+            "@components": ["./src/components/index"],
+            "@constants/*": ["./src/constants/*"],
+            "@hooks/*": ["./src/hooks/*"],
+            "@styles/*": ["./src/styles/*"],
+            "@types/*": ["./src/types/*"],
+            "@utils/*": ["./src/utils/*"],
+            "@contexts/*": ["./src/contexts/*"],
+        }
     },
     "exclude": [
-        "**/node_modules", 
+        "**/node_modules",
         "**/.*/"
     ],
     "include": [
-        "./src/**/**/*"
+        "."
     ]
 }

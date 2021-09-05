@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { fetchProductsList } from '../../logic/products';
+import { fetchProductsList } from '@logic';
 
 const RootPage: React.FC = () => {
   const [products, setProducts] = useState([]);
