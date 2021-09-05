@@ -6,19 +6,19 @@ interface Animals {
     a: number;
     b: number;
 }
-let arr = [102, 103, 111, 211, 222, 555, 542, 112];
-let newArr: number[] = [];
-for (let i = 0; i < 9; i++) {
-    let value: any = arr[i];
-    if (value / 2 !== 0){
-        let newArr = arr.push(value);
+
+let arr = [102, 103, 111, 211, 222, 555, 542, 112], newArr: number[] = [];
+for (let i = 0; i <= arr.length; i++) {
+    if ( arr[i] % 2 === 0){
+        newArr.push(arr[i]);
         console.log(newArr);
     }
 }
 const Pet = (props: Animals) => {
     return (
         <>
-            <p>My Pet is {props.namePet}. It has {props.feet} feet and {props.a + props.b}</p>
+            <p>My Pet is {props.namePet}. It has {props.feet} feet and {props.a + props.b};<br />
+                mảng chẵn: {newArr.join(',')}</p>
 
         </>
     );
