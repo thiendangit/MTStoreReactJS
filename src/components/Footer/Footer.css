@@ -1,0 +1,61 @@
+footer {
+    @apply flex flex-col bottom-0 py-24 pr-16 text-left;
+    margin: 1.6rem 4.5rem 0 4.5rem;
+}
+.footer .footer__item1 {
+    @apply flex flex-row justify-between flex-wrap justify-items-start items-baseline;
+}
+.footer .footer__item2 {
+    @apply flex flex-col justify-start  items-baseline;
+    margin: 4.8rem 0;
+}
+.footer .footer__item1 ul li:first-child {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 27px;
+    color: var(--black);
+    margin: 0;
+}
+.footer .footer__item1 ul li {
+    color: var(--green);
+    font-family:'Open Sans', sans-serif;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.9rem;
+    margin-top: 1.6rem;
+}
+.footer .footer__item2 .footer__item2-tags {
+    @apply flex flex-row justify-start flex-wrap items-baseline break-words;
+}
+.footer .footer__item2 .footer__item2-tags span {
+    background: var(--white-shadow);
+    margin: 1.6rem 1.6rem 0 0;
+    padding: .4rem 1rem;
+    border-radius: 1.2rem;
+}
+.footer .footer__item2 h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2.7rem;
+}
+.footer .footer__item2 .footer__item2-tags span a {
+    color: var(--black);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.8rem;
+}
+.footer .footer__item3 span {
+    font-family:'Open Sans', sans-serif;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
+    color: var(--black);
+}

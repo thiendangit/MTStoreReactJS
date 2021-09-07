@@ -1,0 +1,27 @@
+.navbar {
+    @apply flex flex-row justify-between;
+    padding-bottom: 1.6rem;
+    border-bottom: 1px solid var(--border-black);
+}
+.navbar-item1,
+.navbar-item2 {
+    @apply flex flex-row justify-between;
+}
+.navbar a,
+.navbar p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    font-weight: 400;
+}
+.navbar .navbar-item1 a,
+.navbar .navbar-item2 a {
+    color: var(--green);
+}
+.navbar p {
+    color: var(--black);
+    margin-left: 3.3rem;
+}
+.navbar-item2 a {
+    margin-left: 3.8rem;
+}

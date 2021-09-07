@@ -1,12 +1,31 @@
 {
-    "presets": [
-        "@babel/preset-env",
-        "@babel/preset-react",
-        "@babel/preset-typescript"
-    ],
-    "plugins": [
-        "@babel/plugin-syntax-dynamic-import",
-        "@babel/plugin-proposal-class-properties",
-        "@babel/plugin-transform-runtime"
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react",
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-runtime",
+    [
+      "module-resolver",
+      {
+        "root": ["."],
+        "alias": {
+          "@store": "./src/store",
+          "@pages": "./src/pages/index",
+          "@logic": "./src/logic/index",
+          "@components": "./src/components/index",
+          "@constants": "./src/constants",
+          "@hooks": "./src/hooks",
+          "@styles": "./src/styles",
+          "@types": "./src/types",
+          "@utils": "./src/utils",
+          "@public": "./public",
+          "@contexts": "./src/contexts"
+        }
+      }
     ]
+  ]
 }

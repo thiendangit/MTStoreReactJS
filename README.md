@@ -1,9 +1,5 @@
-# React-Redux Boilerplate
-
-The Boilerplate to start React+Redux project with TypeScript in an easier and faster way. 
-
+# MTStoreReactJS
 ## Features
-
 - React
 - Redux
 - TypeScript
@@ -21,9 +17,12 @@ The Boilerplate to start React+Redux project with TypeScript in an easier and fa
 
 2. Clone this repository to your computer: 
     ```sh
-    git clone https://github.com/vannizhang/react-redux-boilerplate.git
+    git clone https://github.com/thiendangit/MTStoreReactJS.git
     ```
-
+3. Create .env
+    ```sh
+    cp .env .env.example
+    ```
 
 3. From the project's root directory, install the required packages (dependencies):
 
