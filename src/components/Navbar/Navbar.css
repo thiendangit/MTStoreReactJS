@@ -1,9 +1,11 @@
 .navbar {
-    @apply flex flex-row justify-between;
+    @apply flex flex-col justify-between md:justify-end md:flex-row;
     padding: 1.6rem 4.5rem;
     border-bottom: 1px solid var(--border-black);
 }
-.navbar-item1,
+.navbar-item1 {
+    @apply flex flex-row justify-between mb-6 ;
+}
 .navbar-item2 {
     @apply flex flex-row justify-between;
 }

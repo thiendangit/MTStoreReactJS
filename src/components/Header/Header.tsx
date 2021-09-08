@@ -16,13 +16,13 @@ const HeaderComponent: React.FC = () => {
           className="search__categories"
         >
           <option value="All categories">All categories</option>
-          <optgroup label="Swedish Cars">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
+          <optgroup label="Fruit">
+            <option value="watermelon">Watermelon</option>
+            <option value="orange">Orange</option>
           </optgroup>
-          <optgroup label="German Cars">
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
+          <optgroup label="Drinks">
+            <option value="coca">Coca</option>
+            <option value="sprite">Sprite</option>
           </optgroup>
         </select>
         <span className="search__line" />

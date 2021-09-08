@@ -1,5 +1,5 @@
 .header {
-    @apply flex flex-row justify-between items-center flex-wrap;
+    @apply lg:flex-nowrap flex flex-row justify-between items-center flex-wrap;
     margin: 1.6rem 4.5rem;
     padding-top: 4rem;
     padding-bottom: 4.8rem;
@@ -24,6 +24,7 @@
     margin: 0 2.4rem 0 2.9rem;
 }
 .header .header__search .search__input {
+    @apply lg:block hidden;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-size: 1.4rem;
@@ -43,8 +44,8 @@
     @apply flex flex-row relative items-center min-w-0;
 }
 .header .header__icons .user__icon {
+    @apply mr-10 sm:mr-16;
     color: var(--black);
-    margin-right: 4.5rem;
     width: 2.4rem;
     height: 2.4rem;
 }
