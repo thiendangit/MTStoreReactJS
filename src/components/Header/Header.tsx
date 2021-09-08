@@ -38,7 +38,9 @@ const HeaderComponent: React.FC = () => {
       <div className="header__icons">
         <img src={icons.user} alt={'user'} className="user__icon" />
         <img src={icons.cart} alt="Shopping basket" className="basket__icon" />
-        <span className="quantity__cart">400</span>
+        <span className="quantity__cart">
+          <p>400</p>
+        </span>
       </div>
     </div>
   );

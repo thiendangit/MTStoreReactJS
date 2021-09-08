@@ -63,6 +63,9 @@
     bottom: -.5rem;
     right: 1.5rem;
 }
+.header .header__icons .quantity__cart p {
+    padding: .1rem;
+}
 .header .header__search .search__categories:hover,
 .header .header__search .search__btn .search__icon:hover{
     cursor: pointer;

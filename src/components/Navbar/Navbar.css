@@ -1,6 +1,6 @@
 .navbar {
     @apply flex flex-row justify-between;
-    padding-bottom: 1.6rem;
+    padding: 1.6rem 4.5rem;
     border-bottom: 1px solid var(--border-black);
 }
 .navbar-item1,
