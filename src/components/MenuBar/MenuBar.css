@@ -4,7 +4,7 @@
     background: var(--gray-bg2);
 }
 .menubar .menubar__btn {
-    @apply lg:mt-6 flex flex-col items-baseline not-italic normal-case font-medium mr-16 p-0;
+    @apply lg:mt-0 flex flex-col items-baseline not-italic normal-case font-medium mt-6 mr-16 p-0;
     font-family:'Poppins', sans-serif;
     font-size: 1.5rem;
     line-height: 2.25rem;
