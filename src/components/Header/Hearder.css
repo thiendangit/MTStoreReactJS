@@ -1,0 +1,79 @@
+.header {
+    @apply lg:flex-nowrap flex flex-row justify-between items-center flex-wrap;
+    margin: 1.6rem 4.5rem;
+    padding-top: 4rem;
+    padding-bottom: 4.8rem;
+}
+.header__search {
+    @apply flex justify-between flex-row items-center;
+    background: var(--gray-bg2);
+    border: 1px solid var(--border-black);
+    border-radius: 1.2rem;
+    padding: 1rem 1.6rem;
+}
+.header .header__search .search__categories {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--black);
+    background: var(--gray-bg2);
+}
+.header .header__search .search__line {
+    border: 1px solid var(--border-black);
+    height: 2rem;
+    margin: 0 2.4rem 0 2.9rem;
+}
+.header .header__search .search__input {
+    @apply lg:block hidden;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: var(--light-gray);
+    text-overflow: ellipsis;
+    background: var(--gray-bg2);
+    width: 20rem;
+}
+.header .header__search .search__btn .search__icon {
+    transform: rotate(90deg);
+    margin-left: 1.8rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    color: var(--black);
+}
+.header .header__icons {
+    @apply flex flex-row relative items-center min-w-0;
+}
+.header .header__icons .user__icon {
+    @apply mr-10 sm:mr-16;
+    color: var(--black);
+    width: 2.4rem;
+    height: 2.4rem;
+}
+.header .header__icons .basket__icon {
+    color: var(--black);
+    width: 2.4rem;
+    height: 2.4rem;
+}
+.header .header__icons .quantity__cart {
+    @apply absolute text-center z-10 leading-7;
+    min-width: 1.6rem;
+    min-height: 1.8rem;
+    border-radius: 50%;
+    color: var(--white);
+    background: var(--orange);
+    bottom: -.5rem;
+    right: 1.5rem;
+}
+.header .header__icons .quantity__cart p {
+    padding: .1rem;
+}
+.header .header__search .search__categories:hover,
+.header .header__search .search__btn .search__icon:hover{
+    cursor: pointer;
+    color: var(--green);
+}
+.header .header__icons .user__icon:hover,
+.header .header__icons .basket__icon:hover,
+.header .header__icons .quantity__cart:hover{
+    cursor: pointer;
+}

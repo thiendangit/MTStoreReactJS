@@ -1,3 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+html {
+    font-size: 62.5%;
+}
+:root {
+    --green: #6A983C;
+    --bolder-green: #46760A;
+    --black: #151515;
+    --border-black: rgba(21, 21, 21, 5%);
+    --light-gray: #A9A9A9;
+    --gray-bg1: #D1D1D1;
+    --gray-bg2: #F9F9F9;
+    --gray: #575757;
+    --white: #FFFFFF;
+    --white-shadow: #F5F5F5;
+    --orange : #E5704B;
+}

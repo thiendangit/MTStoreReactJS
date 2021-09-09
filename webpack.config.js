@@ -5,8 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-  .BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin =
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const Dotenv = require('dotenv-webpack');
 const CopyPlugin = require('copy-webpack-plugin');
 
@@ -36,6 +36,7 @@ module.exports = (env, options) => {
         types: path.resolve(__dirname, 'src/types'),
         utils: path.resolve(__dirname, 'src/utils'),
         contexts: path.resolve(__dirname, 'src/contexts'),
+        public: path.resolve(__dirname, 'public'),
       },
     },
     module: {
@@ -43,6 +44,17 @@ module.exports = (env, options) => {
         {
           test: /\.(ts|tsx)$/,
           loader: 'babel-loader',
+        },
+        {
+          test: /\.(png|jpg|jpeg|gif)$/i,
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                limit: 10000,
+              },
+            },
+          ],
         },
         {
           test: /\.css$/i,
