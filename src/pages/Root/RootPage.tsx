@@ -1,11 +1,13 @@
 import React from 'react';
-import { Navbar, Header, MenuBar, Footer } from '@components';
+// @ts-ignore
+import { Navbar, Header, MenuBar, Category, Footer } from '@components';
 const RootPage: React.FC = () => {
   return (
     <div>
       <Navbar />
       <Header />
       <MenuBar />
+      <Category />
       <Footer />
     </div>
   );

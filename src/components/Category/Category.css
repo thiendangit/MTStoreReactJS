@@ -1,0 +1,25 @@
+.category {
+    padding: 1.6rem 4.5rem;
+    margin: 1.6rem 0;
+}
+.category .category__card {
+    @apply flex flex-row mt-6 overflow-auto;
+}
+.category .category__card .category__card-item {
+    @apply flex flex-col py-12 pl-12 mt-6 mr-12 ml-auto rounded-3xl;
+    height: 28rem;
+    width: 48rem;
+}
+.category .category__card .category__card-item .category__card-btn {
+    margin-top: auto;
+    width: fit-content;
+    block-size: fit-content;
+    padding: 1.2rem;
+    border-radius: 1.2rem;
+    border: 1px solid var(--green);
+}
+.chevron-icon {
+    color: var(--green);
+    margin-left: .5rem;
+}
+

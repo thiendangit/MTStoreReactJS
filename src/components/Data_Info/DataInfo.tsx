@@ -64,3 +64,25 @@ export const footerLinks = [
     ],
   },
 ];
+export const categoryCard = [
+  {
+    sub: 'Banner subfocus',
+    title: 'Space for heading',
+    textBtn: 'Read recepies',
+  },
+  {
+    sub: 'Banner subfocus',
+    title: 'Space for heading',
+    textBtn: 'Read recepies',
+  },
+  // {
+  //   sub: 'Banner subfocus',
+  //   title: 'Space for heading',
+  //   textBtn: 'Read recepies',
+  // },
+  // {
+  //   sub: 'Banner subfocus',
+  //   title: 'Space for heading',
+  //   textBtn: 'Read recepies',
+  // },
+];
