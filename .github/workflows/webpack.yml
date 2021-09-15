@@ -22,7 +22,12 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Build
-      run: |
+    - name: Check typescipt syntax  & check lint
+      run:
+        npm run test
+        npm run lint
+        npm run lint:prettier
+    - name: Install node_modules
+      run:
         npm install
         npm run start
