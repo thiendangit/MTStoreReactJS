@@ -11,14 +11,6 @@ const MenuBarComponent: React.FC = () => {
     setIndex(index);
     console.log(index);
   };
-  // const [view, setView] = React.useState('bakery');
-  //
-  // const handleChange = (
-  //   event: React.MouseEvent<HTMLElement>,
-  //   nextView: string,
-  // ) => {
-  //   setView(nextView);
-  // };
 
   const MenuItem = ({
     item,
@@ -36,8 +28,6 @@ const MenuBarComponent: React.FC = () => {
         >
           <a href={item.path}>{item.title}</a>
         </ButtonBase>
-        {/*<h3>{item.title}</h3>*/}
-        {/*<section id={item.path}>Category</section>*/}
       </div>
     );
   };

@@ -3,11 +3,13 @@
     margin: 1.6rem 0;
 }
 .category .category__card {
-    @apply flex flex-row mt-6 px-16;
-    padding-bottom: 2.5rem !important;
+    @apply flex flex-row mt-6;
+    padding-bottom: 3.5rem !important;
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
 }
 .category .category__card .category__card-item {
-    @apply flex flex-col justify-start items-start py-12 pl-12 mt-6 mr-12 rounded-3xl;
+    @apply flex flex-col justify-start items-start py-12 pl-12 mt-6 rounded-3xl;
     height: 28rem;
     width: 42rem;
 }
@@ -26,7 +28,11 @@
 .swiper-pagination-bullet-active {
     background: var(--green) !important;
 }
-.swiper-button-prev,
+.swiper-button-prev {
+    color: var(--green) !important;
+    left: 0 !important;
+}
 .swiper-button-next {
     color: var(--green) !important;
+    right: 0 !important;
 }

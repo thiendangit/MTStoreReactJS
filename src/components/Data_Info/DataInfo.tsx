@@ -1,5 +1,6 @@
 import * as Menu from 'Menu';
 import * as Tag from 'Tag';
+import * as CategoryMenu from 'CategoryMenu';
 
 export const itemMenu: Menu.ItemMenu[] = [
   { title: 'Bakery', path: '#bakery' },
@@ -53,7 +54,7 @@ export const footerLinks = [
     ],
   },
 ];
-export const categoryCard = [
+export const categoryCard: CategoryMenu.CategoryCard[] = [
   {
     sub: 'Banner subfocus',
     title: 'Space for heading',

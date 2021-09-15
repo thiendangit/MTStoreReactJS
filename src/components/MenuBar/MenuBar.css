@@ -1,7 +1,7 @@
 .menubar {
     @apply lg:flex-nowrap flex flex-row flex-wrap justify-start items-baseline text-left;
     padding: 1.6rem 4.5rem;
-    background: var(--gray-bg2);
+    /*background: var(--gray-bg2);*/
 }
 .menubar .menubar__btn {
     @apply lg:mt-0 flex flex-col items-baseline not-italic normal-case font-medium mt-6 mr-16 px-4 rounded-full cursor-pointer;

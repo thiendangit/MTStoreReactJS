@@ -9,9 +9,15 @@ declare module 'Menu' {
     path: string;
   }
 }
-
+declare module 'CategoryMenu' {
+  export interface CategoryCard {
+    sub: string;
+    title: string;
+    textBtn: string;
+  }
+}
 declare module 'Tag' {
-  interface ProductTag {
+  export interface ProductTag {
     name: string;
   }
 }
