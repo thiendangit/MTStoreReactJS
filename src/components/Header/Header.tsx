@@ -1,8 +1,9 @@
-import React, { memo } from 'react';
+import React from 'react';
 import './Hearder.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { icons } from '@public/icon';
+
 const HeaderComponent: React.FC = () => {
   return (
     <div className="header">
@@ -45,4 +46,4 @@ const HeaderComponent: React.FC = () => {
     </div>
   );
 };
-export const Header = memo(HeaderComponent);
+export const Header = HeaderComponent;

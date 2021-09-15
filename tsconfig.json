@@ -14,7 +14,8 @@
         "suppressImplicitAnyIndexErrors": true,
         "typeRoots": [
             "./src/types",
-            "./node_modules/@types"
+            "./src/types/global.d.ts",
+            "./node_modules/@types",
         ],
         "lib": [ "es2015", "dom" ],
         "baseUrl": ".",

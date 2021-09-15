@@ -2,6 +2,8 @@ import React, { memo } from 'react';
 import './MenuBar.css';
 import { itemMenu } from '../Data_Info/DataInfo';
 import { ButtonBase } from '@material-ui/core';
+import * as Menu from 'Menu';
+
 const MenuBarComponent: React.FC = () => {
   const [idx, setIndex] = React.useState(null);
 
@@ -17,21 +19,42 @@ const MenuBarComponent: React.FC = () => {
   // ) => {
   //   setView(nextView);
   // };
+
+  const MenuItem = ({
+    item,
+    index,
+  }: {
+    item: Menu.ItemMenu;
+    index: number;
+  }) => {
+    return (
+      <div key={index}>
+        <ButtonBase
+          key={index}
+          onClick={() => handleClick(index)}
+          className={index === idx ? 'menubar__btn active' : 'menubar__btn'}
+        >
+          <a href={item.path}>{item.title}</a>
+        </ButtonBase>
+        {/*<h3>{item.title}</h3>*/}
+        {/*<section id={item.path}>Category</section>*/}
+      </div>
+    );
+  };
+
+  const MenuList = () => {
+    return (
+      <>
+        {itemMenu.map((item, index) => (
+          <MenuItem key={index} {...{ item, index }} />
+        ))}
+      </>
+    );
+  };
+
   return (
     <div className="menubar">
-      {itemMenu.map((item, index) => (
-        <>
-          <ButtonBase
-            key={index}
-            onClick={() => handleClick(index)}
-            className={index === idx ? 'menubar__btn active' : 'menubar__btn'}
-          >
-            <a href={item.path}>{item.title}</a>
-          </ButtonBase>
-          {/*<h3>{item.title}</h3>*/}
-          {/*<section id={item.path}>Category</section>*/}
-        </>
-      ))}
+      <MenuList />
     </div>
   );
 };
