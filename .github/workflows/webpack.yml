@@ -34,4 +34,3 @@ jobs:
     - name: Install node_modules
       run:
         npm install
-        npm run start
