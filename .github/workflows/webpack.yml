@@ -22,10 +22,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Check typescipt syntax  & check lint
+    - name: Check jest
       run:
         npm run test
+    - name: Check lint
+      run:
         npm run lint
+    - name: Check prettier
+      run:
         npm run lint:prettier
     - name: Install node_modules
       run:
