@@ -75,14 +75,24 @@ export const categoryCard = [
     title: 'Space for heading',
     textBtn: 'Read recepies',
   },
-  // {
-  //   sub: 'Banner subfocus',
-  //   title: 'Space for heading',
-  //   textBtn: 'Read recepies',
-  // },
-  // {
-  //   sub: 'Banner subfocus',
-  //   title: 'Space for heading',
-  //   textBtn: 'Read recepies',
-  // },
+  {
+    sub: 'Banner subfocus',
+    title: 'Space for heading',
+    textBtn: 'Read recepies',
+  },
+  {
+    sub: 'Banner subfocus',
+    title: 'Space for heading',
+    textBtn: 'Read recepies',
+  },
+  {
+    sub: 'Banner subfocus',
+    title: 'Space for heading',
+    textBtn: 'Read recepies',
+  },
+  {
+    sub: 'Banner subfocus',
+    title: 'Space for heading',
+    textBtn: 'Read recepies',
+  },
 ];

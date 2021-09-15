@@ -6,7 +6,6 @@ import configureAppStore, { getPreloadedState } from '@store/configureStore';
 import { setDefaultOptions } from 'esri-loader';
 import AppContextProvider from '@contexts/AppContextProvider';
 import { RootPage } from '@pages';
-
 setDefaultOptions({
   url: process.env.APP_BASE_URL,
 });

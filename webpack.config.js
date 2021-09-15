@@ -5,8 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const BundleAnalyzerPlugin =
-  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const Dotenv = require('dotenv-webpack');
 const CopyPlugin = require('copy-webpack-plugin');
 
@@ -70,6 +69,20 @@ module.exports = (env, options) => {
             {
               loader: 'postcss-loader',
             },
+          ],
+        },
+        {
+          test: /\.scss$/,
+          use: [
+            'style-loader', // creates style nodes from JS strings
+            {
+              loader: 'css-loader', // translates CSS into CommonJS
+              options: {
+                importLoaders: 1,
+              },
+            },
+            'postcss-loader', // post process the compiled CSS
+            'sass-loader', // compiles Sass to CSS, using Node Sass by default
           ],
         },
         { test: /\.(woff|woff2|ttf|eot)$/, loader: 'file-loader' },
