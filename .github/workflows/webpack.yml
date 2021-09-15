@@ -21,7 +21,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-
+    - name: Install node_modules
+      run:
+        npm install
     - name: Check jest
       run:
         npm run test
@@ -31,6 +33,3 @@ jobs:
     - name: Check prettier
       run:
         npm run lint:prettier
-    - name: Install node_modules
-      run:
-        npm install
