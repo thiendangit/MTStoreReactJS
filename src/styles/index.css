@@ -7,6 +7,8 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
+    text-align: left;
+    font-weight: 600;
 }
 html {
     font-size: 62.5%;
@@ -23,4 +25,29 @@ html {
     --white: #FFFFFF;
     --white-shadow: #F5F5F5;
     --orange : #E5704B;
+}
+h2 {
+    font-family:'Poppins', sans-serif;
+    font-size: 2.2rem;
+    line-height: 3.3rem;
+    color: var(--black);
+}
+h3 {
+    font-family:'Poppins', sans-serif;
+    font-size: 1.8rem;
+    line-height: 2.7rem;
+    color: var(--black);
+}
+h6{
+    font-family:'Poppins', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    color: var(--green);
+}
+.text-btn {
+    font-family:'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2.3rem;
+    color: var(--black);
 }

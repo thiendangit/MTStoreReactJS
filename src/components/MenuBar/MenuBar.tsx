@@ -1,54 +1,50 @@
 import React, { memo } from 'react';
 import './MenuBar.css';
 import { itemMenu } from '../Data_Info/DataInfo';
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
-const MenuBarComponent: React.FC = () => {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+import { ButtonBase } from '@material-ui/core';
+import * as Menu from 'Menu';
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
+const MenuBarComponent: React.FC = () => {
+  const [idx, setIndex] = React.useState(null);
+
+  const handleClick = (index: number) => {
+    setIndex(index);
+    console.log(index);
   };
 
-  const handleClose = () => {
-    setAnchorEl(null);
+  const MenuItem = ({
+    item,
+    index,
+  }: {
+    item: Menu.ItemMenu;
+    index: number;
+  }) => {
+    return (
+      <div key={index}>
+        <ButtonBase
+          key={index}
+          onClick={() => handleClick(index)}
+          className={index === idx ? 'menubar__btn active' : 'menubar__btn'}
+        >
+          <a href={item.path}>{item.title}</a>
+        </ButtonBase>
+      </div>
+    );
+  };
+
+  const MenuList = () => {
+    return (
+      <>
+        {itemMenu.map((item, index) => (
+          <MenuItem key={index} {...{ item, index }} />
+        ))}
+      </>
+    );
   };
 
   return (
     <div className="menubar">
-      {itemMenu.map((item, index) => (
-        <Button
-          key={index}
-          aria-controls="menubar"
-          aria-haspopup="true"
-          onClick={handleClick}
-          className="menubar__btn"
-        >
-          {item.title}
-          <KeyboardArrowDownIcon fontSize="small" className="icon__btn" />
-        </Button>
-      ))}
-
-      <Menu
-        id="menubar"
-        className="menubar__menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        <MenuItem onClick={handleClose} className="menubar__menu-item">
-          Water
-        </MenuItem>
-        <MenuItem onClick={handleClose} className="menubar__menu-item">
-          Coca
-        </MenuItem>
-        <MenuItem onClick={handleClose} className="menubar__menu-item">
-          Bakery
-        </MenuItem>
-      </Menu>
+      <MenuList />
     </div>
   );
 };

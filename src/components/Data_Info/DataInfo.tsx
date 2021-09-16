@@ -1,18 +1,8 @@
-interface ItemMenu {
-  title: string;
-  path: string;
-}
-interface ProductTag {
-  name: string;
-}
-interface FooterLinks {
-  title: string;
-  links: Links;
-}
-interface Links {
-  [index: number]: string;
-}
-export const itemMenu: ItemMenu[] = [
+import * as Menu from 'Menu';
+import * as Tag from 'Tag';
+import * as CategoryMenu from 'CategoryMenu';
+
+export const itemMenu: Menu.ItemMenu[] = [
   { title: 'Bakery', path: '#bakery' },
   { title: 'Fruit and vegetables', path: '#fruit_vegetables' },
   { title: 'Meat and fish', path: '#meat_fish' },
@@ -22,7 +12,7 @@ export const itemMenu: ItemMenu[] = [
   { title: 'Baby', path: '#baby' },
   { title: 'Pharmacy', path: '#pharmacy' },
 ];
-export const productTags: ProductTag[] = [
+export const productTags: Tag.ProductTag[] = [
   { name: 'Beans' },
   { name: 'Carrots' },
   { name: 'Apples' },
@@ -62,5 +52,37 @@ export const footerLinks = [
       'Chat with us',
       'Help',
     ],
+  },
+];
+export const categoryCard: CategoryMenu.CategoryCard[] = [
+  {
+    sub: 'Banner subfocus',
+    title: 'Space for heading',
+    textBtn: 'Read recepies',
+  },
+  {
+    sub: 'Banner subfocus',
+    title: 'Space for heading',
+    textBtn: 'Read recepies',
+  },
+  {
+    sub: 'Banner subfocus',
+    title: 'Space for heading',
+    textBtn: 'Read recepies',
+  },
+  {
+    sub: 'Banner subfocus',
+    title: 'Space for heading',
+    textBtn: 'Read recepies',
+  },
+  {
+    sub: 'Banner subfocus',
+    title: 'Space for heading',
+    textBtn: 'Read recepies',
+  },
+  {
+    sub: 'Banner subfocus',
+    title: 'Space for heading',
+    textBtn: 'Read recepies',
   },
 ];

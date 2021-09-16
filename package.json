@@ -58,8 +58,10 @@
     "react-router": "^5.2.1",
     "react-router-dom": "^5.2.1",
     "redux": "^4.1.0",
+    "sass": "^1.41.0",
     "shortid": "^2.2.15",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "swiper": "^7.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
@@ -105,6 +107,7 @@
     "postcss-loader": "^6.1.0",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.1.2",
+    "sass-loader": "^12.1.0",
     "source-map-loader": "^3.0.0",
     "style-loader": "^2.0.0",
     "tailwindcss": "^2.2.2",

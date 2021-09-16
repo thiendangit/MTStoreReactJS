@@ -1,0 +1,38 @@
+.category {
+    padding: 1.6rem 4.5rem;
+    margin: 1.6rem 0;
+}
+.category .category__card {
+    @apply flex flex-row mt-6;
+    padding-bottom: 3.5rem !important;
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+}
+.category .category__card .category__card-item {
+    @apply flex flex-col justify-start items-start py-12 pl-12 mt-6 rounded-3xl;
+    height: 28rem;
+    width: 42rem;
+}
+.category .category__card .category__card-item .category__card-btn {
+    margin-top: auto;
+    width: fit-content;
+    block-size: fit-content;
+    padding: 1.2rem;
+    border-radius: 1.2rem;
+    border: 1px solid var(--green);
+}
+.chevron-icon {
+    color: var(--green);
+    margin-left: .5rem;
+}
+.swiper-pagination-bullet-active {
+    background: var(--green) !important;
+}
+.swiper-button-prev {
+    color: var(--green) !important;
+    left: 0 !important;
+}
+.swiper-button-next {
+    color: var(--green) !important;
+    right: 0 !important;
+}
