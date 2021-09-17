@@ -16,6 +16,7 @@
             "./src/types",
             "./src/types/global.d.ts",
             "./node_modules/@types",
+            "./src/types/woocommerce.d.ts",
         ],
         "lib": [ "es2015", "dom" ],
         "baseUrl": ".",

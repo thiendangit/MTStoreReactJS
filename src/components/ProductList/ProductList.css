@@ -1,0 +1,97 @@
+.product,
+.recommence {
+    @apply flex flex-col;
+    padding: 1.6rem 4.5rem;
+    margin: 1.6rem 0;
+}
+.product__title {
+    @apply flex flex-row justify-between align-baseline;
+}
+.product__btn {
+    font-family:'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2.3rem;
+    color: var(--black) !important;
+    padding: 1.3rem 1.6rem !important;
+    background: var(--white-shadow) !important;
+    border-radius: 1.2rem !important;
+}
+.product__list {
+    @apply flex flex-col pb-16 overflow-auto;
+    margin-top: 3.4rem;
+}
+.product__list-items {
+    @apply grid lg:grid-cols-4 grid-cols-2 gap-16 align-baseline mb-16;
+}
+.product__list-item {
+    @apply flex flex-col;
+    padding: 1.6rem;
+    border: 1px solid var(--gray-bg1);
+    border-radius: 1.2rem;
+    background: var(--white);
+}
+.product__list-item-sale {
+    border-radius: 1.2rem;
+    padding: 0 .8rem;
+    position: absolute;
+    margin: 1.2rem;
+    z-index: 10;
+    color: var(--green);
+    background: var(--gray-bg3);
+}
+.product__list-item-img {
+    width: 100%;
+    height: 18rem;
+    border-radius: 1.2rem;
+}
+.product__list-item-title {
+    color: var(--black);
+    margin: 1.6rem 0 .4rem 0;
+    font-family:'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 2.3rem;
+
+}
+.product__list-item-desc {
+    font-family:'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.6rem;
+    color: var(--gray);
+    word-break: break-all;
+}
+.product__list-item-price {
+    @apply flex flex-row justify-between items-center;
+    margin-top: 1.6rem;
+}
+.price__regular {
+    font-family:'Poppins', sans-serif;
+    font-size: 1.8rem;
+    line-height: 2.7rem;
+    color: var(--black);
+}
+.price {
+    font-family:'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.8rem;
+    color: var(--light-gray);
+    text-decoration: line-through;
+}
+.product__item-btn {
+    border: 1px solid var(--bolder-green) !important;
+    background: var(--green) !important;
+    border-radius: 1.2rem !important;
+    width: 9.6rem;
+    max-height: 3.6rem;
+}
+.product__item-text-btn {
+    color: var(--white);
+    padding: 0.65rem 1.2rem;
+    font-family:'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2.3rem;
+}
