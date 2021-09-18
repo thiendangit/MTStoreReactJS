@@ -18,11 +18,20 @@ const CategoryComponent: React.FC = () => {
       <h3 className="heading3">Category menu</h3>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
-        slidesPerView={2}
-        spaceBetween={45}
+        slidesPerView={1}
+        spaceBetween={20}
+        breakpoints={{
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+          },
+        }}
         navigation
         pagination={{ clickable: true }}
-        scrollbar={{ draggable: true }}
         className="mySwiper category__card"
       >
         {categoryCard.map((item, index) => (

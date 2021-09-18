@@ -26,6 +26,7 @@ html {
     --white: #FFFFFF;
     --white-shadow: #F5F5F5;
     --orange : #E5704B;
+    --width: 100px;
 }
 h2 {
     font-family:'Poppins', sans-serif;

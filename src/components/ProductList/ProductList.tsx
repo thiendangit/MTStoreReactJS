@@ -3,6 +3,7 @@ import './ProductList.css';
 import { ProductItem } from './ProductItems/ProductItem';
 import { ButtonBase } from '@material-ui/core';
 import { ChevronRight } from '@material-ui/icons';
+
 export const ProductList: React.FC = () => {
   return (
     <>
