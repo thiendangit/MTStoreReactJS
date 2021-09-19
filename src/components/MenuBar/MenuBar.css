@@ -4,12 +4,11 @@
     /*background: var(--gray-bg2);*/
 }
 .menubar .menubar__btn {
-    @apply lg:mt-0 flex flex-col items-baseline not-italic normal-case font-medium mt-6 mr-16 px-4 rounded-full cursor-pointer;
+    @apply lg:mt-0 flex flex-col items-baseline not-italic normal-case font-medium mt-6 mr-16 px-4 border-none rounded-full cursor-pointer;
     font-family:'Poppins', sans-serif;
     font-size: 1.5rem;
     line-height: 2.25rem;
     color: var(--black);
-
 }
 .menubar .active {
     background: var(--green);

@@ -1,6 +1,5 @@
 .category {
     padding: 1.6rem 4.5rem;
-    margin: 1.6rem 0;
 }
 .category .category__card {
     @apply flex flex-row mt-6;
@@ -10,7 +9,7 @@
 }
 .category .category__card .category__card-item {
     @apply flex flex-col justify-start items-start py-12 pl-12 mt-6 rounded-3xl;
-    height: 28rem;
+    height: 25rem;
     width: 42rem;
 }
 .category .category__card .category__card-item .category__card-btn {

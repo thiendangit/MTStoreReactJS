@@ -22,7 +22,6 @@ const MenuBarComponent: React.FC = () => {
     return (
       <div key={index}>
         <ButtonBase
-          key={index}
           onClick={() => handleClick(index)}
           className={index === idx ? 'menubar__btn active' : 'menubar__btn'}
         >

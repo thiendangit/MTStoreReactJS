@@ -1,6 +1,13 @@
 import React from 'react';
 // @ts-ignore
-import { Navbar, Header, MenuBar, Category, Footer } from '@components';
+import {
+  Navbar,
+  Header,
+  MenuBar,
+  Category,
+  ProductList,
+  Footer,
+} from '@components';
 const RootPage: React.FC = () => {
   return (
     <div>
@@ -8,6 +15,7 @@ const RootPage: React.FC = () => {
       <Header />
       <MenuBar />
       <Category />
+      <ProductList />
       <Footer />
     </div>
   );
