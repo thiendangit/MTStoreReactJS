@@ -1,0 +1,95 @@
+.blogpost {
+    @apply flex flex-col;
+    padding: 1.6rem 4.5rem;
+}
+.blogpost p {
+    font-family:'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.6rem;
+    color: var(--black);
+    margin-right: 1rem;
+}
+.blogpost h6 {
+    background: var(--gray-bg3);
+    width: max-content;
+    border-radius: 1.2rem;
+    padding: .6rem;
+}
+.blogpost__title {
+    @apply flex flex-row justify-between items-center;
+}
+.blogpost__title-btn {
+    font-family:'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2.3rem;
+    color: var(--black);
+    border-radius: 1.2rem;
+    padding: 0.6rem 1.2rem;
+}
+.blogpost__title-btn:hover {
+    color: var(--green);
+    cursor: pointer;
+}
+.blogpost__items {
+    @apply flex flex-row justify-between items-start w-full mt-12;
+    height: 40rem;
+}
+.blogpost1 {
+    @apply flex flex-col h-full justify-between;
+    margin-right: 3.2rem;
+    border-radius: 1.2rem;
+    flex: 2 1 0;
+}
+.blogpost1__content {
+    @apply flex flex-col;
+    padding: 3.5rem 0 2.4rem 2.4rem;
+    border-radius: 1.2rem;
+    background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+}
+.blogpost1__inf {
+    @apply flex flex-row items-center mt-6;
+}
+.blogpost1 h6 {
+    margin-left: 2.4rem;
+}
+.blogpost1__inf img {
+    @apply rounded-full mr-4;
+    height: 3.2rem;
+    width: 3.2rem;
+}
+.blogpost1 h2,
+.blogpost1 p {
+    color: var(--white);
+}
+.blogpost2 {
+    @apply lg:flex flex-col h-full hidden;
+    margin-right: 3.2rem;
+    flex: 1 1 0;
+}
+.blogpost2 img {
+    border-radius: 1.2rem;
+    margin-bottom: 2.4rem;
+}
+.blogpost2__inf {
+    @apply flex flex-row items-center mt-6;
+}
+.blogpost__items3 {
+    @apply hidden md:flex flex-col justify-start items-start h-full;
+    flex: 1.5 1 0;
+}
+.blogpost3 {
+    @apply flex flex-row justify-between items-center mb-12;
+}
+.blogpost3__content {
+    @apply flex flex-col;
+}
+.blogpost3__inf {
+    @apply flex flex-row items-center mt-6;
+}
+.blogpost3 img {
+    width: 9.6rem;
+    height: 9.6rem;
+    border-radius: 1.2rem;
+}

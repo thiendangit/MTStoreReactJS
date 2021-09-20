@@ -1,0 +1,40 @@
+.feedback {
+    @apply flex flex-col;
+}
+.feedback__item1 {
+    @apply flex flex-row justify-between items-center;
+    padding: 1.6rem 4.5rem;
+}
+.feedback__item2 {
+    @apply flex flex-row;
+}
+.feedback__item1-btn {
+    font-family:'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2.3rem;
+    color: var(--black);
+    border-radius: 1.2rem;
+    padding: 0.6rem 1.2rem;
+}
+.feedback__item1-btn:hover {
+    color: var(--green);
+    cursor: pointer;
+}
+.feedback__item2-content {
+    @apply flex flex-col items-center text-center py-10 px-14 border-none;
+}
+.feedback__item2-review {
+    font-family:'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 2.3rem;
+    padding-bottom: 2.4rem;
+    color: var(--black);
+}
+.feedback__item2-reviewer {
+    font-family:'Poppins', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    color: var(--light-gray);
+}
