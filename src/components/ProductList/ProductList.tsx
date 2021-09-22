@@ -1,6 +1,6 @@
 import React from 'react';
 import './ProductList.css';
-import { ProductItem } from './ProductItems/ProductItem';
+import { ProductItems } from './ProductItems/ProductItems';
 import { ButtonBase } from '@material-ui/core';
 import { ChevronRight } from '@material-ui/icons';
 
@@ -15,7 +15,7 @@ export const ProductList: React.FC = () => {
             <ChevronRight fontSize={'large'} />
           </ButtonBase>
         </div>
-        <ProductItem />
+        <ProductItems />
       </div>
       <div className="recommence">
         <div className="product__title">
@@ -25,7 +25,7 @@ export const ProductList: React.FC = () => {
             <ChevronRight fontSize={'large'} />
           </ButtonBase>
         </div>
-        <ProductItem />
+        <ProductItems />
       </div>
     </>
   );

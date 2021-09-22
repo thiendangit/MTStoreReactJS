@@ -7,7 +7,7 @@ import '../../../../node_modules/swiper/modules/scrollbar/scrollbar.scss';
 
 SwiperCore.use([Scrollbar]);
 
-export const ProductItem: React.FC = () => {
+export const ProductItems: React.FC = () => {
   return (
     <div className="product__list">
       {productList.map((item) => (
