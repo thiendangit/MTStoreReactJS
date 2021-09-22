@@ -38,3 +38,13 @@
     line-height: 1.8rem;
     color: var(--light-gray);
 }
+.swiper-button-prev {
+    left: 0;
+    color: var(--green);
+    font-size: 1.5rem;
+}
+.swiper-button-next {
+    right: 0;
+    color: var(--green);
+    font-size: 1.5rem;
+}
