@@ -22,6 +22,25 @@ declare module 'Tag' {
   }
 }
 
+declare module 'FeedbackPost' {
+  export interface FeedBackCustomers {
+    id: number;
+    product_id: number;
+    status: string;
+    reviewer: string;
+    reviewer_email: string;
+    review: string;
+  }
+  export interface BlogPostsAuthor {
+    id: number;
+    title: string;
+    content: string;
+    avatar: string;
+    img: string;
+    author: string;
+    date: string;
+  }
+}
 declare module 'Footer' {
   interface FooterLinks {
     title: string;

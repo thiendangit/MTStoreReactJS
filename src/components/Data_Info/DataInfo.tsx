@@ -2,6 +2,7 @@ import * as Menu from 'Menu';
 import * as Tag from 'Tag';
 import * as CategoryMenu from 'CategoryMenu';
 import * as WooCommerce from 'WooCommerce';
+import * as FeedbackPost from 'FeedbackPost';
 
 export const itemMenu: Menu.ItemMenu[] = [
   { title: 'Bakery', path: '#bakery' },
@@ -322,5 +323,181 @@ export const productList: WooCommerce.Product[] = [
         },
       ],
     },
+  },
+];
+export const feedbackCustomers: FeedbackPost.FeedBackCustomers[] = [
+  {
+    id: 22,
+    product_id: 22,
+    status: 'approved',
+    reviewer: 'John Doe',
+    reviewer_email: 'john.doe@example.com',
+    review:
+      '“ This is an super space for your customers qoute. Don’t worry it works smooth as pie. You will get all what you need by writiing a text here “',
+  },
+  {
+    id: 23,
+    product_id: 23,
+    status: 'approved',
+    reviewer: 'John Doe',
+    reviewer_email: 'john.doe@example.com',
+    review:
+      '“ This is an super space for your customers qoute. Don’t worry it works smooth as pie. You will get all what you need by writiing a text here “',
+  },
+  {
+    id: 24,
+    product_id: 24,
+    status: 'approved',
+    reviewer: 'John Doe',
+    reviewer_email: 'john.doe@example.com',
+    review:
+      '“ This is an super space for your customers qoute. Don’t worry it works smooth as pie. You will get all what you need by writiing a text here “',
+  },
+  {
+    id: 25,
+    product_id: 25,
+    status: 'approved',
+    reviewer: 'John Doe',
+    reviewer_email: 'john.doe@example.com',
+    review:
+      '“ This is an super space for your customers qoute. Don’t worry it works smooth as pie. You will get all what you need by writiing a text here “',
+  },
+  {
+    id: 26,
+    product_id: 26,
+    status: 'approved',
+    reviewer: 'John Doe',
+    reviewer_email: 'john.doe@example.com',
+    review:
+      '“ This is an super space for your customers qoute. Don’t worry it works smooth as pie. You will get all what you need by writiing a text here “',
+  },
+  {
+    id: 27,
+    product_id: 27,
+    status: 'approved',
+    reviewer: 'John Doe',
+    reviewer_email: 'john.doe@example.com',
+    review:
+      '“ This is an super space for your customers qoute. Don’t worry it works smooth as pie. You will get all what you need by writiing a text here “',
+  },
+  {
+    id: 28,
+    product_id: 28,
+    status: 'approved',
+    reviewer: 'John Doe',
+    reviewer_email: 'john.doe@example.com',
+    review:
+      '“ This is an super space for your customers qoute. Don’t worry it works smooth as pie. You will get all what you need by writiing a text here “',
+  },
+  {
+    id: 29,
+    product_id: 29,
+    status: 'approved',
+    reviewer: 'John Doe',
+    reviewer_email: 'john.doe@example.com',
+    review:
+      '“ This is an super space for your customers qoute. Don’t worry it works smooth as pie. You will get all what you need by writiing a text here “',
+  },
+  {
+    id: 30,
+    product_id: 30,
+    status: 'approved',
+    reviewer: 'John Doe',
+    reviewer_email: 'john.doe@example.com',
+    review:
+      '“ This is an super space for your customers qoute. Don’t worry it works smooth as pie. You will get all what you need by writiing a text here “',
+  },
+];
+export const blogPosts: FeedbackPost.BlogPostsAuthor[] = [
+  {
+    id: 1,
+    title: 'Dinner tips',
+    content: 'Our chef tips for a great and tasty dinner ready in 20 minutes',
+    avatar:
+      'data:image/jpeg;base64,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',
+    img:
+      'https://www.cdc.gov/foodsafety/images/comms/food-Safety-Tips-small.jpg',
+    author: 'Author',
+    date: '17. 6. 2020',
+  },
+  {
+    id: 2,
+    title: 'Vegetable',
+    content: 'Our chef tips for a great and tasty dinner ready in 20 minutes',
+    avatar: '',
+    img:
+      'https://www.cdc.gov/foodsafety/images/comms/food-Safety-Tips-small.jpg',
+    author: 'Author',
+    date: '17. 6. 2020',
+  },
+  {
+    id: 3,
+    title: 'Dinner tips',
+    content: 'Our chef tips for a great and tasty dinner ready in 20 minutes',
+    avatar: '',
+    img:
+      'https://www.cdc.gov/foodsafety/images/comms/food-Safety-Tips-small.jpg',
+    author: 'Author',
+    date: '17. 6. 2020',
+  },
+  {
+    id: 4,
+    title: 'Dinner tips',
+    content: 'Our chef tips for a great and tasty dinner ready in 20 minutes',
+    avatar: '',
+    img:
+      'https://www.cdc.gov/foodsafety/images/comms/food-Safety-Tips-small.jpg',
+    author: 'Author',
+    date: '17. 6. 2020',
+  },
+  {
+    id: 5,
+    title: 'Dinner tips',
+    content: 'Our chef tips for a great and tasty dinner ready in 20 minutes',
+    avatar: '',
+    img:
+      'https://www.cdc.gov/foodsafety/images/comms/food-Safety-Tips-small.jpg',
+    author: 'Author',
+    date: '17. 6. 2020',
+  },
+  {
+    id: 6,
+    title: 'Dinner tips',
+    content: 'Our chef tips for a great and tasty dinner ready in 20 minutes',
+    avatar: '',
+    img:
+      'https://www.cdc.gov/foodsafety/images/comms/food-Safety-Tips-small.jpg',
+    author: 'Author',
+    date: '17. 6. 2020',
+  },
+  {
+    id: 7,
+    title: 'Dinner tips',
+    content: 'Our chef tips for a great and tasty dinner ready in 20 minutes',
+    avatar: '',
+    img:
+      'https://www.cdc.gov/foodsafety/images/comms/food-Safety-Tips-small.jpg',
+    author: 'Author',
+    date: '17. 6. 2020',
+  },
+  {
+    id: 8,
+    title: 'Dinner tips',
+    content: 'Our chef tips for a great and tasty dinner ready in 20 minutes',
+    avatar: '',
+    img:
+      'https://www.cdc.gov/foodsafety/images/comms/food-Safety-Tips-small.jpg',
+    author: 'Author',
+    date: '17. 6. 2020',
+  },
+  {
+    id: 9,
+    title: 'Dinner tips',
+    content: 'Our chef tips for a great and tasty dinner ready in 20 minutes',
+    avatar: '',
+    img:
+      'https://www.cdc.gov/foodsafety/images/comms/food-Safety-Tips-small.jpg',
+    author: 'Author',
+    date: '17. 6. 2020',
   },
 ];

@@ -6,6 +6,8 @@ import {
   MenuBar,
   Category,
   ProductList,
+  FeedBack,
+  BlogPost,
   Footer,
 } from '@components';
 const RootPage: React.FC = () => {
@@ -16,6 +18,8 @@ const RootPage: React.FC = () => {
       <MenuBar />
       <Category />
       <ProductList />
+      <FeedBack />
+      <BlogPost />
       <Footer />
     </div>
   );

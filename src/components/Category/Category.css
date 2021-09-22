@@ -24,14 +24,8 @@
     color: var(--green);
     margin-left: .5rem;
 }
+.swiper-pagination-bullet,
 .swiper-pagination-bullet-active {
     background: var(--green) !important;
 }
-.swiper-button-prev {
-    color: var(--green) !important;
-    left: 0 !important;
-}
-.swiper-button-next {
-    color: var(--green) !important;
-    right: 0 !important;
-}
+

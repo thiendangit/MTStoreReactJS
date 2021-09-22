@@ -40,6 +40,12 @@ h3 {
     line-height: 2.7rem;
     color: var(--black);
 }
+h4 {
+    font-family:'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 2.3rem;
+}
 h6{
     font-family:'Poppins', sans-serif;
     font-size: 1.2rem;
