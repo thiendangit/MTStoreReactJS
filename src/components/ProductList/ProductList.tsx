@@ -1,8 +1,8 @@
 import React from 'react';
 import './ProductList.css';
-import { ProductItems } from './ProductItems/ProductItems';
 import { ButtonBase } from '@material-ui/core';
 import { ChevronRight } from '@material-ui/icons';
+import { ProductItems } from './ProductItems/ProductItems';
 
 export const ProductList: React.FC = () => {
   return (

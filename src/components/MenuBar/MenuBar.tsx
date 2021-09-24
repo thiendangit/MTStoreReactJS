@@ -1,31 +1,28 @@
 import React, { memo } from 'react';
 import './MenuBar.css';
-import { itemMenu } from '../Data_Info/DataInfo';
 import { ButtonBase } from '@material-ui/core';
-import * as Menu from 'Menu';
+import { useSelector } from 'react-redux';
+import { getCategories } from '@store/reducers/categoriesSlice';
+import { Category } from 'WooCommerce';
 
 const MenuBarComponent: React.FC = () => {
   const [idx, setIndex] = React.useState(null);
+
+  const categories = useSelector(getCategories);
 
   const handleClick = (index: number) => {
     setIndex(index);
     console.log(index);
   };
 
-  const MenuItem = ({
-    item,
-    index,
-  }: {
-    item: Menu.ItemMenu;
-    index: number;
-  }) => {
+  const MenuItem = ({ item }: { item: Category }) => {
     return (
-      <div key={index}>
+      <div key={item.id}>
         <ButtonBase
-          onClick={() => handleClick(index)}
-          className={index === idx ? 'menubar__btn active' : 'menubar__btn'}
+          onClick={() => handleClick(item.id)}
+          className={item.id === idx ? 'menubar__btn active' : 'menubar__btn'}
         >
-          <a href={item.path}>{item.title}</a>
+          <a href={item.slug}>{item.name}</a>
         </ButtonBase>
       </div>
     );
@@ -34,8 +31,8 @@ const MenuBarComponent: React.FC = () => {
   const MenuList = () => {
     return (
       <>
-        {itemMenu.map((item, index) => (
-          <MenuItem key={index} {...{ item, index }} />
+        {categories.map((item) => (
+          <MenuItem key={item.id} {...{ item }} />
         ))}
       </>
     );

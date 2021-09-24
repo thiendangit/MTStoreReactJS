@@ -19,13 +19,13 @@ const CategoryComponent: React.FC = () => {
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         slidesPerView={1}
-        spaceBetween={20}
+        spaceBetween={30}
         breakpoints={{
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 30,
-          },
           768: {
+            slidesPerView: 2,
+            spaceBetween: 40,
+          },
+          1024: {
             slidesPerView: 3,
             spaceBetween: 40,
           },
@@ -35,11 +35,7 @@ const CategoryComponent: React.FC = () => {
         className="mySwiper category__card"
       >
         {categoryCard.map((item, index) => (
-          <SwiperSlide
-            key={index}
-            className="category__card-item"
-            style={{ backgroundImage: `url(${images.bgItem})` }}
-          >
+          <SwiperSlide key={index} className="category__card-item" style={{ backgroundImage: `url(${images.bgItem})` }}>
             <h6 className="heading6">{item.sub}</h6>
             <h2 className="heading2">{item.title}</h2>
             <ButtonBase className="category__card-btn">

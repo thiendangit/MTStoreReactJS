@@ -1,11 +1,9 @@
 .header {
-    @apply lg:flex-nowrap flex flex-row justify-between items-center flex-wrap;
+    @apply flex flex-row justify-between items-center flex-wrap py-8;
     margin: 1.6rem 4.5rem;
-    padding-top: 4rem;
-    padding-bottom: 4.8rem;
 }
 .header__search {
-    @apply flex justify-between flex-row items-center;
+    @apply flex justify-start flex-row items-center order-last mt-6 w-full md:order-none md:w-max;
     background: var(--gray-bg2);
     border: 1px solid var(--border-black);
     border-radius: 1.2rem;
@@ -17,25 +15,27 @@
     font-size: 1.5rem;
     color: var(--black);
     background: var(--gray-bg2);
+    border: none;
+    outline: none;
 }
 .header .header__search .search__line {
     border: 1px solid var(--border-black);
     height: 2rem;
-    margin: 0 2.4rem 0 2.9rem;
+    margin: 0 1rem;
 }
 .header .header__search .search__input {
-    @apply lg:block hidden;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-size: 1.4rem;
     color: var(--light-gray);
-    text-overflow: ellipsis;
+    border: none;
+    outline: none;
     background: var(--gray-bg2);
-    width: 20rem;
+    width: 20vw;
 }
 .header .header__search .search__btn .search__icon {
     transform: rotate(90deg);
-    margin-left: 1.8rem;
+    margin-left: .8rem;
     width: 1.6rem;
     height: 1.6rem;
     color: var(--black);
@@ -44,7 +44,7 @@
     @apply flex flex-row relative items-center min-w-0;
 }
 .header .header__icons .user__icon {
-    @apply mr-10 sm:mr-16;
+    @apply md:mr-8 mr-16;
     color: var(--black);
     width: 2.4rem;
     height: 2.4rem;
