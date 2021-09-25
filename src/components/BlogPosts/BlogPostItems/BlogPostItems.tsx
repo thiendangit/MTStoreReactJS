@@ -49,16 +49,10 @@ export const BlogPostItems: React.FC = () => {
 
   return (
     <div className="blogpost__items">
-      {blogPosts
-        .map((item) => <BlogPost1 key={item.id} {...{ item }} />)
-        .slice(0, 1)}
-      {blogPosts
-        .map((item) => <BlogPost2 key={item.id} {...{ item }} />)
-        .slice(1, 2)}
+      {blogPosts.map((item) => <BlogPost1 key={item.id} {...{ item }} />).slice(0, 1)}
+      {blogPosts.map((item) => <BlogPost2 key={item.id} {...{ item }} />).slice(1, 2)}
       <div className="blogpost__items3">
-        {blogPosts
-          .map((item) => <BlogPost3 key={item.id} {...{ item }} />)
-          .slice(2, 5)}
+        {blogPosts.map((item) => <BlogPost3 key={item.id} {...{ item }} />).slice(2, 5)}
       </div>
     </div>
   );

@@ -8,16 +8,15 @@
     padding-right: 4rem !important;
 }
 .category .category__card .category__card-item {
-    @apply flex flex-col justify-start items-start py-12 pl-12 mt-6 rounded-3xl;
+    @apply flex flex-col justify-start items-start py-8 pl-8 mt-6 rounded-3xl sm:py-12 sm:pl-12;
     height: 25rem;
     width: 42rem;
 }
 .category .category__card .category__card-item .category__card-btn {
     margin-top: auto;
-    width: fit-content;
-    block-size: fit-content;
-    padding: 1.2rem;
-    border-radius: 1.2rem;
+    width: max-content;
+    padding: .7rem;
+    border-radius: 1rem;
     border: 1px solid var(--green);
 }
 .chevron-icon {
