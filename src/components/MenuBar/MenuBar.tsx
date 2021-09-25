@@ -1,14 +1,15 @@
 import React, { memo } from 'react';
 import './MenuBar.css';
-import { ButtonBase } from '@material-ui/core';
+import { ButtonBase, Typography } from '@material-ui/core';
 import { useSelector } from 'react-redux';
-import { getCategories } from '@store/reducers/categoriesSlice';
+import { getCategoriesState } from '@store/reducers/categoriesSlice';
 import { Category } from 'WooCommerce';
+import { Skeleton } from '@material-ui/lab';
+import { itemMenu } from '../Data_Info/DataInfo';
 
 const MenuBarComponent: React.FC = () => {
   const [idx, setIndex] = React.useState(null);
-
-  const categories = useSelector(getCategories);
+  const categories = useSelector(getCategoriesState);
 
   const handleClick = (index: number) => {
     setIndex(index);
@@ -31,7 +32,7 @@ const MenuBarComponent: React.FC = () => {
   const MenuList = () => {
     return (
       <>
-        {categories.map((item) => (
+        {categories.categoryItems.map((item) => (
           <MenuItem key={item.id} {...{ item }} />
         ))}
       </>
@@ -40,7 +41,11 @@ const MenuBarComponent: React.FC = () => {
 
   return (
     <div className="menubar">
-      <MenuList />
+      {!categories.isLoading ? (
+        <MenuList />
+      ) : (
+        itemMenu.map((item, index) => <Skeleton className="menubar__btn skeleton" key={index} />).slice(0, 6)
+      )}
     </div>
   );
 };

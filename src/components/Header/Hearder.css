@@ -3,7 +3,7 @@
     margin: 1.6rem 4.5rem;
 }
 .header__search {
-    @apply flex justify-start flex-row items-center order-last mt-6 w-full md:order-none md:w-max;
+    @apply flex justify-around flex-row items-start order-last mt-6 w-full md:order-none md:w-max md:justify-start;
     background: var(--gray-bg2);
     border: 1px solid var(--border-black);
     border-radius: 1.2rem;
@@ -31,7 +31,7 @@
     border: none;
     outline: none;
     background: var(--gray-bg2);
-    width: 20vw;
+    width: 20rem;
 }
 .header .header__search .search__btn .search__icon {
     transform: rotate(90deg);

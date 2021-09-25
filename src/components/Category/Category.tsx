@@ -19,11 +19,15 @@ const CategoryComponent: React.FC = () => {
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         slidesPerView={1}
-        spaceBetween={30}
+        spaceBetween={10}
         breakpoints={{
+          648: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
           768: {
             slidesPerView: 2,
-            spaceBetween: 40,
+            spaceBetween: 30,
           },
           1024: {
             slidesPerView: 3,

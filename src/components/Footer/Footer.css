@@ -32,6 +32,7 @@ footer {
     background: var(--white-shadow);
     margin: 1.6rem 1.6rem 0 0;
     padding: .4rem 1rem;
+    border: none;
     border-radius: 1.2rem;
 }
 .footer .footer__item2 h3 {
@@ -56,4 +57,14 @@ footer {
     font-weight: 400;
     line-height: 19px;
     color: var(--black);
+}
+
+.footer .footer__item1 ul li:hover,
+.footer .footer__item2 .footer__item2-tags span a:hover {
+    cursor: pointer;
+    opacity: 60%;
+}
+.footer .footer__item1 ul li:first-child:hover {
+    cursor: none;
+    opacity: 100%;
 }

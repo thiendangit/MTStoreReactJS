@@ -44,7 +44,7 @@
 }
 .blogpost1__content {
     @apply flex flex-col;
-    padding: 3.5rem 0 2.4rem 2.4rem;
+    padding: 5rem 0 2.4rem 2.4rem;
     border-radius: 1.2rem;
     background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
 }
@@ -92,4 +92,14 @@
     width: 9.6rem;
     height: 9.6rem;
     border-radius: 1.2rem;
+}
+.blogpost h6:hover,
+.blogpost1 h2:hover,
+.blogpost3__content h4:hover,
+.blogpost2 h3:hover,
+.blogpost1__inf img:hover,
+.blogpost2 img:hover,
+.blogpost3 img:hover {
+    cursor: pointer;
+    opacity: 80%;
 }

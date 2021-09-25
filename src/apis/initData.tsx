@@ -1,14 +1,17 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from '@store/configureStore';
 import { fetchCategories } from '../logic/categories';
-import { onSetCategories } from '@store/reducers/categoriesSlice';
+import { onSetCategories, onSetLoading } from '@store/reducers/categoriesSlice';
 
-export const callAPI = () => {
+export const CallAPI: React.FC = () => {
   const dispatch = useDispatch();
   const _fetchCategories = async () => {
     try {
       const result = await fetchCategories();
-      if (result.data) dispatch(onSetCategories(result.data));
+      dispatch(onSetLoading());
+      if (result.data) {
+        dispatch(onSetCategories(result.data));
+      }
     } catch (err) {
       console.log(err);
     }
@@ -17,4 +20,6 @@ export const callAPI = () => {
   useEffect(() => {
     _fetchCategories();
   }, []);
+
+  return null;
 };

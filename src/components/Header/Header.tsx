@@ -3,28 +3,23 @@ import './Hearder.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { icons } from '@public/icon';
-import { fetchCategories } from '../../logic/categories';
-import { getCategories, onSetCategories } from '@store/reducers/categoriesSlice';
-import { useDispatch } from '@store/configureStore';
+import { getCategoriesState } from '@store/reducers/categoriesSlice';
 import { useSelector } from 'react-redux';
+import { Typography } from '@material-ui/core';
+import { Skeleton } from '@material-ui/lab';
+import { itemMenu } from '../Data_Info/DataInfo';
+import { Category } from 'WooCommerce';
 
 const HeaderComponent: React.FC = () => {
-  const categories = useSelector(getCategories);
-  const dispatch = useDispatch();
-  const _fetchCategories = async () => {
-    try {
-      const result = await fetchCategories();
-      if (result.data) dispatch(onSetCategories(result.data));
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const categoriesProp = useSelector(getCategoriesState);
+  const [categories, setCategories] = React.useState([]);
 
   useEffect(() => {
-    _fetchCategories();
-  }, []);
+    const copy: Partial<Category>[] = categoriesProp.categoryItems.slice();
+    copy.unshift({ id: -1, name: 'All Categories', slug: 'All Categories' });
+    setCategories(copy);
+  }, [categoriesProp.categoryItems]);
 
-  // @ts-ignore
   return (
     <div className="header">
       <div className="header__logo">
@@ -32,7 +27,6 @@ const HeaderComponent: React.FC = () => {
       </div>
       <div className="header__search">
         <select name="All categories" id="categories" className="search__categories">
-          <option value="All categories">All categories</option>
           {categories.map((item) => (
             <option key={item.id} value={item.slug}>
               {item.name}
