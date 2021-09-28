@@ -1,12 +1,14 @@
-.product,
+.bestselling,
 .recommence {
     @apply flex flex-col;
     padding: 1.6rem 4.5rem;
 }
-.product__title {
-    @apply flex flex-row justify-between align-baseline;
+.bestselling__title,
+.recommence__title {
+    @apply flex flex-row justify-between items-baseline;
 }
-.product__btn {
+.bestselling__btn,
+.recommence__btn {
     font-family:'Poppins', sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
@@ -15,6 +17,7 @@
     padding: 1.3rem 1.6rem !important;
     background: var(--white-shadow) !important;
     border-radius: 1.2rem !important;
+    width: max-content;
 }
 .product__list {
     @apply grid grid-rows-1;
@@ -35,19 +38,19 @@
 
     display: flex;
     flex-direction: column;
-    align-items: baseline;
+    align-items: center;
 }
 .swiper-slide img {
     display: block;
-    width: 100%;
-    height: 100%;
+    width: 30rem;
+    height: 20rem;
     object-fit: cover;
     border-radius: 1.2rem;
 }
 .swiper-slide .product__list-item-price {
-    @apply flex flex-row justify-between;
+    @apply flex flex-row justify-between items-center;
     width: 100%;
-    margin-top: 1.6rem;
+    margin-top: auto;
 }
 .swiper-slide .product__list-item-sale {
     border-radius: 1.2rem;
@@ -65,7 +68,7 @@
     font-size: 1.5rem;
     font-weight: 500;
     line-height: 2.3rem;
-
+    width: 100%;
 }
 .swiper-slide .product__list-item-desc {
     font-family:'Open Sans', sans-serif;
@@ -95,7 +98,7 @@
     background: var(--green) !important;
     border-radius: 1.2rem !important;
     margin-left: auto!important;
-    width: 9.6rem;
+    width: max-content;
     max-height: 3.6rem;
 }
 .product__item-text-btn {

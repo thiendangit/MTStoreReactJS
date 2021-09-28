@@ -20,22 +20,18 @@ const clientRequest = axios.create({
   timeout: TIME_OUT,
 });
 
-const accessTokenInterceptor = (
-  config: AxiosRequestConfig,
-): AxiosRequestConfig => {
+const accessTokenInterceptor = (config: AxiosRequestConfig): AxiosRequestConfig => {
   config.headers = oauth.toHeader(
     oauth.authorize({
       url: `${config.baseURL}${config.url}`,
       method: config.method,
-      data: config.data,
+      data: config.params ?? config.data,
     }),
   );
   config.headers['Content-Type'] = 'application/json';
   return config;
 };
 
-clientRequest.interceptors.request.use(accessTokenInterceptor, (error) =>
-  Promise.reject(error),
-);
+clientRequest.interceptors.request.use(accessTokenInterceptor, (error) => Promise.reject(error));
 
 export default clientRequest;

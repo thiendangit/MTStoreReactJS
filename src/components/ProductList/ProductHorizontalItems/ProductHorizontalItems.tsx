@@ -11,16 +11,7 @@ const defaultItems = {
   numItem: 7,
 };
 
-export const ProductItems: ({ data, numItem }: { data: Product[]; numItem: typeof defaultItems }) => JSX.Element = ({
-  data,
-}: {
-  data: Product[];
-  numItem: typeof defaultItems;
-}) => {
-  if (data.length === 0) {
-    return null;
-  }
-
+const ProductHorizontalItemsComponent = ({ data, numItem }: { data: Product[]; numItem: typeof defaultItems }) => {
   return (
     <div className="product__list">
       <Swiper
@@ -43,26 +34,31 @@ export const ProductItems: ({ data, numItem }: { data: Product[]; numItem: typeo
         }}
         className="mySwiper"
       >
-        {data?.map((item) => (
-          <SwiperSlide key={item.id}>
-            <p className="product__list-item-sale">{item.sale_price}</p>
-            <img src={item?.images?.[0]?.src} alt="Product in store" />
-            <h4 className="product__list-item-title">{item.name}</h4>
-            {/*<p className="product__list-item-desc">{item.short_description}</p>*/}
-            <div className="product__list-item-price">
-              <span className="price__regular">
-                {item.regular_price}
-                <br />
-                <span className="price">{item.price}</span>
-              </span>
-              <ButtonBase className="product__item-btn">
-                <p className="product__item-text-btn">Buy now</p>
-              </ButtonBase>
-            </div>
-          </SwiperSlide>
-        ))}
+        {data
+          ?.map((item) => (
+            <SwiperSlide key={item.id}>
+              <p className="product__list-item-sale">{item.sale_price}</p>
+              <img src={item?.images?.[0]?.src} alt="Product in store" />
+              <h4 className="product__list-item-title">{item.name}</h4>
+              {/*<p className="product__list-item-desc">{item.short_description}</p>*/}
+              <div className="product__list-item-price">
+                <span className="price__regular">
+                  {item.regular_price}
+                  <br />
+                  <span className="price">{item.price}</span>
+                </span>
+                <ButtonBase className="product__item-btn">
+                  <p className="product__item-text-btn">Buy now</p>
+                </ButtonBase>
+              </div>
+            </SwiperSlide>
+          ))
+          .slice(0, numItem.numItem)}
       </Swiper>
     </div>
   );
 };
-ProductItems.defaultProps = defaultItems;
+
+ProductHorizontalItemsComponent.defaudeltProps = defaultItems;
+
+export const ProductHorizontalItems = ProductHorizontalItemsComponent;
