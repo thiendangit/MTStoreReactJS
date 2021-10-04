@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Footer.css';
-import { productTags, footerLinks } from '../Data_Info/DataInfo';
+import { footerLinks } from '../Data_Info/DataInfo';
+import { fetchProductTag } from '@logic';
 
 export const Footer: React.FC = () => {
+  const [productTags, setProductTags] = useState([]);
+
+  const getProductTags = async () => {
+    try {
+      const result = await fetchProductTag();
+      setProductTags(result.data);
+      console.log(result.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    getProductTags();
+  }, []);
   return (
     <footer className="footer">
       <div className="footer__item1">
@@ -20,8 +36,8 @@ export const Footer: React.FC = () => {
       <div className="footer__item2">
         <h3>Product tags</h3>
         <div className="footer__item2-tags">
-          {productTags.map((item, index: number) => (
-            <span key={index}>
+          {productTags.map((item) => (
+            <span key={item.id}>
               <a href="#tags" title="tags">
                 {item.name}
               </a>
