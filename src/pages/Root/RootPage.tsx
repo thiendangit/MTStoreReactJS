@@ -8,13 +8,13 @@ const RootPage: React.FC = () => {
     <div>
       <Navbar />
       <Header />
-      <MenuBar />
-      <Category />
-      <ProductList />
-      <FeedBack />
+      {/*<MenuBar />*/}
+      {/*<Category />*/}
+      {/*<ProductList />*/}
+      {/*<FeedBack />*/}
       <BlogPost />
-      <Footer />
-      <CallAPI />
+      {/*<Footer />*/}
+      {/*<CallAPI />*/}
     </div>
   );
 };

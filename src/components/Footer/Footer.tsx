@@ -8,6 +8,7 @@ export const Footer: React.FC = () => {
 
   const getProductTags = async () => {
     try {
+      console.log('Mounting');
       const result = await fetchProductTag();
       setProductTags(result.data);
       console.log(result.data);
@@ -18,6 +19,7 @@ export const Footer: React.FC = () => {
 
   useEffect(() => {
     getProductTags();
+    console.log('Mounted');
   }, []);
   return (
     <footer className="footer">

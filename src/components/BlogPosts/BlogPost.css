@@ -2,7 +2,7 @@
     @apply flex flex-col;
     padding: 1.6rem 4.5rem;
 }
-.blogpost p {
+.blogpost .para {
     font-family:'Open Sans', sans-serif;
     font-size: 1.2rem;
     font-weight: 400;
@@ -12,9 +12,10 @@
 }
 .blogpost h6 {
     background: var(--gray-bg3);
-    width: max-content;
+    width: 9rem;
     border-radius: 1.2rem;
     padding: .6rem;
+    margin-bottom: 1rem;
 }
 .blogpost__title {
     @apply flex flex-row justify-between items-center;
@@ -31,6 +32,19 @@
 .blogpost__title-btn:hover {
     color: var(--green);
     cursor: pointer;
+}
+.ellipsis {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.block-ellipsis {
+    display: block;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .blogpost__items {
     @apply flex flex-row justify-between items-start w-full mt-12;
@@ -59,9 +73,14 @@
     height: 3.2rem;
     width: 3.2rem;
 }
-.blogpost1 h2,
-.blogpost1 p {
+.blogpost1 .blogpost1__content .blogpost1__content-title {
     color: var(--white);
+    font-family:'Poppins', sans-serif;
+    font-size: 2.2rem;
+    line-height: 3.3rem;
+}
+.blogpost1 .para {
+    color: var(--white) !important;
 }
 .blogpost2 {
     @apply lg:flex flex-col h-full hidden;
@@ -71,6 +90,12 @@
 .blogpost2 img {
     border-radius: 1.2rem;
     margin-bottom: 2.4rem;
+}
+.blogpost2 .blogpost2__title {
+    font-family:'Poppins', sans-serif;
+    font-size: 1.8rem;
+    line-height: 2.7rem;
+    color: var(--black);
 }
 .blogpost2__inf {
     @apply flex flex-row items-center mt-6;
@@ -83,10 +108,17 @@
     @apply flex flex-row justify-between items-center mb-12;
 }
 .blogpost3__content {
-    @apply flex flex-col;
+    @apply flex flex-col mr-6;
 }
 .blogpost3__inf {
     @apply flex flex-row items-center mt-6;
+}
+.blogpost3 .blogpost3__content .blogpost3__content-title {
+    font-family:'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 2.3rem;
+    color: var(--black);
 }
 .blogpost3 img {
     width: 9.6rem;
@@ -94,11 +126,12 @@
     border-radius: 1.2rem;
 }
 .blogpost h6:hover,
-.blogpost1 h2:hover,
+.blogpost1 .blogpost1__content-title:hover,
 .blogpost3__content h4:hover,
-.blogpost2 h3:hover,
+.blogpost2 .blogpost2__title:hover,
 .blogpost1__inf img:hover,
 .blogpost2 img:hover,
+.blogpost3 .blogpost3__content-title:hover,
 .blogpost3 img:hover {
     cursor: pointer;
     opacity: 80%;
