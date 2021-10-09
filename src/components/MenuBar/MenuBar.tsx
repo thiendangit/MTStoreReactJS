@@ -1,12 +1,12 @@
 import React, { memo } from 'react';
+import { Link } from 'react-router-dom';
 import './MenuBar.css';
-import { ButtonBase, Typography } from '@material-ui/core';
+import { ButtonBase } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import { getCategoriesState } from '@store/reducers/categoriesSlice';
 import { Category } from 'WooCommerce';
 import { Skeleton } from '@material-ui/lab';
 import { itemMenu } from '../Data_Info/DataInfo';
-
 const MenuBarComponent: React.FC = () => {
   const [idx, setIndex] = React.useState(null);
   const categories = useSelector(getCategoriesState);
@@ -23,7 +23,7 @@ const MenuBarComponent: React.FC = () => {
           onClick={() => handleClick(item.id)}
           className={item.id === idx ? 'menubar__btn active' : 'menubar__btn'}
         >
-          <a href={item.slug}>{item.name}</a>
+          <Link to={`/${item.slug}`}>{item.name}</Link>
         </ButtonBase>
       </div>
     );

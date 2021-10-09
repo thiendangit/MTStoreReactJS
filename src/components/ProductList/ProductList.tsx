@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './ProductList.css';
+import { Link } from 'react-router-dom';
 import { ButtonBase } from '@material-ui/core';
 import { ChevronRight } from '@material-ui/icons';
 import { ProductHorizontalItems } from './ProductHorizontalItems/ProductHorizontalItems';
@@ -16,10 +17,11 @@ export const ProductList: React.FC = () => {
   const [recommendProducts, setRecommendProducts] = React.useState<Product[]>([]);
 
   async function getProducts() {
-    const reqSelling = fetchProducts({ category: (categoryItems[1]?.id).toString() });
+    const reqSelling = fetchProducts({ category: (categoryItems[0]?.id).toString() });
     const reqRecommend = fetchProducts({ category: (categoryItems[2]?.id).toString() });
     const [resSelling, resRecommend] = await Promise.all([reqSelling, reqRecommend]);
     if (resSelling.data) setBestSellingProducts(resSelling.data);
+    console.log(resSelling);
     if (resRecommend.data) setRecommendProducts(resRecommend.data);
   }
   // useEffect
@@ -35,7 +37,7 @@ export const ProductList: React.FC = () => {
         <div className="bestselling__title">
           <h2>Best selling products</h2>
           <ButtonBase className="bestselling__btn">
-            More products
+            <Link to="/product">More products</Link>
             <ChevronRight fontSize={'large'} />
           </ButtonBase>
         </div>

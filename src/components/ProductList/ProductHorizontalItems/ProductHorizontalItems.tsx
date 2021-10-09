@@ -1,5 +1,6 @@
 import React from 'react';
 import { ButtonBase } from '@material-ui/core';
+import { Link, useHistory } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Scrollbar } from 'swiper';
 import '../../../../node_modules/swiper/modules/scrollbar/scrollbar.scss';
@@ -39,7 +40,9 @@ const ProductHorizontalItemsComponent = ({ data, numItem }: { data: Product[]; n
             <SwiperSlide key={item.id}>
               <p className="product__list-item-sale">{item.sale_price}</p>
               <img src={item?.images?.[0]?.src} alt="Product in store" />
-              <h4 className="product__list-item-title">{item.name}</h4>
+              <Link to={`/${item.slug}`}>
+                <h4 className="product__list-item-title">{item.name}</h4>
+              </Link>
               {/*<p className="product__list-item-desc">{item.short_description}</p>*/}
               <div className="product__list-item-price">
                 <span className="price__regular">
@@ -47,9 +50,11 @@ const ProductHorizontalItemsComponent = ({ data, numItem }: { data: Product[]; n
                   <br />
                   <span className="price">{item.price}</span>
                 </span>
-                <ButtonBase className="product__item-btn">
-                  <p className="product__item-text-btn">Buy now</p>
-                </ButtonBase>
+                <Link to={`/${item.slug}`}>
+                  <ButtonBase className="product__item-btn">
+                    <p className="product__item-text-btn">Buy now</p>
+                  </ButtonBase>
+                </Link>
               </div>
             </SwiperSlide>
           ))
