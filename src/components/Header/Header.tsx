@@ -5,10 +5,8 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { icons } from '@public/icon';
 import { getCategoriesState } from '@store/reducers/categoriesSlice';
 import { useSelector } from 'react-redux';
-import { Typography } from '@material-ui/core';
-import { Skeleton } from '@material-ui/lab';
-import { itemMenu } from '../Data_Info/DataInfo';
 import { Category } from 'WooCommerce';
+import { Badge } from '@material-ui/core';
 
 const HeaderComponent: React.FC = () => {
   const categoriesProp = useSelector(getCategoriesState);
@@ -41,10 +39,17 @@ const HeaderComponent: React.FC = () => {
       </div>
       <div className="header__icons">
         <img src={icons.user} alt={'user'} className="user__icon" />
-        <img src={icons.cart} alt="Shopping basket" className="basket__icon" />
-        <span className="quantity__cart">
-          <p>400</p>
-        </span>
+        <Badge
+          badgeContent={10}
+          max={99}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'left',
+          }}
+          className="header__icons-badge"
+        >
+          <img src={icons.cart} alt="Shopping basket" className="basket__icon" />
+        </Badge>
       </div>
     </div>
   );
