@@ -13,6 +13,14 @@ const defaultItems = {
 };
 
 const ProductHorizontalItemsComponent = ({ data, numItem }: { data: Product[]; numItem: typeof defaultItems }) => {
+  const history = useHistory();
+
+  const gotoProductDetail = (item: Product) => {
+    history.push(`/product?id=${item.id}`, {
+      item,
+    });
+  };
+
   return (
     <div className="product__list">
       <Swiper
@@ -36,28 +44,30 @@ const ProductHorizontalItemsComponent = ({ data, numItem }: { data: Product[]; n
         className="mySwiper"
       >
         {data
-          ?.map((item) => (
-            <SwiperSlide key={item.id}>
-              <p className="product__list-item-sale">{item.sale_price}</p>
-              <img src={item?.images?.[0]?.src} alt="Product in store" />
-              <Link to={`/${item.slug}`}>
-                <h4 className="product__list-item-title">{item.name}</h4>
-              </Link>
-              {/*<p className="product__list-item-desc">{item.short_description}</p>*/}
-              <div className="product__list-item-price">
-                <span className="price__regular">
-                  {item.regular_price}
-                  <br />
-                  <span className="price">{item.price}</span>
-                </span>
-                <Link to={`/${item.slug}`}>
-                  <ButtonBase className="product__item-btn">
-                    <p className="product__item-text-btn">Buy now</p>
-                  </ButtonBase>
-                </Link>
-              </div>
-            </SwiperSlide>
-          ))
+          ?.map((item) => {
+            const onPressItem = () => gotoProductDetail(item);
+            console.log(item);
+            return (
+              <SwiperSlide key={item?.id}>
+                <button onClick={onPressItem}>
+                  <p className="product__list-item-sale">{item?.sale_price}</p>
+                  <img src={item?.images?.[0]?.src} alt="Product in store" />
+                  <h4 className="product__list-item-title">{item?.name}</h4>
+                  <div dangerouslySetInnerHTML={{ __html: item?.description }} className="product__list-item-desc" />
+                  <div className="product__list-item-price">
+                    <span className="price__regular">
+                      {item?.regular_price}
+                      <br />
+                      <span className="price">{item?.price}</span>
+                    </span>
+                    <ButtonBase className="product__item-btn">
+                      <p className="product__item-text-btn">Buy now</p>
+                    </ButtonBase>
+                  </div>
+                </button>
+              </SwiperSlide>
+            );
+          })
           .slice(0, numItem.numItem)}
       </Swiper>
     </div>

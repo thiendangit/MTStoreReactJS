@@ -15,7 +15,7 @@ const RootPage: React.FC = () => {
         <MenuBar />
         <LinkPage />
         {/*<Footer />*/}
-        {/*<CallAPI />*/}
+        <CallAPI />
       </Container>
     </Router>
   );

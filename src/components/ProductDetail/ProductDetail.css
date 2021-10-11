@@ -17,3 +17,7 @@
 .text__color-gray {
     color: var(--light-gray)!important;
 }
+.size__img {
+    width: 100%;
+    height: 50vh;
+}
