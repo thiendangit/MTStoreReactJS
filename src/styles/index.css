@@ -59,3 +59,54 @@ h6{
     line-height: 2.3rem;
     color: var(--black);
 }
+.select__input-styled {
+    @apply flex justify-start flex-row items-start w-max;
+    background: var(--gray-bg2);
+    border: 1px solid var(--border-black);
+    border-radius: 1.2rem;
+    padding: .65rem 1.2rem;
+}
+.select-styled {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--black);
+    background: var(--gray-bg2);
+    border: none;
+    outline: none;
+}
+.input-styled {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: var(--light-gray);
+    border: none;
+    outline: none;
+    background: var(--gray-bg2);
+    max-width: 3rem;
+}
+.add__product-btn {
+    border: 1px solid var(--bolder-green) !important;
+    background: var(--green) !important;
+    border-radius: 1.2rem !important;
+    margin-left: auto !important;
+    width: max-content;
+    max-height: 3.6rem;
+    outline: none !important;
+}
+.text__add-btn {
+    color: var(--white);
+    padding: 0.65rem 1.2rem 0.65rem 0.5rem;
+    font-family:'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2.3rem;
+}
+.line__box {
+    border: 1px solid var(--gray-bg1);
+    height: 100%;
+    margin: 0 .5rem;
+}
+.PrivateTabIndicator-colorSecondary-5 {
+    background-color: var(--green) !important;
+}

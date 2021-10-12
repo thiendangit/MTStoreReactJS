@@ -6,3 +6,4 @@ export * from './ProductList/ProductList';
 export * from './Feedback/Feedback';
 export * from './BlogPosts/BlogPost';
 export * from './Footer/Footer';
+export * from './TitleComponent/TitleComponent';

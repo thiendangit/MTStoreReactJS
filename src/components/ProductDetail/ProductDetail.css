@@ -14,10 +14,34 @@
     line-height: 1.9rem;
     color: var(--black);
 }
+.text__price-product {
+    font-family:'Poppins', sans-serif;
+    font-size: 2.6rem;
+    line-height: 3.9rem;
+    color: var(--green);
+}
+.text__price-sale {
+    font-family:'Poppins', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    color: var(--light-gray);
+}
 .text__color-gray {
     color: var(--light-gray)!important;
 }
+.tab__btn {
+    padding: 1.6rem 1.6rem 1.6rem 0 !important;
+    width: max-content !important;
+    outline: none !important;
+    font-family:'Poppins', sans-serif;
+    font-size: 1.8rem !important;
+    line-height: 27px;
+    font-weight: 600 !important;
+    text-transform: none!important;
+    color: var(--black);
+}
 .size__img {
-    width: 100%;
+    width: 90%;
     height: 50vh;
+    background-position: center;
 }

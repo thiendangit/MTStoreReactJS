@@ -1,13 +1,8 @@
 import React from 'react';
 import { Box, Typography } from '@material-ui/core';
 import { Skeleton } from '@material-ui/lab';
-import { useHistory } from 'react-router-dom';
 
 export const SkeletonComponent = () => {
-  const history = useHistory();
-  const handleClick = () => {
-    history.push('/product');
-  };
   return (
     <Box className="flex flex-row justify-between w-full mt-12 rounded-3xl">
       {[1, 2, 3, 4].map((item, index) => (
@@ -24,7 +19,6 @@ export const SkeletonComponent = () => {
               <Skeleton className="lg:w-32 lg:block hidden rounded-3xl my-4" height={20} />
             </Typography>
             <Skeleton className="lg:w-24 lg:block hidden rounded-3xl my-4" height={40} />
-            <button onClick={handleClick}>Click</button>
           </Typography>
         </Box>
       ))}
