@@ -3,38 +3,75 @@ import './ProductDetail.css';
 import { useLocation } from 'react-router';
 import { AddOutlined, BurstMode, FavoriteBorder, Star, StarHalf } from '@material-ui/icons';
 import { Product } from 'WooCommerce';
-import { LocationState } from 'history';
 import { Box, ButtonBase, Tab } from '@material-ui/core';
 import { TabContext, TabList, TabPanel } from '@material-ui/lab';
 import { TitleComponent } from '@components';
 import { ProductHorizontalItems } from '../ProductList/ProductHorizontalItems/ProductHorizontalItems';
-import { useSelector } from 'react-redux';
-import { getCategories, getCategoriesState } from '@store/reducers/categoriesSlice';
-import { fetchProducts } from '@logic';
-import { SkeletonComponent } from '../SkelatonComponent/SkeletonComponent';
+import { fetchProductById, fetchProducts } from '@logic';
+import CryptoJS from 'crypto-js';
+
+export interface LocationParams<T> {
+  pathname: string;
+  state: T;
+  search: string;
+  hash: string;
+  key: string;
+}
+
+interface RouterProps {
+  item: Product;
+}
 
 export const ProductDetail = () => {
-  const location = useLocation<any>();
+  const location = useLocation() as LocationParams<RouterProps>;
   const [item, setItem] = useState<Product>(location?.state?.item);
-  console.log(location?.state?.item);
-  const categoryItems = useSelector(getCategories);
-  const categories = useSelector(getCategoriesState);
   const [relatedProducts, setRelatedProducts] = React.useState<Product[]>([]);
   const [value, setValue] = React.useState('1');
+  const [loading, setLoading] = React.useState<boolean>(false);
 
-  async function getProducts() {
-    const reqRelated = fetchProducts({ category: (categoryItems[3]?.id).toString() });
+  async function getRelatedProducts() {
+    const reqRelated = fetchProducts({ include: JSON.stringify(item.related_ids.slice(0, 3)) });
     const [resRelated] = await Promise.all([reqRelated]);
     if (resRelated.data) setRelatedProducts(resRelated.data);
-    console.log(resRelated);
+    setLoading(false);
   }
-  // useEffect
+
+  /**
+   * get product detail
+   */
   useEffect(() => {
-    if (categoryItems.length > 0) {
-      getProducts();
+    const id_secret = location.search?.split('?sp_atk=')?.[1];
+    console.log({ id_secret });
+    console.log(process.env.CRYPTO_PRODUCT_ID_KEY);
+    if (id_secret) {
+      const bytes = CryptoJS.AES.decrypt(id_secret, process.env.CRYPTO_PRODUCT_ID_KEY);
+      const id = bytes.toString(CryptoJS.enc.Utf8);
+      console.log('decode', id);
+      (async function getProduct() {
+        const response = await fetchProductById(Number(id));
+        if (response && response?.data) {
+          console.log(response.data);
+          setItem(response?.data);
+        }
+      })();
+      // fetch product by id;
+      // fetch product relate
+      // setItem
     }
-  }, [categoryItems]);
-  const handleChange = (event: React.ChangeEvent<{ checked: boolean }>, newValue: any) => {
+  }, [location.search]);
+
+  /**
+   * get related products
+   */
+  useEffect(() => {
+    if (item && item.related_ids.length > 0 && relatedProducts.length === 0) {
+      setLoading(true);
+      getRelatedProducts();
+      console.log('Related');
+    }
+  }, [item]);
+
+  const handleChange = (event: React.ChangeEvent<{ checked: boolean }>, newValue: string) => {
     setValue(newValue);
   };
 
@@ -56,7 +93,7 @@ export const ProductDetail = () => {
             <Star fontSize={'small'} style={{ color: '#FDBC15' }} />
             <Star fontSize={'small'} style={{ color: '#FDBC15' }} />
             <StarHalf fontSize={'small'} style={{ color: '#FDBC15' }} />
-            <p className="underline text__color-gray">(1 customer review)</p>
+            <p className="underline text__color-gray ml-2.5">(1 customer review)</p>
           </div>
           <div dangerouslySetInnerHTML={{ __html: item?.description }} className="text__p mb-8" />
           <div className="grid md:grid-cols-2 grid-cols-1 gap-6 justify-start items-start mb-8">
@@ -94,8 +131,8 @@ export const ProductDetail = () => {
               <p className="text__price-product">{item?.price} USD</p>
               <p className="text__price-sale line-through">{item?.sale_price}4800 USD </p>
             </div>
-            <div className="flex flex-row gap-3 justify-start items-stretch">
-              <div className="select__input-styled">
+            <div className="flex flex-row flex-wrap gap-3 justify-start items-stretch">
+              <div className="select__input-styled w-3/4 md:w-max">
                 <input type="text" className="input-styled" placeholder="1" />
                 <span className="line__box" />
                 <select name="Pcs" className="select-styled">
@@ -105,7 +142,7 @@ export const ProductDetail = () => {
                   <option value="Pack">Pack</option>
                 </select>
               </div>
-              <ButtonBase className="add__product-btn ml-8">
+              <ButtonBase className="add__product-btn ml-8 w-3/4 md:w-max">
                 <AddOutlined fontSize={'large'} style={{ color: 'var(--white)', fontWeight: 'bolder' }} />
                 <p className="text__add-btn">Add to cart</p>
               </ButtonBase>
@@ -130,26 +167,20 @@ export const ProductDetail = () => {
                 <Tab label="Reviews" value="2" className="tab__btn">
                   Reviews
                 </Tab>
-                <Tab label="Questions" value="3" className="tab__btn">
-                  Questions
-                </Tab>
               </TabList>
             </Box>
             <TabPanel value="1">
               <div dangerouslySetInnerHTML={{ __html: item?.description }} className="text__p mb-8" />
             </TabPanel>
-            <TabPanel value="2">{item.rating_count}</TabPanel>
-            <TabPanel value="3">{item.status}</TabPanel>
+            <TabPanel value="2" className="text__p mb-8">
+              {item?.rating_count}
+            </TabPanel>
           </TabContext>
         </div>
       </div>
       <div>
         <TitleComponent title={'Related products'} textBtn={'More products'} path={'related'} />
-        {!categories.isLoading ? (
-          <ProductHorizontalItems data={relatedProducts} numItem={{ numItem: 7 }} />
-        ) : (
-          <SkeletonComponent />
-        )}
+        <ProductHorizontalItems loading={loading} data={relatedProducts} numItem={{ numItem: 7 }} />
       </div>
     </div>
   );

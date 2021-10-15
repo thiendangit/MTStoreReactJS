@@ -1,10 +1,13 @@
 import React from 'react';
 import { ButtonBase } from '@material-ui/core';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Scrollbar } from 'swiper';
 import '../../../../node_modules/swiper/modules/scrollbar/scrollbar.scss';
 import { Product } from 'WooCommerce';
+import { SkeletonComponent } from '../../SkelatonComponent/SkeletonComponent';
+
+const CryptoJS = require('crypto-js');
 
 SwiperCore.use([Scrollbar]);
 
@@ -12,14 +15,25 @@ const defaultItems = {
   numItem: 7,
 };
 
-const ProductHorizontalItemsComponent = ({ data, numItem }: { data: Product[]; numItem: typeof defaultItems }) => {
+interface ProductHorizontalItemsProps {
+  data: Product[];
+  loading: boolean;
+  numItem: typeof defaultItems;
+}
+
+const ProductHorizontalItemsComponent = ({ data, numItem, loading }: ProductHorizontalItemsProps) => {
   const history = useHistory();
 
   const gotoProductDetail = (item: Product) => {
-    history.push(`/product?id=${item.id}`, {
+    const id_secret = CryptoJS.AES.encrypt(item?.id?.toString(), process.env.CRYPTO_PRODUCT_ID_KEY).toString();
+    history.push(`/product?sp_atk=${id_secret}`, {
       item,
     });
   };
+
+  if (loading) {
+    return <SkeletonComponent />;
+  }
 
   return (
     <div className="product__list">
@@ -46,10 +60,11 @@ const ProductHorizontalItemsComponent = ({ data, numItem }: { data: Product[]; n
         {data
           ?.map((item) => {
             const onPressItem = () => gotoProductDetail(item);
-            console.log(item);
+            // console.log(item);
             return (
               <SwiperSlide key={item?.id}>
                 <button onClick={onPressItem}>
+                  {/*<Link to={`/product/${item.id}/${item.slug}`}>*/}
                   <p className="product__list-item-sale">{item?.sale_price}</p>
                   <img src={item?.images?.[0]?.src} alt="Product in store" />
                   <h4 className="product__list-item-title">{item?.name}</h4>
@@ -64,6 +79,7 @@ const ProductHorizontalItemsComponent = ({ data, numItem }: { data: Product[]; n
                       <p className="product__item-text-btn">Buy now</p>
                     </ButtonBase>
                   </div>
+                  {/*</Link>*/}
                 </button>
               </SwiperSlide>
             );

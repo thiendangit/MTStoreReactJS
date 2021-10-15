@@ -14,9 +14,10 @@ export const LinkPage: React.FC = () => {
         }}
         component={HomePage}
       />
+      {/*<Route path="/product/:id/:slug" component={ProductDetail} />*/}
       <Route path="/product" component={ProductDetail} />
-      <Route />
-      <Route />
+      {/*<Route />*/}
+      {/*<Route />*/}
     </Switch>
   );
 };

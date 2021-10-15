@@ -3,22 +3,6 @@
     @apply flex flex-col;
     padding: 1.6rem 4.5rem;
 }
-.bestselling__title,
-.recommence__title {
-    @apply flex flex-row justify-between items-baseline;
-}
-.bestselling__btn,
-.recommence__btn {
-    font-family:'Poppins', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 2.3rem;
-    color: var(--black) !important;
-    padding: 1.3rem 1.6rem !important;
-    background: var(--white-shadow) !important;
-    border-radius: 1.2rem !important;
-    width: max-content;
-}
 .product__list {
     @apply grid grid-rows-1;
     margin-top: 3.4rem;
@@ -42,10 +26,13 @@
 }
 .swiper-slide img {
     display: block;
-    width: 30rem;
+    width: 90%;
     height: 20rem;
     object-fit: cover;
     border-radius: 1.2rem;
+}
+.swiper-slide button {
+    outline: none;
 }
 .swiper-slide .product__list-item-price {
     @apply flex flex-row justify-between items-center;
@@ -100,6 +87,7 @@
     margin-left: auto!important;
     width: max-content;
     max-height: 3.6rem;
+    outline: none !important;
 }
 .product__item-text-btn {
     color: var(--white);

@@ -107,6 +107,6 @@ h6{
     height: 100%;
     margin: 0 .5rem;
 }
-.PrivateTabIndicator-colorSecondary-5 {
+.PrivateTabIndicator-colorSecondary {
     background-color: var(--green) !important;
 }
