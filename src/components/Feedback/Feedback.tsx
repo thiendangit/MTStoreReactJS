@@ -26,12 +26,12 @@ const FeedBackComponent: React.FC = () => {
           },
         }}
         navigation={true}
-        className="feedback__item2"
+        className="feedback__item"
       >
         {feedbackCustomers.map((item) => (
-          <SwiperSlide key={item.id} className="feedback__item2-content">
-            <p className="feedback__item2-review">{item.review}</p>
-            <p className="feedback__item2-reviewer">{item.reviewer}</p>
+          <SwiperSlide key={item.id} className="feedback__item-content">
+            <p className="feedback__item-review">{item.review}</p>
+            <p className="feedback__item-reviewer">{item.reviewer}</p>
           </SwiperSlide>
         ))}
       </Swiper>
