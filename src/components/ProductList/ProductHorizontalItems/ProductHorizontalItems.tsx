@@ -47,10 +47,14 @@ const ProductHorizontalItemsComponent = ({ data, numItem, loading }: ProductHori
             spaceBetween: 30,
           },
           '768': {
-            slidesPerView: 3,
-            spaceBetween: 40,
+            slidesPerView: 2,
+            spaceBetween: 50,
           },
           '1024': {
+            slidesPerView: 3,
+            spaceBetween: 60,
+          },
+          '1280': {
             slidesPerView: 4,
             spaceBetween: 50,
           },
@@ -62,14 +66,18 @@ const ProductHorizontalItemsComponent = ({ data, numItem, loading }: ProductHori
             const onPressItem = () => gotoProductDetail(item);
             // console.log(item);
             return (
-              <SwiperSlide key={item?.id}>
-                <button onClick={onPressItem}>
-                  {/*<Link to={`/product/${item.id}/${item.slug}`}>*/}
-                  <p className="product__list-item-sale">{item?.sale_price}</p>
-                  <img src={item?.images?.[0]?.src} alt="Product in store" />
-                  <h4 className="product__list-item-title">{item?.name}</h4>
-                  <div dangerouslySetInnerHTML={{ __html: item?.description }} className="product__list-item-desc" />
-                  <div className="product__list-item-price">
+              <SwiperSlide key={item?.id} onClick={onPressItem}>
+                <p className="product__list-item-sale">{item?.sale_price}</p>
+                <img src={item?.images?.[0]?.src} alt="Product in store" />
+                <div className="flex flex-col flex-1 w-full">
+                  <div className="flex flex-col flex-1 w-full">
+                    <h4 className="product__list-item-title w-full truncate break-all">{item?.name}</h4>
+                    <div
+                      dangerouslySetInnerHTML={{ __html: item?.description }}
+                      className="product__list-item-desc mt-auto w-full truncate break-all"
+                    />
+                  </div>
+                  <div className="product__list-item-price w-full">
                     <span className="price__regular">
                       {item?.regular_price}
                       <br />
@@ -79,8 +87,7 @@ const ProductHorizontalItemsComponent = ({ data, numItem, loading }: ProductHori
                       <p className="product__item-text-btn">Buy now</p>
                     </ButtonBase>
                   </div>
-                  {/*</Link>*/}
-                </button>
+                </div>
               </SwiperSlide>
             );
           })

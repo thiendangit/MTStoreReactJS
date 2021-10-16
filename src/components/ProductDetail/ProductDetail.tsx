@@ -128,8 +128,8 @@ export const ProductDetail = () => {
           </div>
           <div className="flex flex-row flex-wrap gap-8 justify-between items-center text__color-gray rounded-3xl mb-8 ">
             <div>
-              <p className="text__price-product">{item?.price} USD</p>
-              <p className="text__price-sale line-through">{item?.sale_price}4800 USD </p>
+              <p className="text__price-product">{item?.price}</p>
+              <p className="text__price-sale line-through">{item?.sale_price ? item?.sale_price : ''}</p>
             </div>
             <div className="flex flex-row flex-wrap gap-3 justify-start items-stretch">
               <div className="select__input-styled w-3/4 md:w-max">
@@ -160,20 +160,16 @@ export const ProductDetail = () => {
           </div>
           <TabContext value={value}>
             <Box>
-              <TabList onChange={handleChange} variant="scrollable" scrollButtons={'on'}>
-                <Tab label="Description" value="1" className="tab__btn">
-                  Description
-                </Tab>
-                <Tab label="Reviews" value="2" className="tab__btn">
-                  Reviews
-                </Tab>
+              <TabList onChange={handleChange} variant="scrollable" scrollButtons={'auto'}>
+                <Tab label="Description" value="1" className="tab__btn" />
+                <Tab label="Reviews" value="2" className="tab__btn" />
               </TabList>
             </Box>
             <TabPanel value="1">
               <div dangerouslySetInnerHTML={{ __html: item?.description }} className="text__p mb-8" />
             </TabPanel>
-            <TabPanel value="2" className="text__p mb-8">
-              {item?.rating_count}
+            <TabPanel value="2">
+              <p className="text__p mb-8">{item?.rating_count}</p>
             </TabPanel>
           </TabContext>
         </div>

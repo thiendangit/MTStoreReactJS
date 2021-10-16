@@ -41,11 +41,8 @@
     color: var(--black);
 }
 .size__img {
-    /*width: 90%;*/
-    height: 50vh;
-    background-position: center;
-    -webkit-background-size: contain;
-    -moz-background-size: contain;
-    -o-background-size: contain;
-    background-size: contain;
+    /*!*width: 90%;*!*/
+    /*height: 50vh;*/
+    object-position: 50% 50%;
+    object-fit: contain;
 }
