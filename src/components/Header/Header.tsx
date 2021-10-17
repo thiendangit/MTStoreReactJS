@@ -7,6 +7,7 @@ import { getCategoriesState } from '@store/reducers/categoriesSlice';
 import { useSelector } from 'react-redux';
 import { Category } from 'WooCommerce';
 import { Badge } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const HeaderComponent: React.FC = () => {
   const categoriesProp = useSelector(getCategoriesState);
@@ -21,7 +22,9 @@ const HeaderComponent: React.FC = () => {
   return (
     <div className="header">
       <div className="header__logo">
-        <img src={icons.logo} alt={'logo'} />
+        <Link to="/">
+          <img src={icons.logo} alt={'logo'} />
+        </Link>
       </div>
       <div className="header__search">
         <select name="All categories" id="categories" className="search__categories">

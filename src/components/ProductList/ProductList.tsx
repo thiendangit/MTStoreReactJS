@@ -1,25 +1,23 @@
 import React, { useEffect } from 'react';
 import './ProductList.css';
-import { ButtonBase } from '@material-ui/core';
-import { ChevronRight } from '@material-ui/icons';
 import { ProductHorizontalItems } from './ProductHorizontalItems/ProductHorizontalItems';
 import { useSelector } from 'react-redux';
-import { getCategories, getCategoriesState } from '@store/reducers/categoriesSlice';
+import { getCategories } from '@store/reducers/categoriesSlice';
 import { Product } from 'WooCommerce';
 import { fetchProducts } from '@logic';
-import { SkeletonComponent } from '../SkelatonComponent/SkeletonComponent';
+import { TitleComponent } from '../TitleComponent/TitleComponent';
 
 export const ProductList: React.FC = () => {
   const categoryItems = useSelector(getCategories);
-  const categories = useSelector(getCategoriesState);
   const [bestSellingProducts, setBestSellingProducts] = React.useState<Product[]>([]);
   const [recommendProducts, setRecommendProducts] = React.useState<Product[]>([]);
 
   async function getProducts() {
-    const reqSelling = fetchProducts({ category: (categoryItems[1]?.id).toString() });
-    const reqRecommend = fetchProducts({ category: (categoryItems[2]?.id).toString() });
+    const reqSelling = fetchProducts({ category: (categoryItems[0]?.id).toString() });
+    const reqRecommend = fetchProducts({ category: (categoryItems[3]?.id).toString() });
     const [resSelling, resRecommend] = await Promise.all([reqSelling, reqRecommend]);
     if (resSelling.data) setBestSellingProducts(resSelling.data);
+    console.log(resSelling);
     if (resRecommend.data) setRecommendProducts(resRecommend.data);
   }
   // useEffect
@@ -32,32 +30,12 @@ export const ProductList: React.FC = () => {
   return (
     <>
       <div className="bestselling">
-        <div className="bestselling__title">
-          <h2>Best selling products</h2>
-          <ButtonBase className="bestselling__btn">
-            More products
-            <ChevronRight fontSize={'large'} />
-          </ButtonBase>
-        </div>
-        {!categories.isLoading ? (
-          <ProductHorizontalItems data={bestSellingProducts} numItem={{ numItem: 7 }} />
-        ) : (
-          <SkeletonComponent />
-        )}
+        <TitleComponent title={'Best selling products'} textBtn={'More products'} path={'product'} />
+        <ProductHorizontalItems loading={false} data={bestSellingProducts} numItem={{ numItem: 7 }} />
       </div>
       <div className="recommence">
-        <div className="recommence__title">
-          <h2>Recommence for you</h2>
-          <ButtonBase className="recommence__btn">
-            More products
-            <ChevronRight fontSize={'large'} />
-          </ButtonBase>
-        </div>
-        {!categories.isLoading ? (
-          <ProductHorizontalItems data={recommendProducts} numItem={{ numItem: 7 }} />
-        ) : (
-          <SkeletonComponent />
-        )}
+        <TitleComponent title={'Recommence for you'} textBtn={'More products'} path={'recommence'} />
+        <ProductHorizontalItems loading={false} data={recommendProducts} numItem={{ numItem: 7 }} />
       </div>
     </>
   );

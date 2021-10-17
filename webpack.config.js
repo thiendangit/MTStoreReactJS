@@ -121,9 +121,7 @@ module.exports = (env, options) => {
           title: package.name,
           description: package.description,
           author: package.author,
-          keywords: Array.isArray(package.keywords)
-            ? package.keywords.join(',')
-            : undefined,
+          keywords: Array.isArray(package.keywords) ? package.keywords.join(',') : undefined,
           'og:title': package.name,
           'og:description': package.description,
           'og:url': package.homepage,
@@ -172,6 +170,11 @@ module.exports = (env, options) => {
         }),
         new CssMinimizerPlugin(),
       ],
+    },
+    devServer: {
+      historyApiFallback: {
+        disableDotRule: true,
+      },
     },
   };
 };

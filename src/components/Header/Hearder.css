@@ -1,9 +1,9 @@
 .header {
     @apply flex flex-row justify-between items-center flex-wrap py-8;
-    margin: 1.6rem 4.5rem;
+    margin: 1.6rem 2.3rem;
 }
 .header__search {
-    @apply flex justify-around flex-row items-start order-last mt-6 w-full md:order-none md:w-max md:justify-start;
+    @apply flex justify-around flex-row items-start order-last mt-6 w-full md:order-none md:w-max md:justify-start md:mt-0;
     background: var(--gray-bg2);
     border: 1px solid var(--border-black);
     border-radius: 1.2rem;
