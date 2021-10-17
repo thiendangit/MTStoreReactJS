@@ -100,3 +100,8 @@
     font-weight: 700;
     line-height: 2.3rem;
 }
+.product__item-btn:focus,
+.product__item-btn:hover {
+    box-shadow: 0 0.5em 0.5em -0.4em var(--green);
+    transform: translateY(-0.25em);
+}

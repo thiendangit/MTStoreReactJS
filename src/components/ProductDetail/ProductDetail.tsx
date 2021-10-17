@@ -102,27 +102,27 @@ export const ProductDetail = () => {
                 <p className="text__p text__color-gray">SKU:</p>
                 <p className="text__p text__color-gray">Category:</p>
                 <p className="text__p text__color-gray">Stock:</p>
-                <p className="text__p text__color-gray">Farm</p>
               </div>
               <div>
-                <p className="text__p ">{item?.sku}</p>
-                <p className="text__p "> </p>
-                <p className="text__p ">{item?.stock_quantity}</p>
-                <p className="text__p "> </p>
+                <p className="text__p ">{item.sku ? item?.sku : '___'}</p>
+                {item?.categories?.map((val) => (
+                  <p className="text__p " key={val?.id}>
+                    {val?.name ? val?.name : '___'}
+                  </p>
+                ))}
+                <p className="text__p ">{item?.stock_quantity ? item?.stock_quantity : '___'}</p>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <p className="text__p text__color-gray">Freshness:</p>
                 <p className="text__p text__color-gray">Buy by:</p>
                 <p className="text__p text__color-gray">Delivery:</p>
                 <p className="text__p text__color-gray">Delivery area</p>
               </div>
               <div>
-                <p className="text__p "> </p>
-                <p className="text__p "> </p>
-                <p className="text__p ">{item?.shipping_class}</p>
-                <p className="text__p "> </p>
+                <p className="text__p ">Customer</p>
+                <p className="text__p ">{item?.shipping_class ? item?.shipping_class : '___'}</p>
+                <p className="text__p ">Ho Chi Minh City</p>
               </div>
             </div>
           </div>
@@ -169,7 +169,7 @@ export const ProductDetail = () => {
               <div dangerouslySetInnerHTML={{ __html: item?.description }} className="text__p mb-8" />
             </TabPanel>
             <TabPanel value="2">
-              <p className="text__p mb-8">{item?.rating_count}</p>
+              <p className="text__p mb-8">{item?.status}</p>
             </TabPanel>
           </TabContext>
         </div>
