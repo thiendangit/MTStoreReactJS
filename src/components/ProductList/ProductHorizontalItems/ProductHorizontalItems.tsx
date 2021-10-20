@@ -11,9 +11,7 @@ const CryptoJS = require('crypto-js');
 
 SwiperCore.use([Scrollbar]);
 
-const defaultItems = {
-  numItem: 7,
-};
+const defaultItems = 7;
 
 interface ProductHorizontalItemsProps {
   data: Product[];
@@ -91,7 +89,7 @@ const ProductHorizontalItemsComponent = ({ data, numItem, loading }: ProductHori
               </SwiperSlide>
             );
           })
-          .slice(0, numItem.numItem)}
+          .slice(0, numItem)}
       </Swiper>
     </div>
   );

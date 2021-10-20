@@ -6,7 +6,7 @@ export const HomePage: React.FC = () => {
       <Category />
       <ProductList />
       <FeedBack />
-      {/*<BlogPost />*/}
+      <BlogPost />
     </>
   );
 };
