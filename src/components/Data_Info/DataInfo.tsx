@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as Menu from 'Menu';
 import * as Tag from 'Tag';
 import * as CategoryMenu from 'CategoryMenu';

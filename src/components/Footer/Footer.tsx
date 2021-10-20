@@ -3,7 +3,7 @@ import './Footer.css';
 import { footerLinks } from '../Data_Info/DataInfo';
 import { fetchProductTag } from '@logic';
 
-export const Footer: React.FC = () => {
+const FooterComponent: React.FC = () => {
   const [productTags, setProductTags] = useState([]);
 
   const getProductTags = async () => {
@@ -48,8 +48,10 @@ export const Footer: React.FC = () => {
         </div>
       </div>
       <div className="footer__item3">
-        <span>Copyright © 2020 petrbilek.com</span>
+        <span>Copyright © 2021 minhthao.com</span>
       </div>
     </footer>
   );
 };
+
+export const Footer = FooterComponent;

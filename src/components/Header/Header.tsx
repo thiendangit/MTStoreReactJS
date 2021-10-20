@@ -29,8 +29,8 @@ const HeaderComponent: React.FC = () => {
       <div className="header__search">
         <select name="All categories" id="categories" className="search__categories">
           {categories.map((item) => (
-            <option key={item.id} value={item.slug}>
-              {item.name}
+            <option key={item?.id} value={item?.slug}>
+              {item?.slug.substring(0, 1).toUpperCase() + item?.slug.substring(1, item?.slug?.length).toLowerCase()}
             </option>
           ))}
         </select>

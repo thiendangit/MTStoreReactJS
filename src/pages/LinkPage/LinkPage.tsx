@@ -1,6 +1,5 @@
 import React from 'react';
 import { Switch, Route as MyRouter } from 'react-router-dom';
-import { Redirect } from 'react-router';
 import { HomePage } from '../HomePage/HomePage';
 import { ProductDetail } from '../../components/ProductDetail/ProductDetail';
 
