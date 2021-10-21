@@ -7,6 +7,7 @@ import { getCategoriesState } from '@store/reducers/categoriesSlice';
 import { Category } from 'WooCommerce';
 import { Skeleton } from '@material-ui/lab';
 import { itemMenu } from '../Data_Info/DataInfo';
+
 const MenuBarComponent: React.FC = () => {
   const [idx, setIndex] = React.useState(null);
   const categories = useSelector(getCategoriesState);
@@ -17,13 +18,17 @@ const MenuBarComponent: React.FC = () => {
   };
 
   const MenuItem = ({ item }: { item: Category }) => {
+    const category_name = item?.slug ?? '';
     return (
       <div key={item.id}>
         <ButtonBase
           onClick={() => handleClick(item.id)}
           className={item.id === idx ? 'menubar__btn active' : 'menubar__btn'}
         >
-          <Link to={`/${item.slug}`}>{item.name}</Link>
+          <Link to={`/${item.slug}`}>
+            {category_name.substring(0, 1).toUpperCase() +
+              category_name.substring(1, category_name.length).toLowerCase()}
+          </Link>
         </ButtonBase>
       </div>
     );
