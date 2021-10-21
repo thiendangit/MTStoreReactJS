@@ -42,10 +42,10 @@
     color: var(--black);
 }
 .size__img {
-    /*!*width: 90%;*!*/
-    height: 50vh;
+    width: 90%;
+    height: 70vh;
     object-position: center;
-    object-fit: contain;
+    object-fit: inherit;
 }
 .add__product-btn:hover,
 .add__product-btn:focus {

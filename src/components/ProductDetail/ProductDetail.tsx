@@ -9,6 +9,7 @@ import { TitleComponent } from '@components';
 import { ProductHorizontalItems } from '../ProductList/ProductHorizontalItems/ProductHorizontalItems';
 import { fetchProductById, fetchProducts } from '@logic';
 import CryptoJS from 'crypto-js';
+import { images } from '@public/image';
 
 export interface LocationParams<T> {
   pathname: string;
@@ -80,7 +81,11 @@ export const ProductDetail = () => {
             <p className="product__detail-percent-btn ml-5">{item?.sale_price}</p>
             <p className="product__detail-percent-btn ml-28">Free shipping</p>
           </div>
-          <img src={item?.images?.[0]?.src} alt={item?.name} className="rounded-3xl size__img" />
+          <img
+            src={item?.images?.[0]?.src ? item?.images?.[0]?.src : `url(${images.noImg})`}
+            alt={item?.name}
+            className="rounded-3xl size__img"
+          />
         </div>
         <div>
           <h2>{item?.name}</h2>
@@ -93,36 +98,6 @@ export const ProductDetail = () => {
             <p className="underline text__color-gray ml-2.5">(1 customer review)</p>
           </div>
           <div dangerouslySetInnerHTML={{ __html: item?.description }} className="text__p mb-8" />
-          <div className="grid md:grid-cols-2 grid-cols-1 gap-6 justify-start items-start mb-8 mt-8">
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <p className="text__p text__color-gray">SKU:</p>
-                <p className="text__p text__color-gray">Category:</p>
-                <p className="text__p text__color-gray">Stock:</p>
-              </div>
-              <div>
-                <p className="text__p ">{item.sku ? item?.sku : '___'}</p>
-                {item?.categories?.map((val) => (
-                  <p className="text__p " key={val?.id}>
-                    {val?.name ? val?.name : '___'}
-                  </p>
-                ))}
-                <p className="text__p ">{item?.stock_quantity ? item?.stock_quantity : '___'}</p>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <p className="text__p text__color-gray">Buy by:</p>
-                <p className="text__p text__color-gray">Delivery:</p>
-                <p className="text__p text__color-gray">Delivery area</p>
-              </div>
-              <div>
-                <p className="text__p ">Customer</p>
-                <p className="text__p ">{item?.shipping_class ? item?.shipping_class : '___'}</p>
-                <p className="text__p ">Ho Chi Minh City</p>
-              </div>
-            </div>
-          </div>
           <table className="grid lg:grid-cols-2 grid-cols-1 gap-8 table-auto justify-start items-start mb-8">
             <tbody className="table-auto gap-4 items-baseline w-max mr-auto">
               <tr>
