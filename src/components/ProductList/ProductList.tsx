@@ -17,7 +17,7 @@ export const ProductList: React.FC = () => {
     const reqRecommend = fetchProducts({ category: (categoryItems[3]?.id).toString() });
     const [resSelling, resRecommend] = await Promise.all([reqSelling, reqRecommend]);
     if (resSelling.data) setBestSellingProducts(resSelling.data);
-    console.log(resSelling);
+    // console.log(resSelling);
     if (resRecommend.data) setRecommendProducts(resRecommend.data);
   }
   // useEffect

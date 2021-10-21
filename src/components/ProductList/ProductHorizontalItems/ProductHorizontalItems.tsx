@@ -79,9 +79,9 @@ const ProductHorizontalItemsComponent = ({ data, numItem, loading }: ProductHori
                   </div>
                   <div className="product__list-item-price w-full">
                     <span className="price__regular">
-                      {item?.regular_price}
+                      {item?.price}
                       <br />
-                      <span className="price">{item?.price}</span>
+                      <span className="price">{item?.price !== item?.sale_price ? item?.sale_price : null}</span>
                     </span>
                     <ButtonBase className="product__item-btn">
                       <p className="product__item-text-btn">Buy now</p>

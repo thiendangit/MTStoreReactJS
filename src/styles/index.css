@@ -89,7 +89,7 @@ h6{
     border: 1px solid var(--bolder-green) !important;
     background: var(--green) !important;
     border-radius: 1.2rem !important;
-    margin-left: auto !important;
+    margin-left: auto;
     width: max-content;
     max-height: 3.6rem;
     outline: none !important;

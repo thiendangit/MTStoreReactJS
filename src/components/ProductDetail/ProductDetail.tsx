@@ -50,7 +50,7 @@ export const ProductDetail = () => {
       (async function getProduct() {
         const response = await fetchProductById(Number(id));
         if (response && response?.data) {
-          console.log(response.data);
+          // console.log(response.data);
           setItem(response?.data);
         }
       })();
@@ -96,42 +96,58 @@ export const ProductDetail = () => {
             <p className="underline text__color-gray ml-2.5">(1 customer review)</p>
           </div>
           <div dangerouslySetInnerHTML={{ __html: item?.description }} className="text__p mb-8" />
-          <div className="grid md:grid-cols-2 grid-cols-1 gap-6 justify-start items-start mb-8">
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <p className="text__p text__color-gray">SKU:</p>
-                <p className="text__p text__color-gray">Category:</p>
-                <p className="text__p text__color-gray">Stock:</p>
-              </div>
-              <div>
-                <p className="text__p ">{item.sku ? item?.sku : '___'}</p>
-                {item?.categories?.map((val) => (
-                  <p className="text__p " key={val?.id}>
-                    {val?.name ? val?.name : '___'}
-                  </p>
-                ))}
-                <p className="text__p ">{item?.stock_quantity ? item?.stock_quantity : '___'}</p>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <p className="text__p text__color-gray">Buy by:</p>
-                <p className="text__p text__color-gray">Delivery:</p>
-                <p className="text__p text__color-gray">Delivery area</p>
-              </div>
-              <div>
-                <p className="text__p ">Customer</p>
-                <p className="text__p ">{item?.shipping_class ? item?.shipping_class : '___'}</p>
-                <p className="text__p ">Ho Chi Minh City</p>
-              </div>
-            </div>
-          </div>
+          <table className="grid lg:grid-cols-2 grid-cols-1 gap-8 table-auto justify-start items-start mb-8">
+            <tbody className="table-auto gap-4 items-baseline w-max mr-auto">
+              <tr>
+                <td className="text__p text__color-gray p-2.5">SKU:</td>
+                <td className="text__p p-2.5">{item.sku ? item?.sku : '___'}</td>
+              </tr>
+              <tr>
+                <td className="text__p text__color-gray p-2.5">Category:</td>
+                {item?.categories?.map((val) => {
+                  // console.log(val);
+                  return (
+                    <td className="text__p p-2.5 " key={val?.id}>
+                      {val?.name ? val?.name : '___'}
+                    </td>
+                  );
+                })}
+              </tr>
+              <tr>
+                <td className="text__p text__color-gray p-2.5">Stock:</td>
+                <td className="text__p p-2.5 ">{item?.stock_quantity ? item?.stock_quantity : '___'}</td>
+              </tr>
+            </tbody>
+            <tbody className="table-auto gap-4 items-baseline w-max">
+              <tr>
+                <td className="text__p p-2.5 text__color-gray">Buy by:</td>
+                {item?.attributes.map((val) => {
+                  console.log(val);
+                  return (
+                    <td className="text__p p-2.5 " key={val?.id}>
+                      {val?.name ? val?.name : val?.id}
+                    </td>
+                  );
+                })}
+              </tr>
+              <tr>
+                <td className="text__p p-2.5 text__color-gray">Delivery:</td>
+                <td className="text__p p-2.5 ">{item?.shipping_class ? item?.shipping_class : '___'}</td>
+              </tr>
+              <tr>
+                <td className="text__p p-2.5 text__color-gray">Delivery area:</td>
+                <td className="text__p p-2.5 ">Ho Chi Minh City</td>
+              </tr>
+            </tbody>
+          </table>
           <div className="flex flex-row flex-wrap gap-8 justify-between items-center text__color-gray rounded-3xl mb-8 ">
             <div>
               <p className="text__price-product">{item?.price}</p>
-              <p className="text__price-sale line-through">{item?.sale_price ? item?.sale_price : ''}</p>
+              <p className="text__price-sale line-through">
+                {item?.price !== item?.sale_price ? item?.sale_price : ''}
+              </p>
             </div>
-            <div className="flex flex-row flex-wrap gap-3 justify-start items-stretch">
+            <div className="flex flex-row md:flex-nowrap flex-wrap gap-3 justify-start items-stretch">
               <div className="select__input-styled w-3/4 md:w-max">
                 <input type="text" className="input-styled" placeholder="1" />
                 <span className="line__box" />
@@ -142,7 +158,7 @@ export const ProductDetail = () => {
                   <option value="Pack">Pack</option>
                 </select>
               </div>
-              <ButtonBase className="add__product-btn ml-8 w-3/4 md:w-max">
+              <ButtonBase className="add__product-btn md:ml-8 ml-0 w-3/4 md:w-max">
                 <AddOutlined fontSize={'large'} style={{ color: 'var(--white)', fontWeight: 'bolder' }} />
                 <p className="text__add-btn">Add to cart</p>
               </ButtonBase>
