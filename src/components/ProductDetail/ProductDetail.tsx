@@ -82,7 +82,7 @@ export const ProductDetail = () => {
             <p className="product__detail-percent-btn ml-28">Free shipping</p>
           </div>
           <img
-            src={item?.images?.[0]?.src ? item?.images?.[0]?.src : `url(${images.noImg})`}
+            src={item?.images?.[0]?.src ? item?.images?.[0]?.src : `${images.noImg}`}
             alt={item?.name}
             className="rounded-3xl size__img"
           />
@@ -96,7 +96,11 @@ export const ProductDetail = () => {
               }
             >
               {val?.options.map((i) => (
-                <button key={i} className="rounded-3xl bg-red-600 h-8 w-8" />
+                <button
+                  key={i}
+                  style={i ? { backgroundColor: `${i.toLowerCase()}` } : { display: 'none' }}
+                  className="w-8 h-8 rounded-full"
+                />
               ))}
             </div>
           ))}
