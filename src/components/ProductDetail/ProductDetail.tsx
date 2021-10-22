@@ -65,7 +65,7 @@ export const ProductDetail = () => {
     if (item && item.related_ids.length > 0 && relatedProducts.length === 0) {
       setLoading(true);
       getRelatedProducts();
-      console.log(item.attributes);
+      console.log(item);
     }
   }, [item]);
 
@@ -86,9 +86,25 @@ export const ProductDetail = () => {
             alt={item?.name}
             className="rounded-3xl size__img"
           />
-          <div>
+          <div className="mt-8">
             {item?.attributes?.map((val) => (
-              <select key={val.id} value="Size">
+              <div
+                key={val?.name === 'color' ? val?.name : null}
+                className="px-4 py-2.5 mr-8 flex flex-col justify-between"
+              >
+                {val?.options.map((i) => (
+                  <button key={i} className="product__detail-percent-btn rounded-3xl bg-red-600" />
+                ))}
+              </div>
+            ))}
+          </div>
+          <div className="mt-8">
+            {item?.attributes?.map((val) => (
+              <select
+                key={val?.name === 'size' ? val?.name : null}
+                name={val?.name}
+                className="select-styled px-4 py-2.5 mr-8 rounded-3xl"
+              >
                 {val?.options.map((i) => (
                   <option key={i} value={i}>
                     {i}
@@ -118,7 +134,6 @@ export const ProductDetail = () => {
               <tr>
                 <td className="text__p text__color-gray p-2.5">Category:</td>
                 {item?.categories?.map((val) => {
-                  console.log(val);
                   return (
                     <td className="text__p p-2.5 " key={val?.id}>
                       {val?.name ? val?.name.toString() : '___'}
@@ -128,20 +143,13 @@ export const ProductDetail = () => {
               </tr>
               <tr>
                 <td className="text__p text__color-gray p-2.5">Stock:</td>
-                <td className="text__p p-2.5 ">{item?.stock_quantity ? item?.stock_quantity : '___'}</td>
+                <td className="text__p p-2.5 ">{item?.in_stock ? item?.in_stock : '___'}</td>
               </tr>
             </tbody>
             <tbody className="table-auto gap-4 items-baseline w-max">
               <tr>
                 <td className="text__p p-2.5 text__color-gray">Buy by:</td>
-                {item?.attributes.map((val) => {
-                  console.log(val);
-                  return (
-                    <td className="text__p p-2.5 " key={val?.id}>
-                      {val?.name ? val?.name.toString() : val?.id}
-                    </td>
-                  );
-                })}
+                <td>Name customer</td>
               </tr>
               <tr>
                 <td className="text__p p-2.5 text__color-gray">Delivery:</td>
@@ -157,7 +165,7 @@ export const ProductDetail = () => {
             <div>
               <p className="text__price-product">{item?.regular_price ? item?.regular_price : item?.price}</p>
               <p className="text__price-sale line-through">
-                {item?.price !== item?.sale_price ? item?.sale_price : ''}
+                {item?.sale_price !== item?.regular_price ? item?.sale_price : ''}
               </p>
             </div>
             <div className="flex flex-row md:flex-nowrap flex-wrap gap-3 justify-start items-stretch">
