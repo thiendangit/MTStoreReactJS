@@ -15,6 +15,7 @@ html {
 }
 :root {
     --green: #6A983C;
+    --red: rgba(231, 13, 13, 0.89);
     --bolder-green: #46760A;
     --black: #151515;
     --border-black: rgba(21, 21, 21, 5%);
@@ -25,7 +26,7 @@ html {
     --gray-bg3: #F4F8EC;
     --white: #FFFFFF;
     --white-shadow: #F5F5F5;
-    --orange : #E5704B;
+    --orange : rgba(229, 112, 75, 1);
     --width: 100px;
 }
 h2 {
