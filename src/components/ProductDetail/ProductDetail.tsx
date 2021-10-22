@@ -42,12 +42,12 @@ export const ProductDetail = () => {
    */
   useEffect(() => {
     const id_secret = location.search?.split('?sp_atk=')?.[1];
-    console.log({ id_secret });
-    console.log(process.env.CRYPTO_PRODUCT_ID_KEY);
+    // console.log({ id_secret });
+    // console.log(process.env.CRYPTO_PRODUCT_ID_KEY);
     if (id_secret) {
       const bytes = CryptoJS.AES.decrypt(id_secret, process.env.CRYPTO_PRODUCT_ID_KEY);
       const id = bytes.toString(CryptoJS.enc.Utf8);
-      console.log('decode', id);
+      // console.log('decode', id);
       (async function getProduct() {
         const response = await fetchProductById(Number(id));
         if (response && response?.data) {
@@ -65,7 +65,7 @@ export const ProductDetail = () => {
     if (item && item.related_ids.length > 0 && relatedProducts.length === 0) {
       setLoading(true);
       getRelatedProducts();
-      console.log('Related');
+      console.log(item.attributes);
     }
   }, [item]);
 
@@ -86,6 +86,17 @@ export const ProductDetail = () => {
             alt={item?.name}
             className="rounded-3xl size__img"
           />
+          <div>
+            {item?.attributes?.map((val) => (
+              <select key={val.id} value="Size">
+                {val?.options.map((i) => (
+                  <option key={i} value={i}>
+                    {i}
+                  </option>
+                ))}
+              </select>
+            ))}
+          </div>
         </div>
         <div>
           <h2>{item?.name}</h2>
@@ -107,10 +118,10 @@ export const ProductDetail = () => {
               <tr>
                 <td className="text__p text__color-gray p-2.5">Category:</td>
                 {item?.categories?.map((val) => {
-                  // console.log(val);
+                  console.log(val);
                   return (
                     <td className="text__p p-2.5 " key={val?.id}>
-                      {val?.name ? val?.name : '___'}
+                      {val?.name ? val?.name.toString() : '___'}
                     </td>
                   );
                 })}
@@ -127,7 +138,7 @@ export const ProductDetail = () => {
                   console.log(val);
                   return (
                     <td className="text__p p-2.5 " key={val?.id}>
-                      {val?.name ? val?.name : val?.id}
+                      {val?.name ? val?.name.toString() : val?.id}
                     </td>
                   );
                 })}
@@ -144,7 +155,7 @@ export const ProductDetail = () => {
           </table>
           <div className="flex flex-row flex-wrap gap-8 justify-between items-center text__color-gray rounded-3xl mb-8 ">
             <div>
-              <p className="text__price-product">{item?.price}</p>
+              <p className="text__price-product">{item?.regular_price ? item?.regular_price : item?.price}</p>
               <p className="text__price-sale line-through">
                 {item?.price !== item?.sale_price ? item?.sale_price : ''}
               </p>

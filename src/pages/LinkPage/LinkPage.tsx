@@ -14,10 +14,7 @@ export const LinkPage: React.FC = () => {
         // }}
         component={HomePage}
       />
-      {/*<Route path="/product/:id/:slug" component={ProductDetail} />*/}
       <MyRouter path="/product" component={ProductDetail} />
-      {/*<Route />*/}
-      {/*<Route />*/}
     </Switch>
   );
 };

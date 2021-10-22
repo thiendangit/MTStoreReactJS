@@ -6,6 +6,7 @@ import SwiperCore, { Scrollbar } from 'swiper';
 import '../../../../node_modules/swiper/modules/scrollbar/scrollbar.scss';
 import { Product } from 'WooCommerce';
 import { SkeletonComponent } from '../../SkelatonComponent/SkeletonComponent';
+import { images } from '@public/image';
 
 const CryptoJS = require('crypto-js');
 
@@ -66,7 +67,10 @@ const ProductHorizontalItemsComponent = ({ data, numItem, loading }: ProductHori
             return (
               <SwiperSlide key={item?.id} onClick={onPressItem}>
                 <p className="product__list-item-sale">{item?.sale_price}</p>
-                <img src={item?.images?.[0]?.src} alt="Product in store" />
+                <img
+                  src={item?.images?.[0]?.src ? item?.images?.[0]?.src : `url(${images.noImg})`}
+                  alt="Product in store"
+                />
                 <div className="flex flex-col flex-1 w-full">
                   <div className="flex flex-col flex-1 w-full">
                     <h4 className="product__list-item-title w-full truncate break-all">{item?.name}</h4>
@@ -79,7 +83,11 @@ const ProductHorizontalItemsComponent = ({ data, numItem, loading }: ProductHori
                     <span className="price__regular">
                       {item?.price}
                       <br />
-                      <span className="price">{item?.price !== item?.sale_price ? item?.sale_price : null}</span>
+                      <span className="price">
+                        {item?.sale_price < item?.price || item?.sale_price < item?.regular_price
+                          ? item?.sale_price
+                          : null}
+                      </span>
                     </span>
                     <ButtonBase className="product__item-btn">
                       <p className="product__item-text-btn">Buy now</p>
