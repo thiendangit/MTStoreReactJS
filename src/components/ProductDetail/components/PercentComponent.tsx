@@ -1,15 +1,11 @@
 import { Product } from 'WooCommerce';
 import React from 'react';
 
-const PercentComponent = ({ item }: { item: Product }) => {
+export const PercentComponent = ({ item }: { item: Product }) => {
   return (
     <div className="flex flex-row justify-start items-center relative">
-      <p className="product__detail-percent-btn ml-5">{item?.sale_price}</p>
-      <p className={item?.shipping_class !== '' ? 'product__detail-percent-btn ml-28' : 'hidden'}>
-        {item?.shipping_class !== '' ? item?.shipping_class : null}
-      </p>
+      {item?.sale_price !== '' && <p className="product__detail-percent-btn ml-5">{item?.sale_price}</p>}
+      {item?.shipping_class !== '' && <p className="product__detail-shipping-btn ml-28">{item?.shipping_class}</p>}
     </div>
   );
 };
-
-export default PercentComponent;

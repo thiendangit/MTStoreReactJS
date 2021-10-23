@@ -118,6 +118,7 @@ export const ProductDetail = () => {
             <p className="underline text__color-gray ml-2.5">(1 customer review)</p>
           </div>
           <div dangerouslySetInnerHTML={{ __html: item?.description }} className="text__p mb-8" />
+          {/*<InforDetail {...{ item }} />*/}
           <table className="grid lg:grid-cols-2 grid-cols-1 gap-8 table-auto justify-start items-start mb-8">
             <tbody className="table-auto gap-4 items-baseline w-max mr-auto">
               <tr>
