@@ -88,7 +88,7 @@ export const ProductDetail = () => {
           />
           {item?.attributes?.map((val) => (
             <div
-              key={val?.name === 'color' ? val?.name : null}
+              key={val?.name === 'color' ? val?.name : val?.id}
               className={
                 val?.name === 'color'
                   ? 'absolute z-10 -mt-80 px-4 py-2.5 flex flex-col justify-between outline-none h-60 border-none'
@@ -104,22 +104,6 @@ export const ProductDetail = () => {
               ))}
             </div>
           ))}
-
-          <div className="mt-8">
-            {item?.attributes?.map((val) => (
-              <select
-                key={val?.name === 'size' ? val?.name : null}
-                name={val?.name}
-                className={val?.name === 'size' ? 'select-styled px-4 py-2.5 mr-8 rounded-3xl' : 'hidden'}
-              >
-                {val?.options.map((i) => (
-                  <option key={i} value={i}>
-                    {i}
-                  </option>
-                ))}
-              </select>
-            ))}
-          </div>
         </div>
         <div>
           <h2>{item?.name}</h2>
@@ -136,7 +120,7 @@ export const ProductDetail = () => {
             <tbody className="table-auto gap-4 items-baseline w-max mr-auto">
               <tr>
                 <td className="text__p text__color-gray p-2.5">SKU:</td>
-                <td className="text__p p-2.5">{item.sku ? item?.sku : '___'}</td>
+                <td className="text__p p-2.5">{item?.sku ? item?.sku : '___'}</td>
               </tr>
               <tr>
                 <td className="text__p text__color-gray p-2.5">Category:</td>
@@ -168,6 +152,48 @@ export const ProductDetail = () => {
               </tr>
             </tbody>
           </table>
+          <div className="flex flex-row flex-wrap gap-8 justify-between items-center rounded-xl mb-8 w-full ">
+            <div className="flex flex-row gap-4 justify-between items-center rounded-xl w-max select-styled ">
+              <span className="text__p uppercase font-bold text__color-gray">Size:</span>
+              {item?.attributes?.map((val) => (
+                <select
+                  key={val?.name === 'size' ? val?.name : val?.id}
+                  name={val?.name}
+                  className={
+                    val?.name === 'size'
+                      ? 'select-styled px-4 py-2.5 mr-8 rounded-2xl outline-none border-opacity-0'
+                      : 'hidden'
+                  }
+                >
+                  {val?.options.map((i) => (
+                    <option key={i} value={i}>
+                      {i.toUpperCase()}
+                    </option>
+                  ))}
+                </select>
+              ))}
+            </div>
+            <div className="flex flex-row gap-4 justify-between items-center text__color-gray rounded-xl w-max select-styled ">
+              <span className="text__p uppercase font-bold text__color-gray">Height:</span>
+              {item?.attributes?.map((val) => (
+                <select
+                  key={val?.name.toLowerCase() === 'height' ? val?.name.toLowerCase() : val?.id}
+                  name={val?.name}
+                  className={
+                    val?.name.toLowerCase() === 'height'
+                      ? 'select-styled px-4 py-2.5 mr-8 rounded-2xl outline-none border-opacity-0'
+                      : 'hidden'
+                  }
+                >
+                  {val?.options.map((i) => (
+                    <option key={i} value={i}>
+                      {i.toUpperCase()}
+                    </option>
+                  ))}
+                </select>
+              ))}
+            </div>
+          </div>
           <div className="flex flex-row flex-wrap gap-8 justify-between items-center text__color-gray rounded-3xl mb-8 ">
             <div>
               <p className="text__price-product">{item?.regular_price ? item?.regular_price : item?.price}</p>

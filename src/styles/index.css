@@ -69,7 +69,7 @@ h6{
 }
 .select-styled {
     font-family: 'Poppins', sans-serif;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 1.5rem;
     color: var(--black);
     background: var(--gray-bg2);
