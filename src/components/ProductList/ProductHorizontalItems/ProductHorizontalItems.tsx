@@ -72,7 +72,7 @@ const ProductHorizontalItemsComponent = ({ data, numItem, loading }: ProductHori
                 {percent != 0 && <span className="product__list-item-sale">{percent?.toString()}%</span>}
                 <img src={item?.images?.[0]?.src ? item?.images?.[0]?.src : `${images.noImg}`} alt="Product in store" />
                 <div className="flex flex-col flex-1 w-full">
-                  <div className="flex flex-col flex-1 w-full mb-6">
+                  <div className="product__list-item-content">
                     <h4 className="product__list-item-title w-full truncate break-all">{item?.name}</h4>
                     <div
                       dangerouslySetInnerHTML={{ __html: item?.description }}

@@ -22,7 +22,7 @@ export const TabDetailContent = ({ item }: { item: Product }) => {
         <div dangerouslySetInnerHTML={{ __html: item?.description }} className="text__p mb-8" />
       </TabPanel>
       <TabPanel value="2">
-        <p className="text__p mb-8">{item?.status}</p>
+        <p className="text__p mb-8">{item?.average_rating}</p>
       </TabPanel>
     </TabContext>
   );

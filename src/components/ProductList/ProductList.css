@@ -34,6 +34,10 @@
     object-position: center;
     object-fit: contain;
 }
+.swiper-slide .product__list-item-content {
+    @apply flex flex-col flex-1 w-full mb-6 pb-2;
+    border-bottom: 1px solid var(--gray-bg1);
+}
 .swiper-slide .product__list-item-price {
     @apply flex flex-row justify-between items-center mt-auto w-full h-1/5;
 }
