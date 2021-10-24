@@ -16,7 +16,13 @@ const RootPage: React.FC = () => {
 
   useEffect(() => {
     // actions
-    actions.addOne({ id: 1231, name: 'tét' });
+    // actions.addOne({ id: 1231, name: 'tét' });
+    actions.addMany([
+      { id: 1231, name: '22' },
+      { id: 22, name: '22313' },
+      { id: 112, name: 'dasdas' },
+      { id: 3123, name: 'dsadasd122' },
+    ]);
   }, []);
 
   return (

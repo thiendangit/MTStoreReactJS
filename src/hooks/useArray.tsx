@@ -93,7 +93,9 @@ function useArray<T = any>(initial: T[]): UseArray<T> {
   const addOne = useCallback((entity: InitialArray<T>) => {
     setValue((prev: EntityState<T>) => {
       if (!prev.entities[entity?.id]) {
-        prev.ids = [...prev.ids, entity?.id];
+        const old_ids = Object.values(prev.ids);
+        old_ids.push(entity?.id);
+        prev.ids = old_ids;
         prev.entities[entity?.id] = entity;
       }
 
@@ -101,12 +103,32 @@ function useArray<T = any>(initial: T[]): UseArray<T> {
     });
   }, []);
 
+  const addMany = useCallback((entities: InitialArray<T>[]) => {
+    setValue((prev: EntityState<T>) => {
+      return entities.reduce(
+        (old: EntityState<T>, current: InitialArray<T>) => {
+          const ids_copy = Object.values(old.ids);
+          ids_copy.push(current?.id);
+          return {
+            ids: ids_copy,
+            entities: { ...old.entities, [current?.id]: current },
+          };
+        },
+        {
+          ids: prev.ids,
+          entities: prev.entities,
+        },
+      );
+    });
+  }, []);
+
   const actions = useMemo(
     () => ({
       setValue,
       addOne,
+      addMany,
     }),
-    [addOne],
+    [addOne, addMany],
   );
   return [value, actions];
 }
