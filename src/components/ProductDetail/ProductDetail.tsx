@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import './ProductDetail.css';
 import { useLocation } from 'react-router';
-import { AddOutlined, BurstMode, FavoriteBorder, Star, StarHalf } from '@material-ui/icons';
 import { Product } from 'WooCommerce';
-import { Box, ButtonBase, Tab } from '@material-ui/core';
+import { Box, Tab } from '@material-ui/core';
 import { TabContext, TabList, TabPanel } from '@material-ui/lab';
 import { TitleComponent } from '@components';
 import { ProductHorizontalItems } from '../ProductList/ProductHorizontalItems/ProductHorizontalItems';
 import { fetchProductById, fetchProducts } from '@logic';
 import CryptoJS from 'crypto-js';
 import { images } from '@public/image';
+import { ColorProportion } from './components/ColorProportion';
+import { StarRatingComponent } from './components/StarRating';
+import { PercentComponent } from './components/PercentComponent';
+import { InforDetail } from './components/InforDetail';
+import { ProportionComponent } from './components/ProportionComponent';
+import { UnitSelect } from './components/UnitSelect';
+import { FavoriteComponent } from './components/FavoriteComponent';
 
 export interface LocationParams<T> {
   pathname: string;
@@ -77,126 +83,20 @@ export const ProductDetail = () => {
     <div className="flex flex-col mx-20 my-16">
       <div className="grid grid-cols-2 gap-12 mb-12">
         <div>
-          <div className="flex flex-row justify-start items-center relative">
-            <p className="product__detail-percent-btn ml-5">{item?.sale_price}</p>
-            <p className={item?.shipping_class !== '' ? 'product__detail-percent-btn ml-28' : 'hidden'}>
-              {item?.shipping_class !== '' ? item?.shipping_class : null}
-            </p>
-          </div>
+          <PercentComponent {...{ item }} />
           <img
             src={item?.images?.[0]?.src ? item?.images?.[0]?.src : `${images.noImg}`}
             alt={item?.name}
             className="rounded-3xl size__img"
           />
-          {item?.attributes?.map((val) => (
-            <div
-              key={val?.name === 'color' ? val?.name : val?.id}
-              className={
-                val?.name === 'color'
-                  ? 'absolute z-10 -mt-80 px-4 py-2.5 flex flex-col justify-between outline-none h-60 border-none'
-                  : 'hidden'
-              }
-            >
-              {val?.options.map((i) => (
-                <button
-                  key={i}
-                  style={i ? { backgroundColor: `${i.toLowerCase()}` } : { display: 'none' }}
-                  className="w-8 h-8 rounded-full"
-                />
-              ))}
-            </div>
-          ))}
+          <ColorProportion {...{ item }} />
         </div>
         <div>
           <h2>{item?.name}</h2>
-          <div className="flex flex-row justify-start items-center my-8">
-            <Star fontSize={'small'} style={{ color: '#FDBC15' }} />
-            <Star fontSize={'small'} style={{ color: '#FDBC15' }} />
-            <Star fontSize={'small'} style={{ color: '#FDBC15' }} />
-            <Star fontSize={'small'} style={{ color: '#FDBC15' }} />
-            <StarHalf fontSize={'small'} style={{ color: '#FDBC15' }} />
-            <p className="underline text__color-gray ml-2.5">(1 customer review)</p>
-          </div>
+          <StarRatingComponent />
           <div dangerouslySetInnerHTML={{ __html: item?.description }} className="text__p mb-8" />
-          {/*<InforDetail {...{ item }} />*/}
-          <table className="grid lg:grid-cols-2 grid-cols-1 gap-8 table-auto justify-start items-start mb-8">
-            <tbody className="table-auto gap-4 items-baseline w-max mr-auto">
-              <tr>
-                <td className="text__p text__color-gray p-2.5">SKU:</td>
-                <td className="text__p p-2.5">{item?.sku ? item?.sku : '___'}</td>
-              </tr>
-              <tr>
-                <td className="text__p text__color-gray p-2.5">Category:</td>
-                {item?.categories?.map((val) => {
-                  return (
-                    <td className="text__p p-2.5 " key={val?.id}>
-                      {val?.name ? val?.name.toString() : '___'}
-                    </td>
-                  );
-                })}
-              </tr>
-              <tr>
-                <td className="text__p text__color-gray p-2.5">Stock:</td>
-                <td className="text__p p-2.5 ">{item?.in_stock ? item?.in_stock : '___'}</td>
-              </tr>
-            </tbody>
-            <tbody className="table-auto gap-4 items-baseline w-max">
-              <tr>
-                <td className="text__p p-2.5 text__color-gray">Buy by:</td>
-                <td>Name customer</td>
-              </tr>
-              <tr>
-                <td className="text__p p-2.5 text__color-gray">Delivery:</td>
-                <td className="text__p p-2.5 ">{item?.shipping_class ? item?.shipping_class : '___'}</td>
-              </tr>
-              <tr>
-                <td className="text__p p-2.5 text__color-gray">Delivery area:</td>
-                <td className="text__p p-2.5 ">Ho Chi Minh City</td>
-              </tr>
-            </tbody>
-          </table>
-          <div className="flex flex-row flex-wrap gap-8 justify-between items-center rounded-xl mb-8 w-full ">
-            <div className="flex flex-row gap-4 justify-between items-center rounded-xl w-max select-styled ">
-              <span className="text__p uppercase font-bold text__color-gray">Size:</span>
-              {item?.attributes?.map((val) => (
-                <select
-                  key={val?.name === 'size' ? val?.name : val?.id}
-                  name={val?.name}
-                  className={
-                    val?.name === 'size'
-                      ? 'select-styled px-4 py-2.5 mr-8 rounded-2xl outline-none border-opacity-0'
-                      : 'hidden'
-                  }
-                >
-                  {val?.options.map((i) => (
-                    <option key={i} value={i}>
-                      {i.toUpperCase()}
-                    </option>
-                  ))}
-                </select>
-              ))}
-            </div>
-            <div className="flex flex-row gap-4 justify-between items-center text__color-gray rounded-xl w-max select-styled ">
-              <span className="text__p uppercase font-bold text__color-gray">Height:</span>
-              {item?.attributes?.map((val) => (
-                <select
-                  key={val?.name.toLowerCase() === 'height' ? val?.name.toLowerCase() : val?.id}
-                  name={val?.name}
-                  className={
-                    val?.name.toLowerCase() === 'height'
-                      ? 'select-styled px-4 py-2.5 mr-8 rounded-2xl outline-none border-opacity-0'
-                      : 'hidden'
-                  }
-                >
-                  {val?.options.map((i) => (
-                    <option key={i} value={i}>
-                      {i.toUpperCase()}
-                    </option>
-                  ))}
-                </select>
-              ))}
-            </div>
-          </div>
+          <InforDetail {...{ item }} />
+          <ProportionComponent {...{ item }} />
           <div className="flex flex-row flex-wrap gap-8 justify-between items-center text__color-gray rounded-3xl mb-8 ">
             <div>
               <p className="text__price-product">{item?.regular_price ? item?.regular_price : item?.price}</p>
@@ -204,33 +104,9 @@ export const ProductDetail = () => {
                 {item?.sale_price !== item?.regular_price ? item?.sale_price : ''}
               </p>
             </div>
-            <div className="flex flex-row md:flex-nowrap flex-wrap gap-3 justify-start items-stretch">
-              <div className="select__input-styled w-3/4 md:w-max">
-                <input type="text" className="input-styled" placeholder="1" />
-                <span className="line__box" />
-                <select name="Pcs" className="select-styled">
-                  <option value="Pcs">Pcs</option>
-                  <option value="Kgs">Kgs</option>
-                  <option value="Box">Box</option>
-                  <option value="Pack">Pack</option>
-                </select>
-              </div>
-              <ButtonBase className="add__product-btn md:ml-8 ml-0 w-3/4 md:w-max">
-                <AddOutlined fontSize={'large'} style={{ color: 'var(--white)', fontWeight: 'bolder' }} />
-                <p className="text__add-btn">Add to cart</p>
-              </ButtonBase>
-            </div>
+            <UnitSelect {...{ item }} />
           </div>
-          <div className="flex flex-row gap-12 justify-between flex-wrap items-center mb-8">
-            <span className="text-btn flex flex-row justify-start items-center gap-2.5 w-max">
-              <FavoriteBorder fontSize={'medium'} style={{ color: 'var(--orange)' }} />
-              Add to my wish list
-            </span>
-            <span className="text-btn flex flex-row justify-start items-center gap-2.5 w-max">
-              <BurstMode fontSize={'medium'} style={{ color: 'var(--orange)' }} />
-              Compare
-            </span>
-          </div>
+          <FavoriteComponent />
           <TabContext value={value}>
             <Box>
               <TabList onChange={handleChange} variant="scrollable" scrollButtons={'auto'}>
