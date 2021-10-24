@@ -16,8 +16,3 @@
     object-position: center;
     object-fit: inherit;
 }
-.add__product-btn:hover,
-.add__product-btn:focus {
-    box-shadow: 0 0.5em 0.5em -0.4em var(--green);
-    transform: translateY(-0.25em);
-}

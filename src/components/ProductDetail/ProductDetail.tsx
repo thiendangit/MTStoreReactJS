@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './ProductDetail.css';
 import { useLocation } from 'react-router';
 import { Product } from 'WooCommerce';
-import { Box, Tab } from '@material-ui/core';
-import { TabContext, TabList, TabPanel } from '@material-ui/lab';
 import { TitleComponent } from '@components';
 import { ProductHorizontalItems } from '../ProductList/ProductHorizontalItems/ProductHorizontalItems';
 import { fetchProductById, fetchProducts } from '@logic';
@@ -16,6 +14,8 @@ import { InforDetail } from './components/InforDetail';
 import { ProportionComponent } from './components/ProportionComponent';
 import { UnitSelect } from './components/UnitSelect';
 import { FavoriteComponent } from './components/FavoriteComponent';
+import { TabDetailContent } from './components/TabDetailContent';
+import { ProductItemPrice } from './components/ProductItemPrice';
 
 export interface LocationParams<T> {
   pathname: string;
@@ -33,7 +33,6 @@ export const ProductDetail = () => {
   const location = useLocation() as LocationParams<RouterProps>;
   const [item, setItem] = useState<Product>(location?.state?.item);
   const [relatedProducts, setRelatedProducts] = React.useState<Product[]>([]);
-  const [value, setValue] = React.useState('1');
   const [loading, setLoading] = React.useState<boolean>(false);
 
   async function getRelatedProducts() {
@@ -75,10 +74,6 @@ export const ProductDetail = () => {
     }
   }, [item]);
 
-  const handleChange = (event: React.ChangeEvent<{ checked: boolean }>, newValue: string) => {
-    setValue(newValue);
-  };
-
   return (
     <div className="flex flex-col mx-20 my-16">
       <div className="grid grid-cols-2 gap-12 mb-12">
@@ -97,30 +92,12 @@ export const ProductDetail = () => {
           <div dangerouslySetInnerHTML={{ __html: item?.description }} className="text__p mb-8" />
           <InforDetail {...{ item }} />
           <ProportionComponent {...{ item }} />
-          <div className="flex flex-row flex-wrap gap-8 justify-between items-center text__color-gray rounded-3xl mb-8 ">
-            <div>
-              <p className="text__price-product">{item?.regular_price ? item?.regular_price : item?.price}</p>
-              <p className="text__price-sale line-through">
-                {item?.sale_price !== item?.regular_price ? item?.sale_price : ''}
-              </p>
-            </div>
+          <div className="div-flex-styled text__color-gray rounded-3xl">
+            <ProductItemPrice {...{ item }} />
             <UnitSelect {...{ item }} />
           </div>
           <FavoriteComponent />
-          <TabContext value={value}>
-            <Box>
-              <TabList onChange={handleChange} variant="scrollable" scrollButtons={'auto'}>
-                <Tab label="Description" value="1" className="tab__btn" />
-                <Tab label="Reviews" value="2" className="tab__btn" />
-              </TabList>
-            </Box>
-            <TabPanel value="1">
-              <div dangerouslySetInnerHTML={{ __html: item?.description }} className="text__p mb-8" />
-            </TabPanel>
-            <TabPanel value="2">
-              <p className="text__p mb-8">{item?.status}</p>
-            </TabPanel>
-          </TabContext>
+          <TabDetailContent {...{ item }} />
         </div>
       </div>
       <div>

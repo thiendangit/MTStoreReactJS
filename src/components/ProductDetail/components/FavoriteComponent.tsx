@@ -8,7 +8,7 @@ export const FavoriteComponent = () => {
   //   setIdxSelected(index);
   // };
   return (
-    <div className="flex flex-row gap-12 justify-between flex-wrap items-center mb-8">
+    <div className="div-flex-styled">
       <span className="text-btn flex flex-row justify-start items-center gap-2.5 w-max">
         <FavoriteBorder
           fontSize={'medium'}

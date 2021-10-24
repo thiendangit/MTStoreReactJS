@@ -35,7 +35,7 @@
     object-fit: contain;
 }
 .swiper-slide .product__list-item-price {
-    @apply flex flex-row justify-between items-center mt-auto w-full mt-4;
+    @apply flex flex-row justify-between items-center mt-auto w-full h-1/5;
 }
 .swiper-slide .product__list-item-sale {
     border-radius: 1.2rem;
@@ -71,13 +71,13 @@
     -webkit-box-orient: vertical;
 }
 
-.price__regular {
+.sale_price {
     font-family:'Poppins', sans-serif;
     font-size: 1.8rem;
     line-height: 2.7rem;
     color: var(--black);
 }
-.price {
+.regular_price {
     font-family:'Poppins', sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
