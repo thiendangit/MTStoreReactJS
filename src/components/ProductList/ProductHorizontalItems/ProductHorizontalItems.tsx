@@ -6,6 +6,9 @@ import SwiperCore, { Scrollbar } from 'swiper';
 import '../../../../node_modules/swiper/modules/scrollbar/scrollbar.scss';
 import { Product } from 'WooCommerce';
 import { SkeletonComponent } from '../../SkelatonComponent/SkeletonComponent';
+import { images } from '@public/image';
+import { handleProductPrice } from '@utils/handleProductPrice';
+import CONFIG from '@constants/config';
 
 const CryptoJS = require('crypto-js');
 
@@ -61,25 +64,30 @@ const ProductHorizontalItemsComponent = ({ data, numItem, loading }: ProductHori
       >
         {data
           ?.map((item) => {
+            const { regular_price, sale_price, percent } = handleProductPrice(item);
             const onPressItem = () => gotoProductDetail(item);
             // console.log(item);
             return (
               <SwiperSlide key={item?.id} onClick={onPressItem}>
-                <p className="product__list-item-sale">{item?.sale_price}</p>
-                <img src={item?.images?.[0]?.src} alt="Product in store" />
+                {percent != 0 && <span className="product__list-item-sale">{percent?.toString()}%</span>}
+                <img src={item?.images?.[0]?.src ? item?.images?.[0]?.src : `${images.noImg}`} alt="Product in store" />
                 <div className="flex flex-col flex-1 w-full">
-                  <div className="flex flex-col flex-1 w-full">
+                  <div className="product__list-item-content">
                     <h4 className="product__list-item-title w-full truncate break-all">{item?.name}</h4>
                     <div
                       dangerouslySetInnerHTML={{ __html: item?.description }}
                       className="product__list-item-desc mt-auto w-full truncate break-all"
                     />
                   </div>
-                  <div className="product__list-item-price w-full">
-                    <span className="price__regular">
-                      {item?.regular_price}
+                  <div className="product__list-item-price">
+                    <span className="sale_price">
+                      {sale_price?.toString()} {CONFIG.product.unit.long}
                       <br />
-                      <span className="price">{item?.price}</span>
+                      {regular_price != 0 && (
+                        <span className="regular_price">
+                          {regular_price?.toString()} {CONFIG.product.unit.long}
+                        </span>
+                      )}
                     </span>
                     <ButtonBase className="product__item-btn">
                       <p className="product__item-text-btn">Buy now</p>

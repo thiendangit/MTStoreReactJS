@@ -7,7 +7,7 @@ import { Product } from 'WooCommerce';
 import { fetchProducts } from '@logic';
 import { TitleComponent } from '../TitleComponent/TitleComponent';
 
-export const ProductList: React.FC = () => {
+const ProductListComponent: React.FC = () => {
   const categoryItems = useSelector(getCategories);
   const [bestSellingProducts, setBestSellingProducts] = React.useState<Product[]>([]);
   const [recommendProducts, setRecommendProducts] = React.useState<Product[]>([]);
@@ -22,6 +22,7 @@ export const ProductList: React.FC = () => {
       }, 200);
     });
     if (resSelling.data) setBestSellingProducts(resSelling.data);
+    // console.log(resSelling);
     if (resRecommend.data) setRecommendProducts(resRecommend.data);
   }
 
@@ -46,3 +47,4 @@ export const ProductList: React.FC = () => {
     </>
   );
 };
+export const ProductList = ProductListComponent;
