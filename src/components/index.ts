@@ -7,3 +7,5 @@ export * from './Feedback/Feedback';
 export * from './BlogPosts/BlogPost';
 export * from './Footer/Footer';
 export * from './TitleComponent/TitleComponent';
+export * from './CartDetail/CartDetail';
+export * from './ProductDetail/ProductDetail';

@@ -2,8 +2,15 @@ import { Product } from 'WooCommerce';
 import React from 'react';
 import { ButtonBase } from '@material-ui/core';
 import { AddOutlined } from '@material-ui/icons';
+import { useDispatch } from 'react-redux';
+import { addOneToCart } from '@store/reducers/cartSlice';
 
 export const UnitSelect = ({ item }: { item: Product }) => {
+  const dispatch = useDispatch();
+  const handleAddOneToCart = (item: Product) => {
+    dispatch(addOneToCart(item));
+    console.log(item);
+  };
   return (
     <div className="flex flex-row md:flex-nowrap flex-wrap gap-3 justify-start items-stretch">
       <div className="select__input-styled w-3/4 md:w-max">
@@ -15,7 +22,7 @@ export const UnitSelect = ({ item }: { item: Product }) => {
           </select>
         )}
       </div>
-      <ButtonBase className="add__product-btn md:ml-8 ml-0 w-3/4 md:w-max">
+      <ButtonBase className="add__product-btn md:ml-8 ml-0 w-3/4 md:w-max" onClick={() => handleAddOneToCart(item)}>
         <AddOutlined fontSize={'large'} style={{ color: 'var(--white)', fontWeight: 'bolder' }} />
         <p className="text__add-btn">Add to cart</p>
       </ButtonBase>

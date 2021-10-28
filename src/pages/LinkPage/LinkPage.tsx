@@ -1,7 +1,8 @@
 import React from 'react';
 import { Switch, Route as MyRouter } from 'react-router-dom';
 import { HomePage } from '../HomePage/HomePage';
-import { ProductDetail } from '../../components/ProductDetail/ProductDetail';
+import { ProductDetail } from '@components';
+import { CartDetail } from '@components';
 
 export const LinkPage: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ export const LinkPage: React.FC = () => {
         component={HomePage}
       />
       <MyRouter path="/product" component={ProductDetail} />
+      <MyRouter path="/cart" component={CartDetail} />
     </Switch>
   );
 };
