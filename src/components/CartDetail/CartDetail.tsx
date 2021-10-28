@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import './CartDetail.css';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -36,7 +37,7 @@ export const CartDetail = () => {
   };
 
   return (
-    <>
+    <div className="cart">
       <h2>Shopping Cart</h2>
       <div>
         <div className="titles">
@@ -105,6 +106,6 @@ export const CartDetail = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
