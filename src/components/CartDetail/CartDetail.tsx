@@ -37,8 +37,8 @@ export const CartDetail = () => {
   };
 
   return (
-    <div className="cart">
-      <h2>Shopping Cart</h2>
+    <div className="cart-container">
+      <h2 className="cart-title">Shopping Cart</h2>
       <div>
         <div className="titles">
           <h4>Product</h4>
@@ -68,10 +68,10 @@ export const CartDetail = () => {
                     />
                     <div>
                       <h4>{cartItem?.name}</h4>
-                      <div
-                        dangerouslySetInnerHTML={{ __html: cartItem?.description }}
-                        className="product__list-item-desc mt-auto w-full truncate break-all"
-                      />
+                      {/*<div*/}
+                      {/*  dangerouslySetInnerHTML={{ __html: cartItem?.description }}*/}
+                      {/*  className="product__list-item-desc mt-auto w-full truncate break-all"*/}
+                      {/*/>*/}
                       <button onClick={() => handleRemoveFromCart(cartItem)}>Remove</button>
                     </div>
                   </div>
