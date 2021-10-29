@@ -9,7 +9,6 @@ export const UnitSelect = ({ item }: { item: Product }) => {
   const dispatch = useDispatch();
   const handleAddOneToCart = (item: Product) => {
     dispatch(addOneToCart(item));
-    console.log(item);
   };
   return (
     <div className="flex flex-row md:flex-nowrap flex-wrap gap-3 justify-start items-stretch">
