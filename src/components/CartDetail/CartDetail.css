@@ -73,6 +73,7 @@
     font-weight: 600;
     font-size: 16px;
     text-align: center;
+    color: var(--green);
 }
 .cart-summary {
     @apply flex flex-row items-center justify-between my-8 font-semibold;
@@ -103,8 +104,8 @@
     @apply flex flex-row justify-between w-full;
 }
 .cart-subtotal .amount {
-
+    color: var(--orange);
 }
 .continue-shopping {
-
+    color: var(--green);
 }

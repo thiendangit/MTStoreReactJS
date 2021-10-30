@@ -60,7 +60,7 @@ export const ColorProportion = ({ item }: { item: Product }) => {
           return (
             <div
               key={val?.name}
-              className={'absolute z-10 -mt-80 flex flex-col justify-between items-center outline-none border-none'}
+              className={'absolute z-10 -mt-96 flex flex-col justify-between items-center outline-none border-none'}
             >
               {val?.options.map((i, idx) => {
                 const classes = useStyles({
