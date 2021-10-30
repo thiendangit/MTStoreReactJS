@@ -15,6 +15,7 @@ import { Product } from 'WooCommerce';
 import { images } from '@public/image';
 import { handleProductPrice } from '@utils/handleProductPrice';
 import { Clear, KeyboardBackspaceOutlined, RemoveShoppingCartOutlined } from '@material-ui/icons';
+import { Checkbox, FormControlLabel } from '@material-ui/core';
 
 export const CartDetail = () => {
   const cart = useSelector(getCartState);
@@ -66,6 +67,10 @@ export const CartDetail = () => {
               return (
                 <div key={cartItem?.id} className="cart-item">
                   <div className="cart-product">
+                    <FormControlLabel
+                      control={<Checkbox size={'medium'} style={{ color: 'var(--orange)' }} />}
+                      label={''}
+                    />
                     <img
                       src={cartItem?.images?.[0]?.src ? cartItem?.images?.[0]?.src : `${images.noImg}`}
                       alt={cartItem?.name}
@@ -82,7 +87,7 @@ export const CartDetail = () => {
                       </button>
                     </div>
                   </div>
-                  <div className="cart-product-price">$ {cartItem?.price}</div>
+                  <div className="cart-product-price">$ {sale_price ? sale_price : 0}</div>
                   <div className="cart-product-quantity">
                     <button onClick={() => handleDecreaseCart(cartItem)}>-</button>
                     <div className="count">{cartItem?.cartInf.quantity}</div>
@@ -95,10 +100,17 @@ export const CartDetail = () => {
           </div>
         )}
         <div className="cart-summary">
-          <button className="clear-cart" onClick={() => handleClearCart()}>
-            {' '}
-            <RemoveShoppingCartOutlined fontSize={'medium'} /> Clear cart
-          </button>
+          <div>
+            <FormControlLabel
+              control={<Checkbox style={{ color: 'var(--orange)', fontSize: '2rem !important' }} />}
+              label={''}
+            />
+            <span className="cart-checkbox">Select All</span>
+            <button className="clear-cart" onClick={() => handleClearCart()}>
+              {' '}
+              <RemoveShoppingCartOutlined fontSize={'large'} /> Clear cart
+            </button>
+          </div>
           <div className="cart-checkout">
             <div className="cart-subtotal">
               <span>Subtotal</span>

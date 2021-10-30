@@ -76,9 +76,10 @@
     color: var(--green);
 }
 .cart-summary {
-    @apply flex flex-row items-center justify-between my-8 font-semibold;
+    @apply flex flex-row items-center justify-between my-8 font-semibold sticky flex-shrink flex-grow bottom-0 left-0 pb-8;
     border-top: 2px dotted var(--light-gray);
     font-size: 20px;
+    background-color: var(--white);
 }
 .cart-summary p {
     font-weight: 400;
@@ -108,4 +109,10 @@
 }
 .continue-shopping {
     color: var(--green);
+}
+.cart-checkbox {
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: var(--orange);
+    margin-right: 2rem;
 }
