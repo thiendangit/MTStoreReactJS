@@ -8,7 +8,7 @@ import {
   clearCart,
   decreaseOneCart,
   getCartState,
-  getQuantityTotals,
+  getTotals,
   removeFromCart,
 } from '@store/reducers/cartSlice';
 import { Product } from 'WooCommerce';
@@ -20,7 +20,7 @@ export const CartDetail = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getQuantityTotals());
+    dispatch(getTotals());
   }, [cart]);
 
   const handleRemoveFromCart = (carItem: Product) => {
@@ -78,10 +78,10 @@ export const CartDetail = () => {
                   <div className="cart-product-price">$ {cartItem?.price}</div>
                   <div className="cart-product-quantity">
                     <button onClick={() => handleDecreaseCart(cartItem)}>-</button>
-                    <div className="count">{cartItem?.cartQuantity}</div>
+                    <div className="count">{cartItem?.cartInf.quantity}</div>
                     <button onClick={() => handleIncreaseCart(cartItem)}>+</button>
                   </div>
-                  <div className="cart-product-total-price">$ {sale_price * cartItem?.cartQuantity}</div>
+                  <div className="cart-product-total-price">$ {sale_price * cartItem?.cartInf.quantity}</div>
                 </div>
               );
             })}
@@ -94,7 +94,7 @@ export const CartDetail = () => {
           <div className="cart-checkout">
             <div className="cart-subtotal">
               <span>Subtotal</span>
-              <span className="amount">$ .........</span>
+              <span className="amount">$ {cart.cartTotalAmount}</span>
             </div>
             <p>Taxes and shipping calculated at checkout</p>
             <button>Checkout</button>

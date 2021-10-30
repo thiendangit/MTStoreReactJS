@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Category } from 'WooCommerce';
 import { Badge } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import { getCartState, getQuantityTotals } from '@store/reducers/cartSlice';
+import { getCartState, getTotals } from '@store/reducers/cartSlice';
 
 const HeaderComponent: React.FC = () => {
   const categoriesProp = useSelector(getCategoriesState);
@@ -17,7 +17,7 @@ const HeaderComponent: React.FC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getQuantityTotals());
+    dispatch(getTotals());
   }, [cart]);
 
   useEffect(() => {

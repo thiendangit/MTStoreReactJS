@@ -86,6 +86,7 @@
 .clear-cart, .cart-summary button, .cart-product button {
     font-weight: 600;
     font-size: 16px;
+    color: var(--orange);
     padding: 5px;
     border-bottom: 1px solid var(--light-gray);
     cursor: pointer;
