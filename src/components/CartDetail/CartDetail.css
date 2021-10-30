@@ -18,7 +18,7 @@
     text-align: center;
 }
 .start-shopping {
-
+    color: var(--green);
 }
 .cart-items {
 

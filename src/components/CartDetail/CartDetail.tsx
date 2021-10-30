@@ -14,6 +14,7 @@ import {
 import { Product } from 'WooCommerce';
 import { images } from '@public/image';
 import { handleProductPrice } from '@utils/handleProductPrice';
+import { Clear, KeyboardBackspaceOutlined, RemoveShoppingCartOutlined } from '@material-ui/icons';
 
 export const CartDetail = () => {
   const cart = useSelector(getCartState);
@@ -51,7 +52,10 @@ export const CartDetail = () => {
             <h3>Your cart is currently empty</h3>
             <div className="start-shopping">
               <Link to="/">
-                <span>Start Shopping</span>
+                <span>
+                  {' '}
+                  <KeyboardBackspaceOutlined fontSize={'large'} /> Start Shopping
+                </span>
               </Link>
             </div>
           </div>
@@ -72,7 +76,10 @@ export const CartDetail = () => {
                       {/*  dangerouslySetInnerHTML={{ __html: cartItem?.description }}*/}
                       {/*  className="product__list-item-desc mt-auto w-full truncate break-all"*/}
                       {/*/>*/}
-                      <button onClick={() => handleRemoveFromCart(cartItem)}>Remove</button>
+                      <button onClick={() => handleRemoveFromCart(cartItem)}>
+                        {' '}
+                        <Clear fontSize={'medium'} /> Remove
+                      </button>
                     </div>
                   </div>
                   <div className="cart-product-price">$ {cartItem?.price}</div>
@@ -89,7 +96,8 @@ export const CartDetail = () => {
         )}
         <div className="cart-summary">
           <button className="clear-cart" onClick={() => handleClearCart()}>
-            Clear cart
+            {' '}
+            <RemoveShoppingCartOutlined fontSize={'medium'} /> Clear cart
           </button>
           <div className="cart-checkout">
             <div className="cart-subtotal">
@@ -100,7 +108,10 @@ export const CartDetail = () => {
             <button>Checkout</button>
             <div className="continue-shopping">
               <Link to="/">
-                <span>Continue Shopping</span>
+                <span>
+                  {' '}
+                  <KeyboardBackspaceOutlined fontSize={'large'} /> Continue Shopping
+                </span>
               </Link>
             </div>
           </div>
