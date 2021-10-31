@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './CartDetail.css';
+import './CartPage.css';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -10,6 +10,8 @@ import {
   getCartState,
   getTotals,
   removeFromCart,
+  selectedAllToCart,
+  selectedOneToCart,
 } from '@store/reducers/cartSlice';
 import { Product } from 'WooCommerce';
 import { images } from '@public/image';
@@ -17,7 +19,7 @@ import { handleProductPrice } from '@utils/handleProductPrice';
 import { Clear, KeyboardBackspaceOutlined, RemoveShoppingCartOutlined } from '@material-ui/icons';
 import { Checkbox, FormControlLabel } from '@material-ui/core';
 
-export const CartDetail = () => {
+export const CartPage = () => {
   const cart = useSelector(getCartState);
   const dispatch = useDispatch();
 
@@ -25,18 +27,30 @@ export const CartDetail = () => {
     dispatch(getTotals());
   }, [cart]);
 
-  const handleRemoveFromCart = (carItem: Product) => {
-    dispatch(removeFromCart(carItem));
+  const handleRemoveFromCart = (cartItem: Product) => {
+    dispatch(removeFromCart(cartItem));
   };
-  const handleDecreaseCart = (carItem: Product) => {
-    dispatch(decreaseOneCart(carItem));
+  const handleDecreaseCart = (cartItem: Product) => {
+    dispatch(decreaseOneCart(cartItem));
   };
-  const handleIncreaseCart = (carItem: Product) => {
-    dispatch(addOneToCart(carItem));
+  const handleIncreaseCart = (cartItem: Product) => {
+    dispatch(addOneToCart(cartItem));
   };
   const handleClearCart = () => {
     dispatch(clearCart());
   };
+  const handleSelectedProduct = (cartItem: Product) => {
+    dispatch(
+      selectedOneToCart({
+        product: cartItem,
+      }),
+    );
+  };
+  const handleSelectedAllProduct = () => {
+    dispatch(selectedAllToCart());
+  };
+
+  const onClickAll = () => handleSelectedAllProduct();
 
   return (
     <div className="cart-container">
@@ -68,7 +82,14 @@ export const CartDetail = () => {
                 <div key={cartItem?.id} className="cart-item">
                   <div className="cart-product">
                     <FormControlLabel
-                      control={<Checkbox size={'medium'} style={{ color: 'var(--orange)' }} />}
+                      control={
+                        <Checkbox
+                          onClick={() => handleSelectedProduct(cartItem)}
+                          size={'medium'}
+                          style={{ color: 'var(--orange)' }}
+                          checked={!!cartItem?.cartInf?.is_selected}
+                        />
+                      }
                       label={''}
                     />
                     <img
@@ -102,13 +123,15 @@ export const CartDetail = () => {
         <div className="cart-summary">
           <div>
             <FormControlLabel
-              control={<Checkbox style={{ color: 'var(--orange)', fontSize: '2rem !important' }} />}
+              control={
+                <Checkbox onClick={onClickAll} style={{ color: 'var(--orange)', fontSize: '2rem !important' }} />
+              }
               label={''}
             />
-            <span className="cart-checkbox">Select All</span>
+            <span className="cart-checkbox">Select All( {cart.cartTotalQuantity.toString()} )</span>
             <button className="clear-cart" onClick={() => handleClearCart()}>
               {' '}
-              <RemoveShoppingCartOutlined fontSize={'large'} /> Clear cart
+              <RemoveShoppingCartOutlined fontSize={'medium'} /> Clear cart
             </button>
           </div>
           <div className="cart-checkout">
