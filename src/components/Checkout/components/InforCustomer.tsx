@@ -1,44 +1,44 @@
 import React from 'react';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import { TextField } from '@material-ui/core';
 
+const validationSchema = yup.object({
+  email: yup.string('Enter your email').email('Enter a valid email').required('Email is required'),
+});
 export const InforCustomer = () => {
+  const formik = useFormik({
+    initialValues: {
+      email: 'foobar@example.com',
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
   return (
-    <div>
+    <div className="infor_customer">
       <h3>Billing infor</h3>
       <p>Please enter your billing info</p>
-      <div>
-        <label>
-          First name:
-          <input type="text" placeholder="First name" />
-        </label>
-        <label>
-          Last name:
-          <input type="text" placeholder="Last name" />
-        </label>
-        <label>
-          Email address:
-          <input type="text" placeholder="Email address" />
-        </label>
-        <label>
-          Phone number:
-          <input type="text" placeholder="Phone number" />
-        </label>
-        <label>
-          Address:
-          <input type="text" placeholder="Address" />
-        </label>
-        <label>
-          Town / City:
-          <input type="text" placeholder="Town / City" />
-        </label>
-        <label>
-          State / Country:
-          <input type="text" placeholder="State / Country" />
-        </label>
-        <label>
-          ZIP/Postal code:
-          <input type="text" placeholder="ZIP/Postal code" />
-        </label>
-      </div>
+      <form onSubmit={formik.handleSubmit} className="form_content">
+        <TextField name="first_name" label="First name:" className="form_item" />
+        <TextField name="last_name" label="Last name:" className="form_item" />
+        <TextField
+          id="email"
+          name="email"
+          label="Email address:"
+          value={formik.values.email}
+          onChange={formik.handleChange}
+          error={formik.touched.email && Boolean(formik.errors.email)}
+          helperText={formik.touched.email && formik.errors.email}
+          className="form_item"
+        />
+        <TextField name="phone_number" label="Phone number:" className="form_item" />
+        <TextField name="address" label="Address:" className="form_item" />
+        <TextField name="city" label="Town / City:" className="form_item" />
+        <TextField name="country" label="State / Country:" className="form_item" />
+        <TextField name="code" label="ZIP/Postal code:" className="form_item" />
+      </form>
     </div>
   );
 };
