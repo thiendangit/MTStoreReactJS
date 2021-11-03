@@ -9,7 +9,7 @@ const validationSchema = yup.object({
 export const InforCustomer = () => {
   const formik = useFormik({
     initialValues: {
-      email: 'foobar@example.com',
+      email: '',
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
@@ -20,9 +20,9 @@ export const InforCustomer = () => {
     <div className="infor_customer">
       <h3>Billing infor</h3>
       <p>Please enter your billing info</p>
-      <form onSubmit={formik.handleSubmit} className="form_content">
-        <TextField name="first_name" label="First name:" className="form_item" />
-        <TextField name="last_name" label="Last name:" className="form_item" />
+      <form onSubmit={formik.handleSubmit} className="form_content flex flex-row flex-wrap gap-8">
+        <TextField name="first_name" label="First name:" className="form_item" variant={'outlined'} />
+        <TextField name="last_name" label="Last name:" className="form_item" variant={'outlined'} />
         <TextField
           id="email"
           name="email"
@@ -32,12 +32,13 @@ export const InforCustomer = () => {
           error={formik.touched.email && Boolean(formik.errors.email)}
           helperText={formik.touched.email && formik.errors.email}
           className="form_item"
+          variant={'outlined'}
         />
-        <TextField name="phone_number" label="Phone number:" className="form_item" />
-        <TextField name="address" label="Address:" className="form_item" />
-        <TextField name="city" label="Town / City:" className="form_item" />
-        <TextField name="country" label="State / Country:" className="form_item" />
-        <TextField name="code" label="ZIP/Postal code:" className="form_item" />
+        <TextField name="phone_number" label="Phone number:" className="form_item" variant={'outlined'} />
+        <TextField name="address" label="Address:" className="form_item" variant={'outlined'} />
+        <TextField name="city" label="Town / City:" className="form_item" variant={'outlined'} />
+        <TextField name="country" label="State / Country:" className="form_item" variant={'outlined'} />
+        <TextField name="code" label="ZIP/Postal code:" className="form_item" variant={'outlined'} />
       </form>
     </div>
   );

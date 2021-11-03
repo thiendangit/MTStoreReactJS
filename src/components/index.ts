@@ -9,3 +9,4 @@ export * from './Footer/Footer';
 export * from './TitleComponent/TitleComponent';
 export * from './CartPage/CartPage';
 export * from './ProductDetail/ProductDetail';
+export * from './Checkout/Checkout';

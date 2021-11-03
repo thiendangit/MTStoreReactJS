@@ -140,7 +140,9 @@ export const CartPage = () => {
               <span className="amount">$ {cart.cartTotalAmount}</span>
             </div>
             <p>Taxes and shipping calculated at checkout</p>
-            <button>Checkout</button>
+            <Link to="/checkout">
+              <button>Checkout</button>
+            </Link>
             <div className="continue-shopping">
               <Link to="/">
                 <span>
