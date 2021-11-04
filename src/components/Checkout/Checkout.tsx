@@ -1,4 +1,5 @@
 import React from 'react';
+import './Checkout.css';
 import { InforCustomer } from './components/InforCustomer';
 import { PaymentMethod } from './components/PaymentMethod';
 import { Confirm } from './components/Confirm';

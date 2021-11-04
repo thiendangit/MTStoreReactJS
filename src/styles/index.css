@@ -58,6 +58,9 @@ h6{
 .text__color-gray {
     color: var(--light-gray)!important;
 }
+.text__color-green {
+    color: var(--green)!important;
+}
 .text-btn {
     font-family:'Poppins', sans-serif;
     font-size: 1.5rem;
