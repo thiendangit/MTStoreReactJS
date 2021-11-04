@@ -4,17 +4,28 @@ import { InforCustomer } from './components/InforCustomer';
 import { PaymentMethod } from './components/PaymentMethod';
 import { Confirm } from './components/Confirm';
 import { OrderSummary } from './components/OrderSummary';
+import { OrderSummaryPrice } from './components/OrderSummaryPrice';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCartState, removeFromCart } from '@store/reducers/cartSlice';
+import { Product } from 'WooCommerce';
 
 export const Checkout = () => {
+  const cart = useSelector(getCartState);
+  const dispatch = useDispatch();
+  const handleRemoveFromCart = (cartItem: Product) => {
+    dispatch(removeFromCart(cartItem));
+  };
+
   return (
-    <div className="grid grid-cols-2 gap-6">
+    <div className="grid grid-cols-2 gap-14">
       <div className="flex flex-col gap-6">
         <InforCustomer />
         <PaymentMethod />
         <Confirm />
       </div>
       <div>
-        <OrderSummary />
+        <OrderSummary data={cart.cartItems} remove={handleRemoveFromCart} />
+        <OrderSummaryPrice cartTotalPrice={cart.cartTotalAmount} />
       </div>
     </div>
   );
