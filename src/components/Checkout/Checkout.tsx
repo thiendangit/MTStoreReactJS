@@ -3,6 +3,7 @@ import './Checkout.css';
 import { InforCustomer } from './components/InforCustomer';
 import { PaymentMethod } from './components/PaymentMethod';
 import { Confirm } from './components/Confirm';
+import { OrderSummary } from './components/OrderSummary';
 
 export const Checkout = () => {
   return (
@@ -12,7 +13,9 @@ export const Checkout = () => {
         <PaymentMethod />
         <Confirm />
       </div>
-      <div>Order Summary</div>
+      <div>
+        <OrderSummary />
+      </div>
     </div>
   );
 };
