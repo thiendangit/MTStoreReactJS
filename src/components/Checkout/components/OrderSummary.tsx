@@ -21,7 +21,7 @@ export const OrderSummary = ({ data, remove }: { data: Product[]; remove: any })
                 alt="Product in store"
                 width={'70'}
               />
-              <span className="text-btn flex flex-row justify-start items-center gap-2.5 w-max">
+              <span className="text-btn flex flex-row justify-between items-center gap-2.5 w-max">
                 <Checkbox
                   icon={
                     <FavoriteBorder
@@ -34,34 +34,39 @@ export const OrderSummary = ({ data, remove }: { data: Product[]; remove: any })
                 />
                 Wish list
               </span>
-              <span className="text-btn flex flex-row justify-start items-center gap-2.5 w-max">
-                <BurstMode style={{ color: 'var(--orange)', width: '33px', height: '33px' }} />
+              <span className="text-btn flex flex-row justify-between items-center gap-3 w-max">
+                <BurstMode fontSize={'medium'} style={{ color: 'var(--orange)', margin: '0 0.75rem' }} />
                 Compare
               </span>
-              <button onClick={() => remove(item)} className="text-btn">
-                <Clear fontSize={'medium'} /> Remove
+              <button
+                onClick={() => remove(item)}
+                className="text-btn w-max flex flex-row justify-between items-center gap-4"
+              >
+                <Clear fontSize={'medium'} style={{ color: 'var(--orange)', margin: '0 0.7rem' }} /> Remove
               </button>
             </div>
             <div className="w-full">
               <h4>{item?.name}</h4>
-              <div>
-                {/*current price*/}
-                <p className="text__color-green text-btn">
-                  {sale_price?.toString()} {CONFIG.product.unit.long}
-                </p>
-                {/*regular price*/}
-                {regular_price != 0 && (
-                  <p className="text__color-gray text-btn line-through">
-                    {regular_price?.toString()} {CONFIG.product.unit.long}
+              <div className="flex flex-row justify-between items-center gap-2.5">
+                <div>
+                  {/*current price*/}
+                  <p className="text__color-green text-btn">
+                    {sale_price?.toString()} {CONFIG.product.unit.long}
                   </p>
-                )}
-              </div>
-              <div className="select__input-styled md:w-2/6 w-max">
-                <input type="text" className="input-styled" placeholder="1" />
-                <span className="line__box" />
-                <select name="Pcs" className="select-styled">
-                  <option value="Pcs">Pcs</option>
-                </select>
+                  {/*regular price*/}
+                  {regular_price != 0 && (
+                    <p className="text__color-gray text-btn line-through">
+                      {regular_price?.toString()} {CONFIG.product.unit.long}
+                    </p>
+                  )}
+                </div>
+                <div className="select__input-styled w-max">
+                  <input type="text" className="input-styled" placeholder="1" />
+                  <span className="line__box" />
+                  <select name="Pcs" className="select-styled">
+                    <option value="Pcs">Pcs</option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>

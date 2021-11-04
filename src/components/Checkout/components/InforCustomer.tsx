@@ -20,7 +20,7 @@ export const InforCustomer = () => {
     <div className="infor_customer">
       <h3>Billing infor</h3>
       <p className="text__color-gray mb-6">Please enter your billing info</p>
-      <form onSubmit={formik.handleSubmit} className="form_content grid grid-cols-2 gap-8">
+      <form onSubmit={formik.handleSubmit} className="form_content grid grid-cols-1 lg:grid-cols-2 gap-8">
         <TextField
           name="first_name"
           label="First name:"
