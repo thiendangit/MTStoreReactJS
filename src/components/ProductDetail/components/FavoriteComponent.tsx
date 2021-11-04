@@ -1,5 +1,6 @@
 import React from 'react';
-import { BurstMode, FavoriteBorder } from '@material-ui/icons';
+import { BurstMode, Favorite, FavoriteBorder } from '@material-ui/icons';
+import { Checkbox } from '@material-ui/core';
 
 export const FavoriteComponent = () => {
   // const [idxSelected, setIdxSelected] = React.useState(0);
@@ -10,10 +11,15 @@ export const FavoriteComponent = () => {
   return (
     <div className="div-flex-styled">
       <span className="text-btn flex flex-row justify-start items-center gap-2.5 w-max">
-        <FavoriteBorder
-          fontSize={'medium'}
-          style={{ color: 'var(--orange)' }}
-          // onClick={() => handleIdxSelected(idxSelected)}
+        <Checkbox
+          icon={
+            <FavoriteBorder
+              fontSize={'medium'}
+              style={{ color: 'var(--orange)' }}
+              // onClick={() => handleIdxSelected(idxSelected)}
+            />
+          }
+          checkedIcon={<Favorite fontSize={'medium'} style={{ color: 'var(--orange)' }} />}
         />
         Add to my wish list
       </span>
