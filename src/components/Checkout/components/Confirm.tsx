@@ -9,29 +9,32 @@ export const Confirm = () => {
         <h3>Additional information</h3>
         <p className="text__color-gray">Need something else? We will make it for you!</p>
         <p className="text__p font-bold">Order notes</p>
-        <Input placeholder={'Need a specific delivery day? Sending a gift? Let’s say ...'} />
+        <Input
+          placeholder={'Need a specific delivery day? Sending a gift? Let’s say ...'}
+          className="w-full border-gray-300 rounded-3xl"
+        />
       </div>
       <div>
         <h3>Confirmation</h3>
-        <p className="text__color-gray">We are getting to the end. Just few clicks and your order si ready!</p>
-        <div>
+        <p className="text__color-gray mb-4">We are getting to the end. Just few clicks and your order si ready!</p>
+        <div className="flex flex-row gap-2 items-center">
           <Checkbox />
           <p className="text__p">I agree with sending an Marketing and newsletter emails. No spam, promissed!</p>
         </div>
-        <div>
+        <div className="flex flex-row gap-2 items-center">
           <Checkbox />
           <p className="text__p">
             I agree with our <span className="underline">terms and conditions</span> and{' '}
             <span className="underline">privacy policy</span>.
           </p>
         </div>
-        <Button type={'submit'} value={'Complete order'} className="add__product-btn text__add-btn">
+        <Button type={'submit'} value={'Complete order'} className="add__product-btn text__add-btn my-8">
           Complete order
         </Button>
         <br />
         <img src={icons.confirm} alt={''} className="w-10" />
-        <p className="text__p">All your data are safe</p>
-        <p className="text__p text__color-gray">
+        <p className="text__p font-bold">All your data are safe</p>
+        <p className="text__p text__color-gray w-2/4">
           We are using the most advanced security to provide you the best experience ever.
         </p>
       </div>

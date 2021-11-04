@@ -118,7 +118,7 @@ h6{
     font-weight: 400;
     font-size: 1.4rem;
     color: var(--light-gray);
-    border: none;
+    /*border: none;*/
     outline: none;
     background: var(--gray-bg2);
     max-width: 3rem;

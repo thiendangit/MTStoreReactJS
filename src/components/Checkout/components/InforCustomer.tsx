@@ -21,8 +21,18 @@ export const InforCustomer = () => {
       <h3>Billing infor</h3>
       <p className="text__color-gray mb-6">Please enter your billing info</p>
       <form onSubmit={formik.handleSubmit} className="form_content grid grid-cols-2 gap-8">
-        <TextField name="first_name" label="First name:" className="form_item input-styled" variant={'outlined'} />
-        <TextField name="last_name" label="Last name:" className="form_item input-styled" variant={'outlined'} />
+        <TextField
+          name="first_name"
+          label="First name:"
+          className="form_item input-styled rounded-3xl"
+          variant={'outlined'}
+        />
+        <TextField
+          name="last_name"
+          label="Last name:"
+          className="form_item input-styled rounded-3xl"
+          variant={'outlined'}
+        />
         <TextField
           id="email"
           name="email"
@@ -31,14 +41,39 @@ export const InforCustomer = () => {
           onChange={formik.handleChange}
           error={formik.touched.email && Boolean(formik.errors.email)}
           helperText={formik.touched.email && formik.errors.email}
-          className="form_item input-styled"
+          className="form_item input-styled rounded-3xl"
           variant={'outlined'}
         />
-        <TextField name="phone_number" label="Phone number:" className="form_item input-styled" variant={'outlined'} />
-        <TextField name="address" label="Address:" className="form_item input-styled" variant={'outlined'} />
-        <TextField name="city" label="Town / City:" className="form_item input-styled" variant={'outlined'} />
-        <TextField name="country" label="State / Country:" className="form_item input-styled" variant={'outlined'} />
-        <TextField name="code" label="ZIP/Postal code:" className="form_item input-styled" variant={'outlined'} />
+        <TextField
+          name="phone_number"
+          label="Phone number:"
+          className="form_item input-styled rounded-3xl"
+          variant={'outlined'}
+        />
+        <TextField
+          name="address"
+          label="Address:"
+          className="form_item input-styled rounded-3xl"
+          variant={'outlined'}
+        />
+        <TextField
+          name="city"
+          label="Town / City:"
+          className="form_item input-styled rounded-3xl"
+          variant={'outlined'}
+        />
+        <TextField
+          name="country"
+          label="State / Country:"
+          className="form_item input-styled rounded-3xl"
+          variant={'outlined'}
+        />
+        <TextField
+          name="code"
+          label="ZIP/Postal code:"
+          className="form_item input-styled rounded-3xl"
+          variant={'outlined'}
+        />
       </form>
     </div>
   );
