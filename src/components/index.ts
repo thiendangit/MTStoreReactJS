@@ -7,5 +7,5 @@ export * from './Feedback/Feedback';
 export * from './BlogPosts/BlogPost';
 export * from './Footer/Footer';
 export * from './TitleComponent/TitleComponent';
-export * from './CartPage/CartPage';
-export * from './ProductDetail/ProductDetail';
+export * from './SkelatonComponent/SkeletonComponent';
+export * from './ProductHorizontalItems/ProductHorizontalItems';

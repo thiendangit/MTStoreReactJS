@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Scrollbar } from 'swiper';
 // import 'swiper/modules/scrollbar/scrollbar.scss';
 import { Product } from 'WooCommerce';
-import { SkeletonComponent } from '../../../SkelatonComponent/SkeletonComponent';
+import { SkeletonComponent } from '@components';
 import { images } from '@public/image';
 import { handleProductPrice } from '@utils/handleProductPrice';
 import CONFIG from '@constants/config';

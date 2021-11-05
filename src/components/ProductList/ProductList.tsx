@@ -5,7 +5,7 @@ import { getCategories } from '@store/reducers/categoriesSlice';
 import { Product } from 'WooCommerce';
 import { fetchProducts } from '@logic';
 import { TitleComponent } from '@components';
-import { ProductHorizontalItems } from './components/ProductHorizontalItems/ProductHorizontalItems';
+import { ProductHorizontalItems } from '@components';
 
 const ProductListComponent: React.FC = () => {
   const categoryItems = useSelector(getCategories);

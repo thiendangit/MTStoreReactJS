@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Header, MenuBar, Footer } from '@components';
+import { Navbar, Header, Footer } from '@components';
 import { CallAPI } from '../../apis/initData';
 import { Container } from '@material-ui/core';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -11,7 +11,7 @@ const RootPage: React.FC = () => {
       <Container>
         <Navbar />
         <Header />
-        <MenuBar />
+        {/*<MenuBar />*/}
         <LinkPage />
         <Footer />
         <CallAPI />
