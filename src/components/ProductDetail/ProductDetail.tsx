@@ -3,14 +3,14 @@ import './ProductDetail.css';
 import { useLocation } from 'react-router';
 import { Product } from 'WooCommerce';
 import { TitleComponent } from '@components';
-import { ProductHorizontalItems } from '../ProductList/ProductHorizontalItems/ProductHorizontalItems';
+import { ProductHorizontalItems } from '../ProductList/components/ProductHorizontalItems/ProductHorizontalItems';
 import { fetchProductById, fetchProducts } from '@logic';
 import CryptoJS from 'crypto-js';
 import { images } from '@public/image';
 import { ColorProportion } from './components/ColorProportion';
 import { StarRatingComponent } from './components/StarRating';
 import { PercentComponent } from './components/PercentComponent';
-import { InforDetail } from './components/InforDetail';
+import { InfoDetail } from './components/InfoDetail';
 import { ProportionComponent } from './components/ProportionComponent';
 import { UnitSelect } from './components/UnitSelect';
 import { FavoriteComponent } from './components/FavoriteComponent';
@@ -70,7 +70,7 @@ export const ProductDetail = () => {
     if (item && item.related_ids.length > 0 && relatedProducts.length === 0) {
       setLoading(true);
       getRelatedProducts();
-      console.log(item);
+      // console.log(item);
     }
   }, [item]);
 
@@ -90,7 +90,7 @@ export const ProductDetail = () => {
           <h2>{item?.name}</h2>
           <StarRatingComponent />
           <div dangerouslySetInnerHTML={{ __html: item?.description }} className="text__p mb-8" />
-          <InforDetail {...{ item }} />
+          <InfoDetail {...{ item }} />
           <ProportionComponent {...{ item }} />
           <div className="div-flex-styled text__color-gray rounded-3xl">
             <ProductItemPrice {...{ item }} />

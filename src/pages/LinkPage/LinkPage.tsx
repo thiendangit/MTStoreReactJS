@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route as MyRouter } from 'react-router-dom';
-import { HomePage } from '../HomePage/HomePage';
+import { HomePage } from '@pages';
 import { ProductDetail } from '@components';
 import { CartPage } from '@components';
 

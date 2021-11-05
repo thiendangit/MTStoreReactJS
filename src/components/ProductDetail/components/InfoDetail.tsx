@@ -1,7 +1,7 @@
 import { Product } from 'WooCommerce';
 import React from 'react';
 
-export const InforDetail = ({ item }: { item: Product }) => {
+export const InfoDetail = ({ item }: { item: Product }) => {
   return (
     <table className="grid lg:grid-cols-2 grid-cols-1 gap-8 table-auto justify-start items-start mb-8">
       <tbody className="table-auto gap-4 items-baseline w-max mr-auto">

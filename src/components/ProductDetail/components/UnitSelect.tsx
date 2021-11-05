@@ -5,9 +5,13 @@ import { AddOutlined } from '@material-ui/icons';
 import { useDispatch } from 'react-redux';
 import { addOneToCart } from '@store/reducers/cartSlice';
 
-export const UnitSelect = ({ item }: { item: Product }) => {
+interface UnitSelectProps {
+  item: Product;
+}
+
+export const UnitSelect: React.FC<UnitSelectProps> = ({ item }) => {
   const dispatch = useDispatch();
-  const handleAddOneToCart = (item: Product) => {
+  const handleAddOneToCart = () => {
     dispatch(addOneToCart(item));
   };
   return (
@@ -21,7 +25,7 @@ export const UnitSelect = ({ item }: { item: Product }) => {
           </select>
         )}
       </div>
-      <ButtonBase className="add__product-btn md:ml-8 ml-0 w-3/4 md:w-max" onClick={() => handleAddOneToCart(item)}>
+      <ButtonBase className="add__product-btn md:ml-8 ml-0 w-3/4 md:w-max" onClick={handleAddOneToCart}>
         <AddOutlined fontSize={'large'} style={{ color: 'var(--white)', fontWeight: 'bolder' }} />
         <p className="text__add-btn">Add to cart</p>
       </ButtonBase>
