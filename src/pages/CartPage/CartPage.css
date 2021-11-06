@@ -1,0 +1,118 @@
+.cart-container {
+    padding: 2rem 4rem;
+}
+.cart-item, .titles {
+    @apply grid items-center gap-2.5 w-full text-center;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+}
+
+.cart-title {
+    font-weight: 700;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.cart-empty {
+    font-weight: 600;
+    font-size: 25px;
+    text-align: center;
+}
+.start-shopping {
+    color: var(--green);
+}
+.cart-items {
+
+}
+.titles {
+    margin: 2rem 0 1rem 0;
+}
+.titles h4 {
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.cart-items .cart-item {
+    border-top: 1px solid rgb(187, 187, 187);
+    padding: 1rem 0;
+}
+.cart-items .cart-item .cart-product {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+.cart-items .cart-product img {
+    width: 120px;
+    object-fit: contain;
+    object-position: center;
+}
+.cart-product-quantity button {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    line-height: 15px;
+    text-align: center;
+    outline: none;
+}
+.cart-product-price {
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+}
+.cart-product-quantity {
+    @apply flex flex-row justify-center text-center font-semibold items-center;
+    font-size: 16px;
+}
+.cart-product-quantity .count {
+    margin: 0 .5rem;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+}
+.cart-product-total-price {
+    font-weight: 600;
+    font-size: 16px;
+    text-align: right;
+    color: var(--green);
+}
+.cart-summary {
+    @apply flex flex-row items-center justify-between my-8 font-semibold sticky flex-shrink flex-grow bottom-0 left-0 pb-8;
+    border-top: 2px dotted var(--light-gray);
+    font-size: 20px;
+    background-color: var(--white);
+}
+.cart-summary p {
+    font-weight: 400;
+    font-size: 14px;
+}
+.clear-cart, .cart-summary button, .cart-product button {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--orange);
+    padding: 5px;
+    border-bottom: 1px solid var(--light-gray);
+    cursor: pointer;
+    outline: none;
+}
+.cart-product button:focus, .clear-cart:focus, .cart-summary button:focus {
+    box-shadow: 0 0.5em 0.5em -0.4em var(--green);
+    transform: translateY(-0.25em);
+}
+.cart-checkout {
+    @apply flex flex-col gap-2.5 items-start justify-between mt-8;
+}
+.cart-subtotal {
+    @apply flex flex-row justify-between w-full;
+}
+.cart-subtotal .amount {
+    color: var(--orange);
+}
+.continue-shopping {
+    color: var(--green);
+}
+.cart-checkbox {
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: var(--orange);
+    margin-right: 2rem;
+}

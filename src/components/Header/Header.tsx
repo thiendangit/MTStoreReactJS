@@ -4,14 +4,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { icons } from '@public/icon';
 import { getCategoriesState } from '@store/reducers/categoriesSlice';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Category } from 'WooCommerce';
 import { Badge } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import { getCartState, getTotals } from '@store/reducers/cartSlice';
 
 const HeaderComponent: React.FC = () => {
   const categoriesProp = useSelector(getCategoriesState);
+  const cart = useSelector(getCartState);
   const [categories, setCategories] = React.useState([]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTotals());
+  }, [cart]);
 
   useEffect(() => {
     const copy: Partial<Category>[] = categoriesProp.categoryItems.slice();
@@ -42,17 +49,19 @@ const HeaderComponent: React.FC = () => {
       </div>
       <div className="header__icons">
         <img src={icons.user} alt={'user'} className="user__icon" />
-        <Badge
-          badgeContent={10}
-          max={99}
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'left',
-          }}
-          className="header__icons-badge"
-        >
-          <img src={icons.cart} alt="Shopping basket" className="basket__icon" />
-        </Badge>
+        <Link to="/cart">
+          <Badge
+            badgeContent={cart?.cartTotalQuantity}
+            max={99}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'left',
+            }}
+            className="header__icons-badge"
+          >
+            <img src={icons.cart} alt="Shopping basket" className="basket__icon" />
+          </Badge>
+        </Link>
       </div>
     </div>
   );
