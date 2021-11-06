@@ -60,7 +60,7 @@
     text-align: center;
 }
 .cart-product-quantity {
-    @apply flex flex-row justify-center text-center font-semibold;
+    @apply flex flex-row justify-center text-center font-semibold items-center;
     font-size: 16px;
 }
 .cart-product-quantity .count {

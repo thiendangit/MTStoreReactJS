@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import './ProductList.css';
-import { ProductHorizontalItems } from './ProductHorizontalItems/ProductHorizontalItems';
 import { useSelector } from 'react-redux';
 import { getCategories } from '@store/reducers/categoriesSlice';
 import { Product } from 'WooCommerce';
 import { fetchProducts } from '@logic';
-import { TitleComponent } from '../TitleComponent/TitleComponent';
+import { TitleComponent } from '@components';
+import { ProductHorizontalItems } from '@components';
 
 const ProductListComponent: React.FC = () => {
   const categoryItems = useSelector(getCategories);

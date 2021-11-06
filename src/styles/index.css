@@ -124,24 +124,6 @@ h6{
     max-width: 3rem;
 }
 /*button style*/
-.product__detail-shipping-btn {
-    border-radius: 1.2rem;
-    padding: 0 .8rem;
-    position: absolute;
-    margin: 3.2rem 3.2rem 3.2rem 7rem;
-    z-index: 10;
-    color: var(--green);
-    background: var(--gray-bg3);
-}
-.product__detail-percent-btn {
-    border-radius: 1.2rem;
-    padding: 0 .8rem;
-    position: absolute;
-    margin: 3.2rem 3.2rem 3.2rem 1.2rem;
-    z-index: 10;
-    color: var(--white);
-    background: var(--red);
-}
 .add__product-btn {
     border: 1px solid var(--bolder-green) !important;
     background: var(--green) !important;
