@@ -1,0 +1,9 @@
+.form_item {
+    @apply max-w-none;
+}
+.summary_price {
+    @apply flex flex-row justify-between items-center gap-2 w-full;
+}
+.summary__order-product {
+    @apply flex flex-row justify-between items-center;
+}

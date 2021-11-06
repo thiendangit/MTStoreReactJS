@@ -34,7 +34,9 @@ export const CartSummary: React.FC<CartSummaryProps> = ({
           <span className="amount">$ {cartTotalAmount}</span>
         </div>
         <p>Taxes and shipping calculated at checkout</p>
-        <button>Checkout</button>
+        <Link to="/checkout">
+          <button>Checkout</button>
+        </Link>
         <div className="continue-shopping">
           <Link to="/">
             <span>

@@ -4,6 +4,11 @@ const CONFIG = {
       short: '$',
       long: 'USD',
     },
+    tax: 10,
+    shipping_fee: {
+      fed: 32,
+      dhl: 15,
+    },
   },
 };
 
