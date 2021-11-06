@@ -17,11 +17,11 @@ export const Confirm: React.FC = () => {
       <div className="my-12">
         <h3>Confirmation</h3>
         <p className="text__color-gray mb-4">We are getting to the end. Just few clicks and your order si ready!</p>
-        <div className="flex flex-row gap-2 items-center bg-gray-200 rounded-xl px-3 mb-6">
+        <div className="flex flex-row gap-2 items-center bg-gray-200 rounded-xl px-3 py-4 mb-6">
           <Checkbox />
           <p className="text__p">I agree with sending an Marketing and newsletter emails. No spam, promissed!</p>
         </div>
-        <div className="flex flex-row gap-2 items-center bg-gray-200 rounded-xl px-3 mb-6">
+        <div className="flex flex-row gap-2 items-center bg-gray-200 rounded-xl px-3 py-4 mb-6">
           <Checkbox />
           <p className="text__p">
             I agree with our <span className="underline">terms and conditions</span> and{' '}

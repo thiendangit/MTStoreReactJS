@@ -8,18 +8,18 @@ const FooterComponent: React.FC = () => {
 
   const getProductTags = async () => {
     try {
-      console.log('Mounting');
+      // console.log('Mounting');
       const result = await fetchProductTag();
       setProductTags(result.data);
-      console.log(result.data);
+      // console.log(result.data);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
   useEffect(() => {
     getProductTags();
-    console.log('Mounted');
+    // console.log('Mounted');
   }, []);
   return (
     <footer className="footer">

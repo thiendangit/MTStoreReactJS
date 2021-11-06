@@ -6,7 +6,7 @@ import { Confirm } from './components/Confirm';
 import { OrderSummary } from './components/OrderSummary';
 import { OrderSummaryPrice } from './components/OrderSummaryPrice';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCartState, getTotals, removeFromCart } from '@store/reducers/cartSlice';
+import { actionsCart, CartProduct, getCartState } from '@store/reducers/cartSlice';
 import { Product } from 'WooCommerce';
 
 export const CheckoutPage = () => {
@@ -14,11 +14,14 @@ export const CheckoutPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getTotals());
+    dispatch(actionsCart.getTotals());
   }, [cart]);
 
   const handleRemoveFromCart = (cartItem: Product) => {
-    dispatch(removeFromCart(cartItem));
+    dispatch(actionsCart.removeFromCart(cartItem));
+  };
+  const onChangeQuantity = (quantity: number, product: CartProduct) => {
+    dispatch(actionsCart.addOneToCartWithQty({ product, quantity }));
   };
 
   return (
@@ -29,7 +32,7 @@ export const CheckoutPage = () => {
         <Confirm />
       </div>
       <div>
-        <OrderSummary data={cart.cartItems} remove={handleRemoveFromCart} />
+        <OrderSummary onChangeQuantity={onChangeQuantity} data={cart.cartItems} remove={handleRemoveFromCart} />
         <OrderSummaryPrice cartTotalPrice={cart.cartTotalAmount} />
       </div>
     </div>

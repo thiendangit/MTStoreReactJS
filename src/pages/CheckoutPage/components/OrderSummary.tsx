@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import { Checkbox } from '@material-ui/core';
 import { BurstMode, Clear, Favorite, FavoriteBorder } from '@material-ui/icons';
 import { images } from '@public/image';
@@ -6,7 +6,12 @@ import CONFIG from '@constants/config';
 import { handleProductPrice } from '@utils/handleProductPrice';
 import { CartProduct } from '@store/reducers/cartSlice';
 
-export const OrderSummary = ({ data, remove }: { data: CartProduct[]; remove: any }) => {
+interface OrderSummaryProps {
+  data: CartProduct[];
+  remove: any;
+  onChangeQuantity: any;
+}
+export const OrderSummary: React.FC<OrderSummaryProps> = ({ data, remove, onChangeQuantity }) => {
   return (
     <div>
       <h3>Order Summary</h3>
@@ -14,6 +19,9 @@ export const OrderSummary = ({ data, remove }: { data: CartProduct[]; remove: an
       {data.map((item) => {
         const { regular_price, sale_price } = handleProductPrice(item);
         const onClickRemove = () => remove(item);
+        const _onChangeQuantity = (onChangeProps: ChangeEvent<HTMLInputElement>) => {
+          onChangeQuantity(parseInt(onChangeProps?.target?.value ? onChangeProps?.target?.value : '0'), item);
+        };
         if (item?.cartInf?.is_selected) {
           return (
             <div key={item?.id} className="flex flex-row gap-2 justify-start mb-6">
@@ -60,7 +68,12 @@ export const OrderSummary = ({ data, remove }: { data: CartProduct[]; remove: an
                     )}
                   </div>
                   <div className="select__input-styled w-max">
-                    <input type="text" className="input-styled" placeholder="1" value={item.cartInf.quantity} />
+                    <input
+                      type="text"
+                      className="input-styled"
+                      onChange={_onChangeQuantity}
+                      value={item.cartInf.quantity}
+                    />
                     <span className="line__box" />
                     <select name="Pcs" className="select-styled">
                       <option value="Pcs">Pcs</option>
@@ -68,7 +81,7 @@ export const OrderSummary = ({ data, remove }: { data: CartProduct[]; remove: an
                   </div>
                 </div>
                 <span className="text__color-green text-btn flex justify-end p-4">
-                  {item?.cartInf?.quantity} {CONFIG.product.unit.long}
+                  {item?.cartInf?.quantity * sale_price} {CONFIG.product.unit.long}
                 </span>
               </div>
             </div>
