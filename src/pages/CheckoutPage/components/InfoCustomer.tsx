@@ -27,13 +27,10 @@ export const InfoCustomer: React.FC = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      // alert(JSON.stringify('Complete fill information'));
+      console.log(values);
     },
   });
-  const onClick = (e: any) => {
-    localStorage.setItem(e, 'e');
-  };
-  const _onClick = () => onClick(formik.values);
 
   return (
     <div className="info_customer">
@@ -43,7 +40,7 @@ export const InfoCustomer: React.FC = () => {
         <TextField
           name="first_name"
           label="First name:"
-          className="form_item input-styled rounded-3xl"
+          inputProps={{ style: { color: 'var(--green)', fontSize: 14, borderColor: 'var(--light-gray)' } }}
           variant={'outlined'}
           value={formik.values.first_name}
           onChange={formik.handleChange}
@@ -53,7 +50,7 @@ export const InfoCustomer: React.FC = () => {
         <TextField
           name="last_name"
           label="Last name:"
-          className="form_item input-styled rounded-3xl"
+          inputProps={{ style: { color: 'var(--green)', fontSize: 14, borderColor: 'var(--light-gray)' } }}
           variant={'outlined'}
           value={formik.values.last_name}
           onChange={formik.handleChange}
@@ -68,14 +65,14 @@ export const InfoCustomer: React.FC = () => {
           onChange={formik.handleChange}
           error={formik.touched.email && Boolean(formik.errors.email)}
           helperText={formik.touched.email && formik.errors.email}
-          className="form_item input-styled rounded-3xl"
+          inputProps={{ style: { color: 'var(--green)', fontSize: 14, borderColor: 'var(--light-gray)' } }}
           variant={'outlined'}
         />
         <TextField
           type={'text'}
           name="phone"
           label="Phone number:"
-          className="form_item input-styled rounded-3xl"
+          inputProps={{ style: { color: 'var(--green)', fontSize: 14, borderColor: 'var(--light-gray)' } }}
           variant={'outlined'}
           value={formik.values.phone}
           onChange={formik.handleChange}
@@ -85,7 +82,7 @@ export const InfoCustomer: React.FC = () => {
         <TextField
           name="address"
           label="Address:"
-          className="form_item input-styled rounded-3xl"
+          inputProps={{ style: { color: 'var(--green)', fontSize: 14, borderColor: 'var(--light-gray)' } }}
           variant={'outlined'}
           value={formik.values.address}
           onChange={formik.handleChange}
@@ -95,7 +92,7 @@ export const InfoCustomer: React.FC = () => {
         <TextField
           name="city"
           label="Town / City:"
-          className="form_item input-styled rounded-3xl"
+          inputProps={{ style: { color: 'var(--green)', fontSize: 14, borderColor: 'var(--light-gray)' } }}
           variant={'outlined'}
           value={formik.values.city}
           onChange={formik.handleChange}
@@ -105,7 +102,7 @@ export const InfoCustomer: React.FC = () => {
         <TextField
           name="country"
           label="State / Country:"
-          className="form_item input-styled rounded-3xl"
+          inputProps={{ style: { color: 'var(--green)', fontSize: 14, borderColor: 'var(--light-gray)' } }}
           variant={'outlined'}
           value={formik.values.country}
           onChange={formik.handleChange}
@@ -115,14 +112,14 @@ export const InfoCustomer: React.FC = () => {
         <TextField
           name="code"
           label="ZIP/Postal code:"
-          className="form_item input-styled rounded-3xl"
+          inputProps={{ style: { color: 'var(--green)', fontSize: 14, borderColor: 'var(--light-gray)' } }}
           variant={'outlined'}
           value={formik.values.code}
           onChange={formik.handleChange}
           error={formik.touched.code && Boolean(formik.errors.code)}
           helperText={formik.touched.code && formik.errors.code}
         />
-        <button type={'submit'} onClick={_onClick}>
+        <button type={'submit'} className="text__p button_styled mt-4 w-2/5 ">
           Save info
         </button>
       </form>

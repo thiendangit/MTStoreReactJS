@@ -138,6 +138,12 @@ h6{
     box-shadow: 0 0.5em 0.5em -0.4em var(--green);
     transform: translateY(-0.25em);
 }
+.button_styled {
+    outline: none !important;
+    width: max-content;
+    border: none;
+    padding: 0.7rem;
+}
 
 .div-flex-styled {
     @apply flex flex-row flex-wrap gap-8 justify-between items-center rounded-xl mb-8 w-full;
