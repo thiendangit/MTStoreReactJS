@@ -30,6 +30,11 @@ export const InfoCustomer: React.FC = () => {
       alert(JSON.stringify(values, null, 2));
     },
   });
+  const onClick = (e: any) => {
+    localStorage.setItem(e, 'e');
+  };
+  const _onClick = () => onClick(formik.values);
+
   return (
     <div className="info_customer">
       <h3>Billing information</h3>
@@ -67,7 +72,8 @@ export const InfoCustomer: React.FC = () => {
           variant={'outlined'}
         />
         <TextField
-          name="phone_number"
+          type={'text'}
+          name="phone"
           label="Phone number:"
           className="form_item input-styled rounded-3xl"
           variant={'outlined'}
@@ -116,6 +122,9 @@ export const InfoCustomer: React.FC = () => {
           error={formik.touched.code && Boolean(formik.errors.code)}
           helperText={formik.touched.code && formik.errors.code}
         />
+        <button type={'submit'} onClick={_onClick}>
+          Save info
+        </button>
       </form>
     </div>
   );
