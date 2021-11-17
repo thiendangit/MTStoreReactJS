@@ -58,6 +58,9 @@ h6{
 .text__color-gray {
     color: var(--light-gray)!important;
 }
+.text__color-green {
+    color: var(--green)!important;
+}
 .text-btn {
     font-family:'Poppins', sans-serif;
     font-size: 1.5rem;
@@ -95,11 +98,11 @@ h6{
 }
 /*select form style*/
 .select__input-styled {
-    @apply flex justify-start flex-row items-start w-max;
+    @apply flex justify-center flex-row items-center;
     background: var(--gray-bg2);
     border: 1px solid var(--border-black);
-    border-radius: 1.2rem;
-    padding: .65rem 1.2rem;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
 }
 .select-styled {
     font-family: 'Poppins', sans-serif;
@@ -115,7 +118,7 @@ h6{
     font-weight: 400;
     font-size: 1.4rem;
     color: var(--light-gray);
-    border: none;
+    /*border: none;*/
     outline: none;
     background: var(--gray-bg2);
     max-width: 3rem;
@@ -135,13 +138,19 @@ h6{
     box-shadow: 0 0.5em 0.5em -0.4em var(--green);
     transform: translateY(-0.25em);
 }
+.button_styled {
+    outline: none !important;
+    width: max-content;
+    border: none;
+    padding: 0.7rem;
+}
 
 .div-flex-styled {
     @apply flex flex-row flex-wrap gap-8 justify-between items-center rounded-xl mb-8 w-full;
 }
 .line__box {
     border: 1px solid var(--gray-bg1);
-    height: 100%;
+    height: 2rem;
     margin: 0 .5rem;
 }
 .PrivateTabIndicator-colorSecondary {

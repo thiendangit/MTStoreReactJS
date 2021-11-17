@@ -57,6 +57,7 @@ export const CartItemsList: React.FC<CartItemsListProps> = ({
           value={item?.cartInf.quantity}
           onChange={_onChangeQuantity}
           inputProps={{ style: { textAlign: 'center', fontSize: 16, fontWeight: 'bold' } }}
+          style={{ maxWidth: '20%' }}
         />
         <button onClick={onClickIncreaseCart}>+</button>
       </div>

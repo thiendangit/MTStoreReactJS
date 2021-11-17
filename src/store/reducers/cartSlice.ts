@@ -113,7 +113,7 @@ const cartSlice = createSlice({
           const { sale_price } = handleProductPrice(cartItem);
           const itemPriceTotal = cartInf.is_selected === true ? sale_price * cartInf.quantity : 0;
           cartTotal.total_price += itemPriceTotal;
-          cartTotal.quantity += cartInf.quantity;
+          // cartTotal.quantity += cartInf.quantity;
           return cartTotal;
         },
         {
